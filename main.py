@@ -36,7 +36,7 @@ def run_data_collection():
 
 def run_data_processing():
     """Run all data processing scripts."""
-    from scripts.processors.data_processor import process_all_data
+    from scripts.processors.algorithm_hierarchy import process_all_data
     from scripts.processors.nlp_enhancer import enhance_processed_data
     
     print("Processing all algorithm data...")

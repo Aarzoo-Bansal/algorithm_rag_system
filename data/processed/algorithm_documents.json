@@ -1,0 +1,591 @@
+[
+  {
+    "content": "Title: \n            Description: Quick sort is a highly efficient sorting algorithm that uses a divide-and-conquer strategy. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.\n            Name: Quick Sort\n            Difficulty: \n            Tags: sorting, divide and conquer, comparison sort\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(log n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "26a6e461-6b36-4fce-a12b-cd67e8f02328",
+      "title": "",
+      "name": "Quick Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "divide and conquer",
+        "comparison sort"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The sliding window technique is an algorithmic approach that reduces the use of nested loops and replaces it with a single loop, improving efficiency. It's typically used for problems involving arrays or strings where you need to find or calculate something within a contiguous sequence of elements. The technique involves maintaining a 'window' that either grows or shrinks as needed while moving through the array or string.\n            Name: Sliding Window Technique\n            Difficulty: \n            Tags: array, string, sliding window, optimization, two pointers\n            Complexity (Time): O(n) in most cases, where n is the size of the array/string\n            Complexity (Space): O(1) for the algorithm itself, though extra space may be needed to store results\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "5f47cd69-6c90-4cfd-ad9f-afba8f2a0257",
+      "title": "",
+      "name": "Sliding Window Technique",
+      "difficulty": "",
+      "tags": [
+        "array",
+        "string",
+        "sliding window",
+        "optimization",
+        "two pointers"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity are quite high. Below is the implementation of the bubble sort. It can be optimized by stopping the algorithm if the inner loop didn\u2019t cause any swap. Time Complexity: O(n2)Auxiliary Space: O(1)Please refer Complexity Analysis of Bubble Sort for details.  \n            Name: Bubble Sort Algorithm\n            Difficulty: \n            Tags: sorting, comparison sort, in-place, stable\n            Complexity (Time): O(n\u00b2) for worst and average case, O(n) for best case when array is already sorted\n            Complexity (Space): O(1) as it only requires a single additional memory space for the swap operation\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "360bcb8a-e871-42da-9702-f4091a33d05a",
+      "title": "",
+      "name": "Bubble Sort Algorithm",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "stable"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Insertion sort is a simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list. It is like sorting playing cards in your hands. You split the cards into two groups: the sorted cards and the unsorted cards. Then, you pick a card from the unsorted group and put it in the right place in the sorted group.  arr = {23, 1, 10, 5, 2} Initial: First Pass: Second Pass: Third Pass: Fourth Pass: Final Array: Time Complexity Space Complexity Please refer Complexity Analysis of Insertion Sort for details. Advantages Disadvantages Insertion sort is commonly used in situations where: What are the Boundary Cases of the Insertion Sort algorithm? Insertion sort takes the maximum time to sort if elements are sorted in reverse order. And it takes minimum time (Order of n) when elements are already sorted. What is the Algorithmic Paradigm of the Insertion Sort algorithm? The Insertion Sort algorithm follows an incremental approach. Is Insertion Sort an in-place sorting algorithm? Yes, insertion sort is an in-place sorting algorithm. Is Insertion Sort a stable algorithm? Yes, insertion sort is a stable sorting algorithm. When is the Insertion Sort algorithm used? Insertion sort is used when number of elements is small. It can also be useful when the input array is almost sorted, and only a few elements are misplaced in a complete big array.  \n            Name: Insertion Sort Algorithm\n            Difficulty: \n            Tags: sorting, comparison sort, in-place, stable, adaptive\n            Complexity (Time): O(n\u00b2) for worst and average case, O(n) for best case when array is already sorted\n            Complexity (Space): O(1) since it sorts in-place requiring only a single additional memory space\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "ea468d62-d69d-4188-9cda-24ad8889e8b1",
+      "title": "",
+      "name": "Insertion Sort Algorithm",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "stable",
+        "adaptive"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Selection Sort is a comparison-based sorting algorithm. It sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion and swapping it with the first unsorted element. This process continues until the entire array is sorted. Time Complexity: O(n2) ,as there are two nested loops: Auxiliary Space: O(1) as the only extra memory used is for temporary variables. Question 1: Is Selection Sort a stable sorting algorithm? Answer: No, Selection Sort is not stable as it may change the relative order of equal elements. Question 2: What is the time complexity of Selection Sort? Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases. Question 3: Does Selection Sort require extra memory? Answer: No, Selection Sort is an in-place sorting algorithm and requires only O(1) additional space. Question 4: When is it best to use Selection Sort? Answer: Selection Sort is best used for small datasets, educational purposes, or when memory usage needs to be minimal. Question 5: How does Selection Sort differ from Bubble Sort? Answer: Selection Sort selects the minimum element and places it in the correct position with fewer swaps, while Bubble Sort repeatedly swaps adjacent elements to sort the array.  \n            Name: Selection Sort\n            Difficulty: \n            Tags: sorting, comparison sort, in-place, unstable\n            Complexity (Time): Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases.\n            Complexity (Space): \n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "b1ababff-9972-4c9b-a4ea-a3a0806c268d",
+      "title": "",
+      "name": "Selection Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "unstable"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Radix Sort is a linear sorting algorithm that sorts elements by processing them digit by digit. It is an efficient sorting algorithm for integers or strings with fixed-size keys. Rather than comparing elements directly, Radix Sort distributes the elements into buckets based on each digit\u2019s value. By repeatedly sorting the elements by their significant digits, from the least significant to the most significant, Radix Sort achieves the final sorted order. The key idea behind Radix Sort is to exploit the concept of place value. It assumes that sorting numbers digit by digit will eventually result in a fully sorted list. Radix Sort can be performed using different variations, such as Least Significant Digit (LSD) Radix Sort or Most Significant Digit (MSD) Radix Sort. To perform radix sort on the array [170, 45, 75, 90, 802, 24, 2, 66], we follow these steps: How does Radix Sort Algorithm work | Step 1 Step 1: Find the largest element in the array, which is 802. It has three digits, so we will iterate three times, once for each significant place. Step 2: Sort the elements based on the unit place digits (X=0). We use a stable sorting technique, such as counting sort, to sort the digits at each significant place. It\u2019s important to understand that the default implementation of counting sort is unstable i.e. same keys can be in a different order than the input array. To solve this problem, We can iterate the input array in reverse order to build the output array. This strategy helps us to keep the same keys in the same order as they appear in the input array. Sorting based on the unit place: How does Radix Sort Algorithm work | Step 2 Step 3: Sort the elements based on the tens place digits. Sorting based on the tens place: How does Radix Sort Algorithm work | Step 3 Step 4: Sort the elements based on the hundreds place digits. Sorting based on the hundreds place: How does Radix Sort Algorithm work | Step 4 Step 5: The array is now sorted in ascending order. The final sorted array using radix sort is [2, 24, 45, 66, 75, 90, 170, 802]. How does Radix Sort Algorithm work | Step 5 Below is the implementation for the above illustrations: Time Complexity: Auxiliary Space:  \n            Name: Radix Sort\n            Difficulty: \n            Tags: sorting, non-comparison sort, integer sort, linear time\n            Complexity (Time): O(d*(n+k)) where d is the number of digits, n is the number of elements, and k is the range of digits (typically 10 for decimal)\n            Complexity (Space): O(n+k) for storing the output array and count array in counting sort\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "f4357bda-3301-42c0-a206-803723f0028d",
+      "title": "",
+      "name": "Radix Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "non-comparison sort",
+        "integer sort",
+        "linear time"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Counting Sort is a non-comparison-based sorting algorithm. It is particularly efficient when the range of input values is small compared to the number of elements to be sorted. The basic idea behind Counting Sort is to count the frequency of each distinct element in the input array and use that information to place the elements in their correct sorted positions. Step1 :  Step 2:  Step 3:  Step 4:  Step 5:  Step 6: For i = 6, Update outputArray[ countArray[ inputArray[6] ] \u2013 1] = inputArray[6]Also, update countArray[ inputArray[6] ]  = countArray[ inputArray[6] ]- \u2013  Step 7: For i = 5, Update outputArray[ countArray[ inputArray[5] ] \u2013 1] = inputArray[5]Also, update countArray[ inputArray[5] ]  = countArray[ inputArray[5] ]- \u2013  Step 8: For i = 4, Update outputArray[ countArray[ inputArray[4] ] \u2013 1] = inputArray[4]Also, update countArray[ inputArray[4] ]  = countArray[ inputArray[4] ]- \u2013  Step 9: For i = 3, Update outputArray[ countArray[ inputArray[3] ] \u2013 1] = inputArray[3]Also, update countArray[ inputArray[3] ]  = countArray[ inputArray[3] ]- \u2013  Step 10: For i = 2, Update outputArray[ countArray[ inputArray[2] ] \u2013 1] = inputArray[2]Also, update countArray[ inputArray[2] ]  = countArray[ inputArray[2] ]- \u2013  Step 11: For i = 1, Update outputArray[ countArray[ inputArray[1] ] \u2013 1] = inputArray[1]Also, update countArray[ inputArray[1] ]  = countArray[ inputArray[1] ]- \u2013  Step 12: For i = 0, Update outputArray[ countArray[ inputArray[0] ] \u2013 1] = inputArray[0]Also, update countArray[ inputArray[0] ]  = countArray[ inputArray[0] ]- \u2013  Below is the implementation of the above algorithm:  \n            Name: Counting Sort\n            Difficulty: \n            Tags: sorting, non-comparison sort, integer sort, linear time, stable\n            Complexity (Time): O(n+k) where n is the number of elements and k is the range of input (max element - min element + 1)\n            Complexity (Space): O(n+k) for the output array and count array\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "0916f2a7-3cb8-4a14-9b76-db9cdae86f01",
+      "title": "",
+      "name": "Counting Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "non-comparison sort",
+        "integer sort",
+        "linear time",
+        "stable"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Bucket sort is a sorting technique that involves dividing elements into various groups, or buckets. These buckets are formed by uniformly distributing the elements. Once the elements are divided into buckets, they can be sorted using any other sorting algorithm. Finally, the sorted elements are gathered together in an ordered fashion. Create n empty buckets (Or lists) and do the following for every array element arr[i]. To apply bucket sort on the input array [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68], we follow these steps: Step 1: Create an array of size 10, where each slot represents a bucket. Creating Buckets for sorting Step 2: Insert elements into the buckets from the input array based on their range. Inserting elements into the buckets: Inserting Array elements into respective buckets Step 3: Sort the elements within each bucket. In this example, we use quicksort (or any stable sorting algorithm) to sort the elements within each bucket. Sorting the elements within each bucket: Sorting individual bucket Step 4: Gather the elements from each bucket and put them back into the original array. Gathering elements from each bucket: Inserting buckets in ascending order into the resultant array Step 5: The original array now contains the sorted elements. The final sorted array using bucket sort for the given input is [0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94]. Return the Sorted Array Below is the implementation for the Bucket Sort: Worst Case Time Complexity: O(n2)  The worst case happens when one bucket gets all the elements. In this case, we will be running insertion sort on all items which will make the time complexity as O(n2).  We can reduce the worst case time complexity to O(n Log n) by using a O(n Log n) algorithm like Merge Sort or Heap Sort to sort the individual buckets, but that will improve the algorithm time for cases when buckets have small number of items as insertion sort works better for small arrays. Best Case Time Complexity : O(n + k)  The best case happens when every bucket gets equal number of elements. In this case every call to insertion sort will take constant time as the number of items in every bucket would be constant (Assuming that k is linearly proportional to n). Auxiliary Space: O(n+k)  \n            Name: Bucket Sort \u2013 Data Structures and Algorithms Tutorials\n            Difficulty: \n            Tags: sorting, distribution sort, comparison sort, external sort, stable\n            Complexity (Time): O(n+k) average case where n is the number of elements and k is the number of buckets; O(n\u00b2) worst case when all elements are placed in a single bucket\n            Complexity (Space): O(n+k) for the n elements across k buckets\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "5877af6e-0d66-427d-9930-e0df80995569",
+      "title": "",
+      "name": "Bucket Sort \u2013 Data Structures and Algorithms Tutorials",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "distribution sort",
+        "comparison sort",
+        "external sort",
+        "stable"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Given an array, arr of n integers, and an integer element x, find whether element x is present in the array. Return the index of the first occurrence of x in the array, or -1 if it doesn\u2019t exist. Input: arr[] = [1, 2, 3, 4], x = 3Output: 2Explanation: There is one test case with array as [1, 2, 3 4] and element to be searched as 3. Since 3 is present at index 2, the output is 2. Input: arr[] = [10, 8, 30, 4, 5], x = 5Output: 4Explanation: For array [10, 8, 30, 4, 5], the element to be searched is 5 and it is at index 4. So, the output is 4. Input: arr[] = [10, 8, 30], x = 6Output: -1Explanation: The element to be searched is 6 and its not present, so we return -1. In Linear Search, we iterate over all the elements of the array and check if it the current element is equal to the target element. If we find any element to be equal to the target element, then return the index of the current element. Otherwise, if no element is equal to the target element, then return -1 as the element is not found. Linear search is also known as sequential search. For example: Consider the array arr[] = {10, 50, 30, 70, 80, 20, 90, 40} and key = 30  Below is the implementation of the linear search algorithm: Time Complexity: Auxiliary Space: O(1) as except for the variable to iterate through the list, no other variable is used.  \n            Name: Linear Search Algorithm\n            Difficulty: \n            Tags: searching, sequential search, brute force, array, list\n            Complexity (Time): O(n) for worst and average case, O(1) for best case when the target is at the first position\n            Complexity (Space): O(1) as it requires only a constant amount of extra space regardless of input size\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "c05439e8-e041-442c-bd38-fcb3b2e26a9a",
+      "title": "",
+      "name": "Linear Search Algorithm",
+      "difficulty": "",
+      "tags": [
+        "searching",
+        "sequential search",
+        "brute force",
+        "array",
+        "list"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Merge sort is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves. The merge step is the key operation, where the two sorted sub-arrays are combined to form a single sorted array.\n            Name: Merge Sort\n            Difficulty: \n            Tags: sorting, divide and conquer, stable sort\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "113121ef-4aa1-4db3-bf9a-c58fd25dde4e",
+      "title": "",
+      "name": "Merge Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "divide and conquer",
+        "stable sort"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted region and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element and inserting it into the sorted region.\n            Name: Heap Sort\n            Difficulty: \n            Tags: sorting, comparison sort, in-place\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "e2179e53-dc26-4efa-aa7a-9017b7bbed07",
+      "title": "",
+      "name": "Heap Sort",
+      "difficulty": "",
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed down the possible locations to just one.\n            Name: Binary Search\n            Difficulty: \n            Tags: searching, divide and conquer, sorted array\n            Complexity (Time): O(log n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "abb41f0e-dc3e-461d-b3d5-9738d5d00b9d",
+      "title": "",
+      "name": "Binary Search",
+      "difficulty": "",
+      "tags": [
+        "searching",
+        "divide and conquer",
+        "sorted array"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Depth-First Search is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.\n            Name: Depth-First Search (DFS)\n            Difficulty: \n            Tags: searching, graph algorithm, tree traversal\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "be68a447-3860-436e-873e-d0bbf744ea8b",
+      "title": "",
+      "name": "Depth-First Search (DFS)",
+      "difficulty": "",
+      "tags": [
+        "searching",
+        "graph algorithm",
+        "tree traversal"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Breadth-First Search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node in a graph) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.\n            Name: Breadth-First Search (BFS)\n            Difficulty: \n            Tags: searching, graph algorithm, tree traversal\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "a36ec1e3-f266-4328-99ef-f04c5e51099e",
+      "title": "",
+      "name": "Breadth-First Search (BFS)",
+      "difficulty": "",
+      "tags": [
+        "searching",
+        "graph algorithm",
+        "tree traversal"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Dijkstra's algorithm is used to find the shortest paths between nodes in a graph with non-negative edge weights. It uses a priority queue to greedily select the closest vertex that has not yet been processed and updates the distances to all its neighbors.\n            Name: Dijkstra's Algorithm\n            Difficulty: \n            Tags: graph algorithm, shortest path, weighted graph, graph, shortest_path\n            Complexity (Time): O((V + E) log V)\n            Complexity (Space): O(V)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "769b1caa-976e-4774-995f-c455f773f289",
+      "title": "",
+      "name": "Dijkstra's Algorithm",
+      "difficulty": "",
+      "tags": [
+        "graph algorithm",
+        "shortest path",
+        "weighted graph",
+        "graph",
+        "shortest_path"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It adds the edges in order of their weight (smallest to largest) as long as adding an edge doesn't create a cycle.\n            Name: Kruskal's Algorithm\n            Difficulty: \n            Tags: graph algorithm, minimum spanning tree, greedy\n            Complexity (Time): O(E log E)\n            Complexity (Space): O(V + E)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "a49bf13a-548a-4c9f-ba43-9507a8a6310e",
+      "title": "",
+      "name": "Kruskal's Algorithm",
+      "difficulty": "",
+      "tags": [
+        "graph algorithm",
+        "minimum spanning tree",
+        "greedy"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Topological Sort is an algorithm for ordering the vertices of a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.\n            Name: Topological Sort\n            Difficulty: \n            Tags: graph algorithm, directed acyclic graph, ordering\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "8de913dc-f6be-4752-8a2b-5caeac7ee89b",
+      "title": "",
+      "name": "Topological Sort",
+      "difficulty": "",
+      "tags": [
+        "graph algorithm",
+        "directed acyclic graph",
+        "ordering"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Linked List Reversal algorithm takes a singly linked list and reverses the order of its nodes in-place by manipulating the pointers. This is done by iterating through the list and changing each node's next pointer to point to the previous node instead of the next one.\n            Name: Linked List Reversal\n            Difficulty: \n            Tags: linked list, pointer manipulation, in-place, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "7ecab621-dee9-4ce0-8bab-c70007f9d130",
+      "title": "",
+      "name": "Linked List Reversal",
+      "difficulty": "",
+      "tags": [
+        "linked list",
+        "pointer manipulation",
+        "in-place",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Linked List Cycle Detection algorithm (also known as Floyd's Tortoise and Hare algorithm) determines if a linked list has a cycle by using two pointers that move at different speeds. If there is a cycle, the fast pointer will eventually catch up to the slow pointer.\n            Name: Linked List Cycle Detection\n            Difficulty: \n            Tags: linked list, two pointers, cycle detection, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "ddad4fa9-a6d4-4410-8a71-83cc20973769",
+      "title": "",
+      "name": "Linked List Cycle Detection",
+      "difficulty": "",
+      "tags": [
+        "linked list",
+        "two pointers",
+        "cycle detection",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Linked List Rotation algorithm rotates a linked list to the right or left by k positions by manipulating pointers. The operation is performed by connecting the tail of the list to the head to form a circle, then breaking the circle at the appropriate point.\n            Name: Linked List Rotation\n            Difficulty: \n            Tags: linked list, pointer manipulation, two pointers, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "50386326-4292-41f1-9081-06086439be0b",
+      "title": "",
+      "name": "Linked List Rotation",
+      "difficulty": "",
+      "tags": [
+        "linked list",
+        "pointer manipulation",
+        "two pointers",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Linked List Merge algorithm combines two sorted linked lists into a single sorted linked list by comparing nodes from both lists and linking them in the correct order.\n            Name: Linked List Merge\n            Difficulty: \n            Tags: linked list, two pointers, sorting\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "daea5126-4f8f-48f1-84ed-01a0122dfeeb",
+      "title": "",
+      "name": "Linked List Merge",
+      "difficulty": "",
+      "tags": [
+        "linked list",
+        "two pointers",
+        "sorting"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Stack data structure follows Last-In-First-Out (LIFO) principle. It supports two primary operations: push (adding an element to the top) and pop (removing the top element). Stacks can be implemented using arrays or linked lists.\n            Name: Stack Implementation\n            Difficulty: \n            Tags: stack, data structure, LIFO, data_structures, linear\n            Complexity (Time): O(1) for push/pop operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "cdc54b68-d38c-43ba-9b7a-d0be0ca1783e",
+      "title": "",
+      "name": "Stack Implementation",
+      "difficulty": "",
+      "tags": [
+        "stack",
+        "data structure",
+        "LIFO",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Balanced Parentheses Check algorithm uses a stack to verify if an expression has balanced parentheses, brackets, and braces. It scans the expression from left to right, pushing opening delimiters onto a stack and popping when matching closing delimiters are encountered.\n            Name: Balanced Parentheses Check\n            Difficulty: \n            Tags: stack, string, validation\n            Complexity (Time): O(n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "d0424ec8-8f0d-477b-af94-4bfed0eae97d",
+      "title": "",
+      "name": "Balanced Parentheses Check",
+      "difficulty": "",
+      "tags": [
+        "stack",
+        "string",
+        "validation"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Infix to Postfix Conversion algorithm transforms an infix expression (standard mathematical notation with operators between operands) to postfix notation (operators follow their operands) using a stack to handle operator precedence and parentheses.\n            Name: Infix to Postfix Conversion\n            Difficulty: \n            Tags: stack, expression, conversion\n            Complexity (Time): O(n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "13287a01-8d09-424d-bf7c-774d07c96112",
+      "title": "",
+      "name": "Infix to Postfix Conversion",
+      "difficulty": "",
+      "tags": [
+        "stack",
+        "expression",
+        "conversion"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The 0/1 Knapsack problem is a problem in combinatorial optimization: given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.\n            Name: 0/1 Knapsack\n            Difficulty: \n            Tags: dynamic programming, optimization, combinatorial, dynamic_programming, optimization\n            Complexity (Time): O(n*W)\n            Complexity (Space): O(n*W)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "94d2c0d4-5427-41f6-8dcf-86f7ff7b14b6",
+      "title": "",
+      "name": "0/1 Knapsack",
+      "difficulty": "",
+      "tags": [
+        "dynamic programming",
+        "optimization",
+        "combinatorial",
+        "dynamic_programming",
+        "optimization"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Longest Common Subsequence (LCS) algorithm finds the longest sequence that is present in both given sequences in the same order (not necessarily consecutive).\n            Name: Longest Common Subsequence\n            Difficulty: \n            Tags: dynamic programming, string algorithm, sequence comparison, dynamic_programming, optimization\n            Complexity (Time): O(m*n)\n            Complexity (Space): O(m*n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "e116165f-52df-40b6-acc7-b5f17f4712ae",
+      "title": "",
+      "name": "Longest Common Subsequence",
+      "difficulty": "",
+      "tags": [
+        "dynamic programming",
+        "string algorithm",
+        "sequence comparison",
+        "dynamic_programming",
+        "optimization"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Coin Change problem asks for the minimum number of coins needed to make a certain amount of change, given a set of coin denominations.\n            Name: Coin Change\n            Difficulty: \n            Tags: dynamic programming, greedy, optimization\n            Complexity (Time): O(amount * n)\n            Complexity (Space): O(amount)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "22c5e193-362f-4ba6-aae5-df97efd94b73",
+      "title": "",
+      "name": "Coin Change",
+      "difficulty": "",
+      "tags": [
+        "dynamic programming",
+        "greedy",
+        "optimization"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Knuth-Morris-Pratt algorithm searches for occurrences of a 'pattern' within a main 'text' by employing the observation that when a mismatch occurs, the pattern itself contains sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.\n            Name: Knuth-Morris-Pratt (KMP)\n            Difficulty: \n            Tags: string algorithm, pattern matching, substring search, string, pattern_matching\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(m)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "477756fa-35c3-4a9b-a1f4-b04bde351d5c",
+      "title": "",
+      "name": "Knuth-Morris-Pratt (KMP)",
+      "difficulty": "",
+      "tags": [
+        "string algorithm",
+        "pattern matching",
+        "substring search",
+        "string",
+        "pattern_matching"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to find patterns in strings. It calculates a hash value for the pattern and for each possible substring of the text, then compares the hash values instead of comparing the strings character by character.\n            Name: Rabin-Karp\n            Difficulty: \n            Tags: string algorithm, pattern matching, hashing, string, pattern_matching\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "684fd37d-5e36-44f1-90da-49e57243c84c",
+      "title": "",
+      "name": "Rabin-Karp",
+      "difficulty": "",
+      "tags": [
+        "string algorithm",
+        "pattern matching",
+        "hashing",
+        "string",
+        "pattern_matching"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Longest Palindromic Substring algorithm finds the longest substring within a string that is a palindrome (reads the same backward as forward).\n            Name: Longest Palindromic Substring\n            Difficulty: \n            Tags: string algorithm, dynamic programming\n            Complexity (Time): O(n\u00b2)\n            Complexity (Space): O(1)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "220a0409-0332-49c1-b30f-82eca4a5a912",
+      "title": "",
+      "name": "Longest Palindromic Substring",
+      "difficulty": "",
+      "tags": [
+        "string algorithm",
+        "dynamic programming"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Binary Tree Traversal algorithms systematically visit each node in a binary tree. The three most common traversal methods are in-order (left-root-right), pre-order (root-left-right), and post-order (left-right-root).\n            Name: Binary Tree Traversal\n            Difficulty: \n            Tags: tree algorithm, data structure, traversal, data_structures, tree\n            Complexity (Time): O(n)\n            Complexity (Space): O(h)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "ea3fdbc3-f214-446e-928a-8e24f95caad1",
+      "title": "",
+      "name": "Binary Tree Traversal",
+      "difficulty": "",
+      "tags": [
+        "tree algorithm",
+        "data structure",
+        "traversal",
+        "data_structures",
+        "tree"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Binary Search Tree (BST) operations include insertion, deletion, and searching in a tree where for each node, all elements in the left subtree are less than the node's value, and all elements in the right subtree are greater.\n            Name: Binary Search Tree Operations\n            Difficulty: \n            Tags: tree algorithm, binary search tree, data structure, searching, array_search\n            Complexity (Time): O(h)\n            Complexity (Space): O(h)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "bc58803e-0daf-478f-9c0e-b37b51349887",
+      "title": "",
+      "name": "Binary Search Tree Operations",
+      "difficulty": "",
+      "tags": [
+        "tree algorithm",
+        "binary search tree",
+        "data structure",
+        "searching",
+        "array_search"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Lowest Common Ancestor (LCA) algorithm finds the lowest node in a tree that has both given nodes as descendants. A node can be a descendant of itself.\n            Name: Lowest Common Ancestor\n            Difficulty: \n            Tags: tree algorithm, binary tree, ancestor finding\n            Complexity (Time): O(n)\n            Complexity (Space): O(h)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "eb159464-7ef9-4cf6-9bf3-99659c455ab9",
+      "title": "",
+      "name": "Lowest Common Ancestor",
+      "difficulty": "",
+      "tags": [
+        "tree algorithm",
+        "binary tree",
+        "ancestor finding"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: The Queue data structure follows First-In-First-Out (FIFO) principle. It supports two primary operations: enqueue (adding an element to the rear) and dequeue (removing the front element). Queues can be implemented using arrays, linked lists, or a combination of stacks.\n            Name: Queue Implementation\n            Difficulty: \n            Tags: queue, data structure, FIFO, data_structures, linear\n            Complexity (Time): O(1) for enqueue/dequeue operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "dc0dade2-8744-4ff0-8554-69524b6215ef",
+      "title": "",
+      "name": "Queue Implementation",
+      "difficulty": "",
+      "tags": [
+        "queue",
+        "data structure",
+        "FIFO",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: A Circular Queue (also called Ring Buffer) is an enhancement of the regular queue that efficiently uses space by wrapping around to the beginning when it reaches the end of the allocated space. It maintains two pointers: front and rear, and uses modulo arithmetic to handle the wrap-around.\n            Name: Circular Queue Implementation\n            Difficulty: \n            Tags: queue, circular, data structure, data_structures, linear\n            Complexity (Time): O(1) for enqueue/dequeue operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "743c9294-8a1d-4645-8dbb-d2add7851b41",
+      "title": "",
+      "name": "Circular Queue Implementation",
+      "difficulty": "",
+      "tags": [
+        "queue",
+        "circular",
+        "data structure",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: A Priority Queue is an abstract data type similar to a regular queue but where each element has a priority. Elements with higher priority are dequeued before elements with lower priority. It can be implemented using a heap, a binary search tree, or an ordered array.\n            Name: Priority Queue Implementation\n            Difficulty: \n            Tags: queue, priority, heap, data structure, data_structures, linear\n            Complexity (Time): O(log n) for insertion/deletion with heap implementation\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "8056307f-7a9b-4393-bfb0-f5bf2581da94",
+      "title": "",
+      "name": "Priority Queue Implementation",
+      "difficulty": "",
+      "tags": [
+        "queue",
+        "priority",
+        "heap",
+        "data structure",
+        "data_structures",
+        "linear"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: A Hash Table is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.\n            Name: Hash Table Implementation\n            Difficulty: \n            Tags: hash table, data structure, key-value, data_structures, hash\n            Complexity (Time): O(1) average for insert/search/delete, O(n) worst case\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "50eed330-b8d9-48e3-b383-b7b3a14cc153",
+      "title": "",
+      "name": "Hash Table Implementation",
+      "difficulty": "",
+      "tags": [
+        "hash table",
+        "data structure",
+        "key-value",
+        "data_structures",
+        "hash"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Collision Resolution with Chaining is a technique used in hash tables to handle multiple keys that hash to the same index. In chaining, each bucket (array index) contains a linked list of all key-value pairs whose keys hash to that index, allowing multiple entries to exist at the same location.\n            Name: Collision Resolution with Chaining\n            Difficulty: \n            Tags: hash table, collision resolution, linked list\n            Complexity (Time): O(1 + \u03b1) average for operations, where \u03b1 is the load factor\n            Complexity (Space): O(n + m) where n is the number of entries and m is the number of buckets\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "f3d26399-617a-4884-a460-a0177ce52572",
+      "title": "",
+      "name": "Collision Resolution with Chaining",
+      "difficulty": "",
+      "tags": [
+        "hash table",
+        "collision resolution",
+        "linked list"
+      ]
+    }
+  },
+  {
+    "content": "Title: \n            Description: Open Addressing is a collision resolution technique where all elements are stored in the hash table itself (no external data structures). Linear Probing is one method of open addressing where, if a collision occurs, we sequentially search for the next available slot.\n            Name: Open Addressing (Linear Probing)\n            Difficulty: \n            Tags: hash table, collision resolution, open addressing\n            Complexity (Time): O(1) average for operations with low load factor, O(n) worst case\n            Complexity (Space): O(n)\n            Use Cases: \n            Solution Approach:",
+    "metadata": {
+      "id": "e7d4e816-ec36-45dc-bfe7-dbe4fba285da",
+      "title": "",
+      "name": "Open Addressing (Linear Probing)",
+      "difficulty": "",
+      "tags": [
+        "hash table",
+        "collision resolution",
+        "open addressing"
+      ]
+    }
+  }
+]

@@ -27,6 +27,249 @@
       "id": "26a6e461-6b36-4fce-a12b-cd67e8f02328"
     },
     {
+      "name": "Sliding Window Technique",
+      "description": "The sliding window technique is an algorithmic approach that reduces the use of nested loops and replaces it with a single loop, improving efficiency. It's typically used for problems involving arrays or strings where you need to find or calculate something within a contiguous sequence of elements. The technique involves maintaining a 'window' that either grows or shrinks as needed while moving through the array or string.",
+      "implementation": "def sliding_window_fixed(arr, k):\n    \"\"\"\n    Fixed-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        k: Size of the window\n        \n    Returns:\n        List of results (e.g., sums, max values) for each window position\n    \"\"\"\n    n = len(arr)\n    \n    # Handle edge cases\n    if n < k:\n        return \"Invalid: window size larger than array\"\n    \n    # Compute the result for first window\n    window_sum = sum(arr[:k])\n    results = [window_sum]\n    \n    # Slide the window from left to right\n    for i in range(n - k):\n        # Subtract the element leaving the window\n        window_sum -= arr[i]\n        # Add the element entering the window\n        window_sum += arr[i + k]\n        # Store result for current window\n        results.append(window_sum)\n        \n    return results\n\n\ndef sliding_window_variable(arr, condition_func):\n    \"\"\"\n    Variable-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        condition_func: Function that determines whether window meets criteria\n                       Should return True if window is valid, False otherwise\n                       \n    Returns:\n        Best window size and position that satisfies the condition\n    \"\"\"\n    n = len(arr)\n    start = 0\n    end = 0\n    best_window = None\n    best_size = 0\n    \n    while end < n:\n        # Expand window by moving right pointer\n        if condition_func(arr[start:end+1]):\n            window_size = end - start + 1\n            \n            # Update best window if current is better\n            if window_size > best_size:\n                best_size = window_size\n                best_window = (start, end)\n                \n            # Try to expand window further\n            end += 1\n        else:\n            # Shrink window from left to maintain validity\n            start += 1\n            \n            # If window becomes invalid, move end pointer too\n            if start > end:\n                end = start\n    \n    return best_window, best_size",
+      "complexity": {
+        "time": "O(n) in most cases, where n is the size of the array/string",
+        "space": "O(1) for the algorithm itself, though extra space may be needed to store results"
+      },
+      "tags": [
+        "array",
+        "string",
+        "sliding window",
+        "optimization",
+        "two pointers"
+      ],
+      "url": "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/",
+      "problem_patterns": [
+        "Finding subarrays/substrings of fixed size k that maximize or minimize a value",
+        "Finding the longest/shortest subarray/substring that satisfies certain conditions",
+        "Detecting patterns in continuous sequences of elements",
+        "Problems involving calculating running sums or averages",
+        "Finding minimum window that contains all required elements"
+      ],
+      "leetcode_indicators": [
+        "Maximum sum subarray of size k",
+        "Longest substring without repeating characters",
+        "Minimum window substring",
+        "Maximum sliding window",
+        "Contains all characters from another string"
+      ]
+    },
+    {
+      "name": "Bubble Sort Algorithm",
+      "description": "Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity are quite high. Below is the implementation of the bubble sort. It can be optimized by stopping the algorithm if the inner loop didn’t cause any swap. Time Complexity: O(n2)Auxiliary Space: O(1)Please refer Complexity Analysis of Bubble Sort for details.  ",
+      "implementation": "def bubble_sort(arr):\n    n = len(arr)\n    \n    # Traverse through all array elements\n    for i in range(n):\n        # Flag to optimize if no swapping occurs\n        swapped = False\n        \n        # Last i elements are already in place\n        for j in range(0, n-i-1):\n            # Traverse the array from 0 to n-i-1\n            # Swap if the element found is greater than the next element\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n                swapped = True\n        \n        # If no swapping occurred in this pass, array is sorted\n        if not swapped:\n            break\n    \n    return arr",
+      "complexity": {
+        "time": "O(n²) for worst and average case, O(n) for best case when array is already sorted",
+        "space": "O(1) as it only requires a single additional memory space for the swap operation"
+      },
+      "problem_patterns": [
+        "Sorting small arrays or lists where simplicity is more important than efficiency",
+        "Educational purposes to demonstrate sorting concepts",
+        "When array is nearly sorted (best case scenario)",
+        "When auxiliary space is a concern and an in-place algorithm is required",
+        "When a stable sorting algorithm is needed (preserves relative order of equal elements)"
+      ],
+      "leetcode_indicators": [
+        "Simple sorting problems with small datasets",
+        "Problems requiring in-place sorting with minimal space",
+        "Questions explicitly asking for Bubble Sort implementation",
+        "Sorting problems where stability is required"
+      ],
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "stable"
+      ],
+      "url": "https://www.geeksforgeeks.org/bubble-sort-algorithm/"
+    },
+    {
+      "name": "Insertion Sort Algorithm",
+      "description": "Insertion sort is a simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list. It is like sorting playing cards in your hands. You split the cards into two groups: the sorted cards and the unsorted cards. Then, you pick a card from the unsorted group and put it in the right place in the sorted group.  arr = {23, 1, 10, 5, 2} Initial: First Pass: Second Pass: Third Pass: Fourth Pass: Final Array: Time Complexity Space Complexity Please refer Complexity Analysis of Insertion Sort for details. Advantages Disadvantages Insertion sort is commonly used in situations where: What are the Boundary Cases of the Insertion Sort algorithm? Insertion sort takes the maximum time to sort if elements are sorted in reverse order. And it takes minimum time (Order of n) when elements are already sorted. What is the Algorithmic Paradigm of the Insertion Sort algorithm? The Insertion Sort algorithm follows an incremental approach. Is Insertion Sort an in-place sorting algorithm? Yes, insertion sort is an in-place sorting algorithm. Is Insertion Sort a stable algorithm? Yes, insertion sort is a stable sorting algorithm. When is the Insertion Sort algorithm used? Insertion sort is used when number of elements is small. It can also be useful when the input array is almost sorted, and only a few elements are misplaced in a complete big array.  ",
+      "implementation": "def insertion_sort(arr):\n    # Traverse through 1 to len(arr)\n    for i in range(1, len(arr)):\n        key = arr[i]\n        \n        # Move elements of arr[0..i-1], that are greater than key,\n        # to one position ahead of their current position\n        j = i - 1\n        while j >= 0 and arr[j] > key:\n            arr[j + 1] = arr[j]\n            j -= 1\n        \n        # Place key at its correct position in sorted array\n        arr[j + 1] = key\n    \n    return arr",
+      "complexity": {
+        "time": "O(n²) for worst and average case, O(n) for best case when array is already sorted",
+        "space": "O(1) since it sorts in-place requiring only a single additional memory space"
+      },
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "stable",
+        "adaptive"
+      ],
+      "url": "https://www.geeksforgeeks.org/insertion-sort-algorithm/",
+      "problem_patterns": [
+        "Sorting small arrays where simplicity and low overhead are important",
+        "Sorting arrays that are already partially sorted",
+        "Online sorting where items come one at a time and need to be inserted into a sorted sequence",
+        "As a component in more complex algorithms like Shell Sort",
+        "When a stable sorting algorithm is needed"
+      ],
+      "leetcode_indicators": [
+        "Problems requiring insertion into a sorted array",
+        "Questions explicitly asking for Insertion Sort implementation",
+        "Sorting problems with small input sizes",
+        "Problems where elements arrive one at a time and need to be placed correctly",
+        "Situations where nearly sorted arrays need to be fully sorted efficiently"
+      ]
+    },
+    {
+      "name": "Selection Sort",
+      "description": "Selection Sort is a comparison-based sorting algorithm. It sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion and swapping it with the first unsorted element. This process continues until the entire array is sorted. Time Complexity: O(n2) ,as there are two nested loops: Auxiliary Space: O(1) as the only extra memory used is for temporary variables. Question 1: Is Selection Sort a stable sorting algorithm? Answer: No, Selection Sort is not stable as it may change the relative order of equal elements. Question 2: What is the time complexity of Selection Sort? Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases. Question 3: Does Selection Sort require extra memory? Answer: No, Selection Sort is an in-place sorting algorithm and requires only O(1) additional space. Question 4: When is it best to use Selection Sort? Answer: Selection Sort is best used for small datasets, educational purposes, or when memory usage needs to be minimal. Question 5: How does Selection Sort differ from Bubble Sort? Answer: Selection Sort selects the minimum element and places it in the correct position with fewer swaps, while Bubble Sort repeatedly swaps adjacent elements to sort the array.  ",
+      "implementation": "def insertion_sort(arr):\n    # Traverse through 1 to len(arr)\n    for i in range(1, len(arr)):\n        key = arr[i]\n        \n        # Move elements of arr[0..i-1], that are greater than key,\n        # to one position ahead of their current position\n        j = i - 1\n        while j >= 0 and arr[j] > key:\n            arr[j + 1] = arr[j]\n            j -= 1\n        \n        # Place key at its correct position in sorted array\n        arr[j + 1] = key\n    \n    return arr",
+      "complexity": {
+        "time": "Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases.",
+        "space": ""
+      },
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place",
+        "unstable"
+      ],
+      "url": "https://www.geeksforgeeks.org/selection-sort-algorithm-2/",
+      "problem_patterns": [
+        "Sorting small arrays where simplicity is more important than efficiency",
+        "When memory usage needs to be minimized (performs minimum number of swaps)",
+        "Educational purposes to demonstrate comparison-based sorting",
+        "Systems where write operations are significantly more expensive than read operations",
+        "When finding the minimum/maximum elements in an array is a recurring operation"
+      ],
+      "leetcode_indicators": [
+        "Simple sorting problems with small datasets",
+        "Problems explicitly asking for Selection Sort implementation",
+        "Questions involving finding minimum/maximum elements repeatedly",
+        "Problems where minimizing the number of swaps is important"
+      ]
+    },
+    {
+      "name": "Radix Sort",
+      "description": "Radix Sort is a linear sorting algorithm that sorts elements by processing them digit by digit. It is an efficient sorting algorithm for integers or strings with fixed-size keys. Rather than comparing elements directly, Radix Sort distributes the elements into buckets based on each digit’s value. By repeatedly sorting the elements by their significant digits, from the least significant to the most significant, Radix Sort achieves the final sorted order. The key idea behind Radix Sort is to exploit the concept of place value. It assumes that sorting numbers digit by digit will eventually result in a fully sorted list. Radix Sort can be performed using different variations, such as Least Significant Digit (LSD) Radix Sort or Most Significant Digit (MSD) Radix Sort. To perform radix sort on the array [170, 45, 75, 90, 802, 24, 2, 66], we follow these steps: How does Radix Sort Algorithm work | Step 1 Step 1: Find the largest element in the array, which is 802. It has three digits, so we will iterate three times, once for each significant place. Step 2: Sort the elements based on the unit place digits (X=0). We use a stable sorting technique, such as counting sort, to sort the digits at each significant place. It’s important to understand that the default implementation of counting sort is unstable i.e. same keys can be in a different order than the input array. To solve this problem, We can iterate the input array in reverse order to build the output array. This strategy helps us to keep the same keys in the same order as they appear in the input array. Sorting based on the unit place: How does Radix Sort Algorithm work | Step 2 Step 3: Sort the elements based on the tens place digits. Sorting based on the tens place: How does Radix Sort Algorithm work | Step 3 Step 4: Sort the elements based on the hundreds place digits. Sorting based on the hundreds place: How does Radix Sort Algorithm work | Step 4 Step 5: The array is now sorted in ascending order. The final sorted array using radix sort is [2, 24, 45, 66, 75, 90, 170, 802]. How does Radix Sort Algorithm work | Step 5 Below is the implementation for the above illustrations: Time Complexity: Auxiliary Space:  ",
+      "implementation": "def radix_sort(arr):\n    # Find the maximum number to know number of digits\n    max_num = max(arr)\n    \n    # Do counting sort for every digit\n    # Start from least significant digit to most significant digit\n    exp = 1\n    while max_num // exp > 0:\n        counting_sort(arr, exp)\n        exp *= 10\n    \n    return arr\n\ndef counting_sort(arr, exp):\n    n = len(arr)\n    output = [0] * n\n    count = [0] * 10  # Range for digits is 0-9\n    \n    # Store count of occurrences in count[]\n    for i in range(n):\n        index = (arr[i] // exp) % 10\n        count[index] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this digit in output[]\n    for i in range(1, 10):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, we iterate in reverse order\n    for i in range(n - 1, -1, -1):\n        index = (arr[i] // exp) % 10\n        output[count[index] - 1] = arr[i]\n        count[index] -= 1\n    \n    # Copy the output array to arr[]\n    for i in range(n):\n        arr[i] = output[i]",
+      "complexity": {
+        "time": "O(d*(n+k)) where d is the number of digits, n is the number of elements, and k is the range of digits (typically 10 for decimal)",
+        "space": "O(n+k) for storing the output array and count array in counting sort"
+      },
+      "tags": [
+        "sorting",
+        "non-comparison sort",
+        "integer sort",
+        "linear time"
+      ],
+      "url": "https://www.geeksforgeeks.org/radix-sort/",
+      "problem_patterns": [
+        "Sorting integers where the range of possible values is bounded",
+        "When sorting stability is important (original order of equal elements is preserved)",
+        "Sorting fixed-length strings lexicographically",
+        "Situations where comparison-based sorting would be inefficient",
+        "When sorting large numbers with relatively few digits"
+      ],
+      "leetcode_indicators": [
+        "Problems involving sorting of integers within a specific range",
+        "Scenarios where stable sorting is required",
+        "Questions explicitly asking for Radix Sort implementation",
+        "When linear time sorting is needed and comparison-based methods are too slow",
+        "Problems involving sorting where numbers have a known digit count"
+      ]
+    },
+    {
+      "name": "Counting Sort",
+      "description": "Counting Sort is a non-comparison-based sorting algorithm. It is particularly efficient when the range of input values is small compared to the number of elements to be sorted. The basic idea behind Counting Sort is to count the frequency of each distinct element in the input array and use that information to place the elements in their correct sorted positions. Step1 :  Step 2:  Step 3:  Step 4:  Step 5:  Step 6: For i = 6, Update outputArray[ countArray[ inputArray[6] ] – 1] = inputArray[6]Also, update countArray[ inputArray[6] ]  = countArray[ inputArray[6] ]- –  Step 7: For i = 5, Update outputArray[ countArray[ inputArray[5] ] – 1] = inputArray[5]Also, update countArray[ inputArray[5] ]  = countArray[ inputArray[5] ]- –  Step 8: For i = 4, Update outputArray[ countArray[ inputArray[4] ] – 1] = inputArray[4]Also, update countArray[ inputArray[4] ]  = countArray[ inputArray[4] ]- –  Step 9: For i = 3, Update outputArray[ countArray[ inputArray[3] ] – 1] = inputArray[3]Also, update countArray[ inputArray[3] ]  = countArray[ inputArray[3] ]- –  Step 10: For i = 2, Update outputArray[ countArray[ inputArray[2] ] – 1] = inputArray[2]Also, update countArray[ inputArray[2] ]  = countArray[ inputArray[2] ]- –  Step 11: For i = 1, Update outputArray[ countArray[ inputArray[1] ] – 1] = inputArray[1]Also, update countArray[ inputArray[1] ]  = countArray[ inputArray[1] ]- –  Step 12: For i = 0, Update outputArray[ countArray[ inputArray[0] ] – 1] = inputArray[0]Also, update countArray[ inputArray[0] ]  = countArray[ inputArray[0] ]- –  Below is the implementation of the above algorithm:  ",
+      "implementation": "def counting_sort(arr):\n    # Find the range of input elements\n    if not arr:\n        return []\n        \n    # Finding the maximum and minimum values\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Size of count array\n    range_of_elements = max_val - min_val + 1\n    \n    # Create a count array and output array\n    count = [0] * range_of_elements\n    output = [0] * len(arr)\n    \n    # Store count of each element\n    for num in arr:\n        count[num - min_val] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this element in output array\n    for i in range(1, len(count)):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, iterate in reverse order\n    for i in range(len(arr) - 1, -1, -1):\n        output[count[arr[i] - min_val] - 1] = arr[i]\n        count[arr[i] - min_val] -= 1\n    \n    return output",
+      "complexity": {
+        "time": "O(n+k) where n is the number of elements and k is the range of input (max element - min element + 1)",
+        "space": "O(n+k) for the output array and count array"
+      },
+      "tags": [
+        "sorting",
+        "non-comparison sort",
+        "integer sort",
+        "linear time",
+        "stable"
+      ],
+      "url": "https://www.geeksforgeeks.org/counting-sort/",
+      "problem_patterns": [
+        "Sorting integers within a small range",
+        "When stability in sorting is required (original order of equal elements is preserved)",
+        "As a subroutine in other sorting algorithms like Radix Sort",
+        "When the range of possible values is known in advance",
+        "Situations where linear time performance is crucial"
+      ],
+      "leetcode_indicators": [
+        "Problems involving sorting of integers with a limited range",
+        "Questions where the input consists of a small set of integers repeated many times",
+        "Scenarios where maintaining the original order of equal elements is necessary",
+        "Problems explicitly asking for Counting Sort implementation",
+        "When sorting needs to be done in linear time"
+      ]
+    },
+    {
+      "name": "Bucket Sort – Data Structures and Algorithms Tutorials",
+      "description": "Bucket sort is a sorting technique that involves dividing elements into various groups, or buckets. These buckets are formed by uniformly distributing the elements. Once the elements are divided into buckets, they can be sorted using any other sorting algorithm. Finally, the sorted elements are gathered together in an ordered fashion. Create n empty buckets (Or lists) and do the following for every array element arr[i]. To apply bucket sort on the input array [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68], we follow these steps: Step 1: Create an array of size 10, where each slot represents a bucket. Creating Buckets for sorting Step 2: Insert elements into the buckets from the input array based on their range. Inserting elements into the buckets: Inserting Array elements into respective buckets Step 3: Sort the elements within each bucket. In this example, we use quicksort (or any stable sorting algorithm) to sort the elements within each bucket. Sorting the elements within each bucket: Sorting individual bucket Step 4: Gather the elements from each bucket and put them back into the original array. Gathering elements from each bucket: Inserting buckets in ascending order into the resultant array Step 5: The original array now contains the sorted elements. The final sorted array using bucket sort for the given input is [0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94]. Return the Sorted Array Below is the implementation for the Bucket Sort: Worst Case Time Complexity: O(n2)  The worst case happens when one bucket gets all the elements. In this case, we will be running insertion sort on all items which will make the time complexity as O(n2).  We can reduce the worst case time complexity to O(n Log n) by using a O(n Log n) algorithm like Merge Sort or Heap Sort to sort the individual buckets, but that will improve the algorithm time for cases when buckets have small number of items as insertion sort works better for small arrays. Best Case Time Complexity : O(n + k)  The best case happens when every bucket gets equal number of elements. In this case every call to insertion sort will take constant time as the number of items in every bucket would be constant (Assuming that k is linearly proportional to n). Auxiliary Space: O(n+k)  ",
+      "implementation": "def counting_sort(arr):\n    # Find the range of input elements\n    if not arr:\n        return []\n        \n    # Finding the maximum and minimum values\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Size of count array\n    range_of_elements = max_val - min_val + 1\n    \n    # Create a count array and output array\n    count = [0] * range_of_elements\n    output = [0] * len(arr)\n    \n    # Store count of each element\n    for num in arr:\n        count[num - min_val] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this element in output array\n    for i in range(1, len(count)):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, iterate in reverse order\n    for i in range(len(arr) - 1, -1, -1):\n        output[count[arr[i] - min_val] - 1] = arr[i]\n        count[arr[i] - min_val] -= 1\n    \n    return output",
+      "complexity": {
+        "time": "O(n+k) average case where n is the number of elements and k is the number of buckets; O(n²) worst case when all elements are placed in a single bucket",
+        "space": "O(n+k) for the n elements across k buckets"
+      },
+      "tags": [
+        "sorting",
+        "distribution sort",
+        "comparison sort",
+        "external sort",
+        "stable"
+      ],
+      "url": "https://www.geeksforgeeks.org/bucket-sort-2/",
+      "problem_patterns": [
+        "Sorting data that is uniformly distributed over a range",
+        "When input is expected to be distributed uniformly",
+        "Sorting floating point numbers in the range [0.0, 1.0]",
+        "External sorting where data doesn't fit in memory",
+        "When stable sorting is required and data distribution is known"
+      ],
+      "leetcode_indicators": [
+        "Problems involving sorting of uniformly distributed data",
+        "Scenarios where the data range is known in advance",
+        "Questions explicitly asking for Bucket Sort implementation",
+        "When sorting floating point numbers in a specific range",
+        "Problems where you can take advantage of expected uniform distribution"
+      ]
+    },
+    {
+      "name": "Linear Search Algorithm",
+      "description": "Given an array, arr of n integers, and an integer element x, find whether element x is present in the array. Return the index of the first occurrence of x in the array, or -1 if it doesn’t exist. Input: arr[] = [1, 2, 3, 4], x = 3Output: 2Explanation: There is one test case with array as [1, 2, 3 4] and element to be searched as 3. Since 3 is present at index 2, the output is 2. Input: arr[] = [10, 8, 30, 4, 5], x = 5Output: 4Explanation: For array [10, 8, 30, 4, 5], the element to be searched is 5 and it is at index 4. So, the output is 4. Input: arr[] = [10, 8, 30], x = 6Output: -1Explanation: The element to be searched is 6 and its not present, so we return -1. In Linear Search, we iterate over all the elements of the array and check if it the current element is equal to the target element. If we find any element to be equal to the target element, then return the index of the current element. Otherwise, if no element is equal to the target element, then return -1 as the element is not found. Linear search is also known as sequential search. For example: Consider the array arr[] = {10, 50, 30, 70, 80, 20, 90, 40} and key = 30  Below is the implementation of the linear search algorithm: Time Complexity: Auxiliary Space: O(1) as except for the variable to iterate through the list, no other variable is used.  ",
+      "implementation": "def linear_search(arr, target):\n    \"\"\"\n    Performs a linear search to find target in arr.\n    \n    Args:\n        arr: List of elements to search through\n        target: Element to search for\n        \n    Returns:\n        Index of the target if found, -1 otherwise\n    \"\"\"\n    # Iterate through each element in the array\n    for i in range(len(arr)):\n        # If current element matches target, return its index\n        if arr[i] == target:\n            return i\n    \n    # If target is not found, return -1\n    return -1\n\n# Variation: Linear search that returns all occurrences\ndef linear_search_all_occurrences(arr, target):\n    \"\"\"\n    Finds all occurrences of target in arr.\n    \n    Args:\n        arr: List of elements to search through\n        target: Element to search for\n        \n    Returns:\n        List of indices where target appears\n    \"\"\"\n    indices = []\n    \n    for i in range(len(arr)):\n        if arr[i] == target:\n            indices.append(i)\n    \n    return indices",
+      "complexity": {
+        "time": "O(n) for worst and average case, O(1) for best case when the target is at the first position",
+        "space": "O(1) as it requires only a constant amount of extra space regardless of input size"
+      },
+      "tags": [
+        "searching",
+        "sequential search",
+        "brute force",
+        "array",
+        "list"
+      ],
+      "url": "https://www.geeksforgeeks.org/linear-search/",
+      "problem_patterns": [
+        "Searching for an element in an unsorted array",
+        "When the list is small enough that the overhead of more complex algorithms isn't justified",
+        "When a search needs to be performed only once on a dataset",
+        "Searching for an element that matches specific criteria rather than an exact value",
+        "When the data structure doesn't support random access (like linked lists)"
+      ],
+      "leetcode_indicators": [
+        "Basic searching problems with unsorted arrays",
+        "Problems explicitly asking for a linear search implementation",
+        "When the list needs to be searched for multiple conditions",
+        "Problems where other search algorithms cannot be applied due to data structure constraints",
+        "When searching through a small dataset"
+      ]
+    },
+    {
       "name": "Merge Sort",
       "tags": [
         "sorting",
@@ -1310,6 +1553,14 @@
   ],
   "mappings": {
     "algorithm_to_problems": {
+      "Sliding Window": [
+        {
+          "id": "20",
+          "title": "Sliding Window Maximum",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sliding-window-maximum/"
+        }
+      ],
       "Quick Sort": [
         {
           "id": "1",
@@ -1498,6 +1749,20 @@
           "url": "https://leetcode.com/problems/longest-increasing-subsequence/"
         }
       ],
+      "Linear Search": [
+        {
+          "id": "21",
+          "title": "Two Sum",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/two-sum/"
+        },
+        {
+          "id": "10",
+          "title": "Implement strStr()",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/implement-strstr()/"
+        }
+      ],
       "Coin Change": [
         {
           "id": "7",
@@ -1610,7 +1875,8 @@
         "Balanced Parentheses Check"
       ],
       "10": [
-        "Balanced Parentheses Check"
+        "Balanced Parentheses Check",
+        "Linear Search"
       ],
       "11": [],
       "12": [],
@@ -1638,10 +1904,12 @@
       ],
       "20": [
         "Queue Implementation",
-        "Priority Queue Implementation"
+        "Priority Queue Implementation",
+        "Sliding Window"
       ],
       "21": [
-        "Hash Table Implementation"
+        "Hash Table Implementation",
+        "Linear Search"
       ],
       "22": [
         "Hash Table Implementation",
