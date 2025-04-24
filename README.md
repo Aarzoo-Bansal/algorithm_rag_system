@@ -177,6 +177,8 @@ algorithm-rag-system/
 │   │   ├── vector_store.py
 ├── app.py
 ├── main.py
+├── static/
+│   ├── icon_algo.png
 ├── requirements.txt
 └── README.md
 ```
