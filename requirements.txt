@@ -26,3 +26,4 @@ requests==2.31.0
 pydantic==2.5.2  # Required for FastAPI models
 beautifulsoup4==4.12.2
 langchain==0.1.14 
+huggingface_hub==0.15.1
