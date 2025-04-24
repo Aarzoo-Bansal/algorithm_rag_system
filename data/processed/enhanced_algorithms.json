@@ -36,7 +36,7 @@
   },
   {
     "name": "Sliding Window Technique",
-    "description": "The sliding window technique is an algorithmic approach that reduces the use of nested loops and replaces it with a single loop, improving efficiency. It's typically used for problems involving arrays or strings where you need to find or calculate something within a contiguous sequence of elements. The technique involves maintaining a 'window' that either grows or shrinks as needed while moving through the array or string.",
+    "description": "The sliding window technique is an algorithmic approach that reduces the use of nested loops and replaces it with a single loop, improving efficiency. It's typically used for problems involving arrays or strings where you need to find or calculate something within a contiguous sequence of elements. The technique involves maintaining a 'window' that either grows or shrinks as needed while moving through the array or string. A common application is finding the longest substring without repeating characters, where the window expands until a duplicate is found, then contracts from the left until the duplicate is removed.",
     "implementation": "def sliding_window_fixed(arr, k):\n    \"\"\"\n    Fixed-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        k: Size of the window\n        \n    Returns:\n        List of results (e.g., sums, max values) for each window position\n    \"\"\"\n    n = len(arr)\n    \n    # Handle edge cases\n    if n < k:\n        return \"Invalid: window size larger than array\"\n    \n    # Compute the result for first window\n    window_sum = sum(arr[:k])\n    results = [window_sum]\n    \n    # Slide the window from left to right\n    for i in range(n - k):\n        # Subtract the element leaving the window\n        window_sum -= arr[i]\n        # Add the element entering the window\n        window_sum += arr[i + k]\n        # Store result for current window\n        results.append(window_sum)\n        \n    return results\n\n\ndef sliding_window_variable(arr, condition_func):\n    \"\"\"\n    Variable-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        condition_func: Function that determines whether window meets criteria\n                       Should return True if window is valid, False otherwise\n                       \n    Returns:\n        Best window size and position that satisfies the condition\n    \"\"\"\n    n = len(arr)\n    start = 0\n    end = 0\n    best_window = None\n    best_size = 0\n    \n    while end < n:\n        # Expand window by moving right pointer\n        if condition_func(arr[start:end+1]):\n            window_size = end - start + 1\n            \n            # Update best window if current is better\n            if window_size > best_size:\n                best_size = window_size\n                best_window = (start, end)\n                \n            # Try to expand window further\n            end += 1\n        else:\n            # Shrink window from left to maintain validity\n            start += 1\n            \n            # If window becomes invalid, move end pointer too\n            if start > end:\n                end = start\n    \n    return best_window, best_size",
     "complexity": {
       "time": "O(n) in most cases, where n is the size of the array/string",
@@ -48,15 +48,15 @@
       "sliding window",
       "optimization",
       "two pointers",
-      "replaces",
-      "either",
-      "efficiency",
-      "contiguous",
+      "removed",
+      "repeating",
       "calculate",
+      "replaces",
+      "typically",
       "sliding",
       "something",
-      "maintaining",
       "technique",
+      "duplicate",
       "window"
     ],
     "url": "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/",
@@ -64,6 +64,7 @@
       "Finding subarrays/substrings of fixed size k that maximize or minimize a value",
       "Finding the longest/shortest subarray/substring that satisfies certain conditions",
       "Detecting patterns in continuous sequences of elements",
+      "Find the length of the longest/shortest substring/subarray",
       "Problems involving calculating running sums or averages",
       "Finding minimum window that contains all required elements"
     ],
@@ -74,8 +75,8 @@
       "Maximum sliding window",
       "Contains all characters from another string"
     ],
-    "id": "5f47cd69-6c90-4cfd-ad9f-afba8f2a0257",
-    "cluster_id": 8
+    "id": "40a27bb0-60e3-45a6-b617-30a668262b67",
+    "cluster_id": 18
   },
   {
     "name": "Bubble Sort Algorithm",
@@ -104,8 +105,8 @@
       "in-place",
       "stable",
       "stopping",
-      "cause",
       "suitable",
+      "cause",
       "swap",
       "wrong",
       "algorithm",
@@ -115,8 +116,8 @@
       "bubble"
     ],
     "url": "https://www.geeksforgeeks.org/bubble-sort-algorithm/",
-    "id": "360bcb8a-e871-42da-9702-f4091a33d05a",
-    "cluster_id": 14
+    "id": "d5885c8d-92fb-403a-bfaf-7c9eb62e588c",
+    "cluster_id": 17
   },
   {
     "name": "Insertion Sort Algorithm",
@@ -157,8 +158,8 @@
       "Problems where elements arrive one at a time and need to be placed correctly",
       "Situations where nearly sorted arrays need to be fully sorted efficiently"
     ],
-    "id": "ea468d62-d69d-4188-9cda-24ad8889e8b1",
-    "cluster_id": 14
+    "id": "bd9ef5d4-63ea-4fbf-90bf-0cd70ec127f7",
+    "cluster_id": 10
   },
   {
     "name": "Selection Sort",
@@ -175,8 +176,8 @@
       "unstable",
       "extra",
       "swaps",
-      "time",
       "complexity",
+      "time",
       "best",
       "memory",
       "question",
@@ -198,8 +199,8 @@
       "Questions involving finding minimum/maximum elements repeatedly",
       "Problems where minimizing the number of swaps is important"
     ],
-    "id": "b1ababff-9972-4c9b-a4ea-a3a0806c268d",
-    "cluster_id": 14
+    "id": "5c96deac-acce-43e7-8f51-2b76b3807b62",
+    "cluster_id": 10
   },
   {
     "name": "Radix Sort",
@@ -239,7 +240,7 @@
       "When linear time sorting is needed and comparison-based methods are too slow",
       "Problems involving sorting where numbers have a known digit count"
     ],
-    "id": "f4357bda-3301-42c0-a206-803723f0028d",
+    "id": "74a33dfe-2eb2-4a2f-9c72-31fdde88e399",
     "cluster_id": 1
   },
   {
@@ -282,8 +283,8 @@
       "Problems explicitly asking for Counting Sort implementation",
       "When sorting needs to be done in linear time"
     ],
-    "id": "0916f2a7-3cb8-4a14-9b76-db9cdae86f01",
-    "cluster_id": 17
+    "id": "f403bd03-2092-49ab-b87c-1145383493e0",
+    "cluster_id": 8
   },
   {
     "name": "Bucket Sort \u2013 Data Structures and Algorithms Tutorials",
@@ -324,8 +325,8 @@
       "When sorting floating point numbers in a specific range",
       "Problems where you can take advantage of expected uniform distribution"
     ],
-    "id": "5877af6e-0d66-427d-9930-e0df80995569",
-    "cluster_id": 14
+    "id": "535dcebc-c781-4b1c-a016-bf0a345da49f",
+    "cluster_id": 10
   },
   {
     "name": "Linear Search Algorithm",
@@ -363,8 +364,8 @@
       "Problems where other search algorithms cannot be applied due to data structure constraints",
       "When searching through a small dataset"
     ],
-    "id": "c05439e8-e041-442c-bd38-fcb3b2e26a9a",
-    "cluster_id": 18
+    "id": "3a224a77-8ad5-4cfa-8611-d1900c87129f",
+    "cluster_id": 9
   },
   {
     "name": "Merge Sort",
@@ -414,8 +415,8 @@
       "divides",
       "extracting",
       "sorted",
-      "unsorted",
       "heap",
+      "unsorted",
       "region"
     ],
     "description": "Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted region and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element and inserting it into the sorted region.",
@@ -435,7 +436,7 @@
     ],
     "implementation": "\ndef heapify(arr, n, i):\n    largest = i\n    left = 2 * i + 1\n    right = 2 * i + 2\n    \n    if left < n and arr[left] > arr[largest]:\n        largest = left\n    \n    if right < n and arr[right] > arr[largest]:\n        largest = right\n    \n    if largest != i:\n        arr[i], arr[largest] = arr[largest], arr[i]\n        heapify(arr, n, largest)\n\ndef heap_sort(arr):\n    n = len(arr)\n    \n    # Build max heap\n    for i in range(n // 2 - 1, -1, -1):\n        heapify(arr, n, i)\n    \n    # Extract elements one by one\n    for i in range(n - 1, 0, -1):\n        arr[i], arr[0] = arr[0], arr[i]\n        heapify(arr, i, 0)\n    \n    return arr\n",
     "id": "e2179e53-dc26-4efa-aa7a-9017b7bbed07",
-    "cluster_id": 11
+    "cluster_id": 10
   },
   {
     "name": "Binary Search",
@@ -443,12 +444,12 @@
       "searching",
       "divide and conquer",
       "sorted array",
+      "finding",
       "dividing",
       "could",
       "narrowed",
       "locations",
       "half",
-      "finding",
       "contain",
       "list",
       "item"
@@ -559,11 +560,11 @@
       "shortest_path",
       "processed",
       "paths",
-      "weights",
       "neighbors",
       "negative",
       "greedily",
       "distances",
+      "weights",
       "dijkstra",
       "closest"
     ],
@@ -957,8 +958,8 @@
       "dynamic_programming",
       "optimization",
       "finds",
-      "present",
       "common",
+      "present",
       "sequence",
       "subsequence",
       "sequences",
@@ -1019,7 +1020,7 @@
     ],
     "implementation": "\ndef coin_change(coins, amount):\n    # Initialize dp array with amount+1 (representing infinity)\n    dp = [amount + 1] * (amount + 1)\n    dp[0] = 0\n    \n    for coin in coins:\n        for i in range(coin, amount + 1):\n            dp[i] = min(dp[i], dp[i - coin] + 1)\n    \n    return dp[amount] if dp[amount] <= amount else -1\n",
     "id": "22c5e193-362f-4ba6-aae5-df97efd94b73",
-    "cluster_id": 2
+    "cluster_id": 14
   },
   {
     "name": "Knuth-Morris-Pratt (KMP)",
@@ -1029,13 +1030,13 @@
       "substring search",
       "string",
       "pattern_matching",
+      "mismatch",
       "matched",
       "match",
       "main",
       "knuth",
       "examination",
       "employing",
-      "characters",
       "bypassing",
       "begin",
       "pattern"
@@ -1057,7 +1058,7 @@
     ],
     "implementation": "\ndef kmp_search(text, pattern):\n    if not pattern:\n        return 0  # Empty pattern matches at position 0\n    \n    # Preprocess: Compute the longest proper prefix which is also suffix array\n    lps = [0] * len(pattern)\n    compute_lps_array(pattern, lps)\n    \n    i, j = 0, 0  # i for text, j for pattern\n    results = []\n    \n    while i < len(text):\n        if pattern[j] == text[i]:\n            i += 1\n            j += 1\n        \n        if j == len(pattern):\n            results.append(i - j)  # Found a match\n            j = lps[j - 1]\n        elif i < len(text) and pattern[j] != text[i]:\n            if j != 0:\n                j = lps[j - 1]\n            else:\n                i += 1\n    \n    return results\n\ndef compute_lps_array(pattern, lps):\n    length = 0\n    i = 1\n    \n    while i < len(pattern):\n        if pattern[i] == pattern[length]:\n            length += 1\n            lps[i] = length\n            i += 1\n        else:\n            if length != 0:\n                length = lps[length - 1]\n            else:\n                lps[i] = 0\n                i += 1\n",
     "id": "477756fa-35c3-4a9b-a1f4-b04bde351d5c",
-    "cluster_id": 10
+    "cluster_id": 15
   },
   {
     "name": "Rabin-Karp",
@@ -1286,12 +1287,12 @@
       "data structure",
       "data_structures",
       "linear",
+      "called",
       "buffer",
       "beginning",
-      "wrap",
-      "wrapping",
       "arithmetic",
       "allocated",
+      "wrap",
       "uses",
       "space",
       "around"
