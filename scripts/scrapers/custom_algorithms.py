@@ -3,7 +3,6 @@ import uuid
 import os
 from tqdm import tqdm
 
-# Create output directory
 os.makedirs("data", exist_ok=True)
 
 def generate_uuid():
@@ -14,7 +13,6 @@ def generate_algorithm_dataset():
     """Generate a comprehensive dataset of algorithms for a RAG system."""
     print("Generating algorithm dataset...")
     
-    # Define common algorithm categories
     categories = [
         "Sorting Algorithms",
         "Searching Algorithms",
@@ -32,7 +30,6 @@ def generate_algorithm_dataset():
         "Hash Table Algorithms"
     ]
     
-    # Define algorithm templates for each category
     algorithms = []
     
     # Sorting Algorithms
@@ -1969,13 +1966,13 @@ class HashTableWithLinearProbing:
     for algorithm in algorithms:
         algorithm["id"] = generate_uuid()
     
-    # Generate mock LeetCode problems related to these algorithms
+   
     problems = generate_leetcode_problems(algorithms)
     
-    # Map algorithms to problems
+   
     algorithm_to_problems, problem_to_algorithms = map_algorithms_to_problems(algorithms, problems)
     
-    # Create final dataset
+
     dataset = {
         "algorithms": algorithms,
         "problems": problems,
@@ -1993,7 +1990,7 @@ def generate_leetcode_problems(algorithms):
     
     problems = []
     
-    # Problem templates for different types of algorithms
+    
     problem_templates = {
         "sorting": [
             {
@@ -2176,13 +2173,13 @@ def generate_leetcode_problems(algorithms):
                 "url": f"https://leetcode.com/problems/{template['title'].lower().replace(' ', '-')}/",
                 "similar_questions": [],
                 "hints": ["Try to think about the problem systematically.", "Can you break it down into smaller steps?"],
-                "suitable_algorithms": template.get("suitable_algorithms", [a["name"] for a in category_algorithms][:3])  # Assign some algorithms
+                "suitable_algorithms": template.get("suitable_algorithms", [a["name"] for a in category_algorithms][:3])  
             }
             
             problems.append(problem)
             problem_id += 1
     
-    # Add some more problems to get a reasonable dataset
+
     additional_problems = [
         {
             "id": str(problem_id),

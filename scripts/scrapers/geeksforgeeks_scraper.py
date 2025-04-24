@@ -7,25 +7,21 @@ def get_main_algorithm_categories(base_url):
     response = requests.get(base_url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    # Navigate to the div with id 'header-main_slider-outer-div'
     outer_div = soup.find('div', id='header-main__slider-outer-div')
     if not outer_div:
         print("Could not find the outer div.")
         return []
 
-    # Then go to the inner slider
     slider_div = outer_div.find('div', class_='header-main__slider')
     if not slider_div:
         print("Could not find the slider div.")
         return []
 
-    # Then access the ul with id 'hslider'
     ul_tag = slider_div.find('ul', id='hslider')
     if not ul_tag:
         print("Could not find the <ul> with id 'hslider'.")
         return []
 
-    # Now get all the category <a> links
     links = ul_tag.find_all('a')
     categories = [(link.text.strip(), link['href']) for link in links if link.get('href')]
 
@@ -78,7 +74,7 @@ def scrape_algorithm_page(url, category_name):
         tag_links = tag_section.find_all('a')
         tags = [tag.text.strip() for tag in tag_links]
     else:
-        tags = [category_name]  # Use the last part of the URL as a tag
+        tags = [category_name]  # if tags not available on geeksforgeeks Use the last part of the URL as a tag
     
     return {
         'title': title,
