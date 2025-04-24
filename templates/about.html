@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Algorithm RAG Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .about-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .navbar {
+            background-color: #4a69bd;
+        }
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.8);
+        }
+        .navbar-nav .nav-link:hover {
+            color: white;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tech-badge {
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #4a69bd;
+            border-bottom: 2px solid #4a69bd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">Algorithm RAG Chatbot</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Back to Chat</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container about-container">
+        <h1 class="text-center mb-4">About This System</h1>
+        
+        <div class="section">
+            <h2 class="section-title">What is it?</h2>
+            <p>
+                The Algorithm RAG Chatbot is a Retrieval Augmented Generation (RAG) system designed to help programmers 
+                find the most suitable algorithms for their specific problems. The system combines a vector database of 
+                algorithm information with a language model to provide tailored recommendations.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">How It Works</h2>
+            <p>
+                When you describe a programming problem, the system:
+            </p>
+            <ol>
+                <li>Converts your query into a vector embedding using Sentence Transformers</li>
+                <li>Searches the vector database using FAISS to find the most similar algorithm descriptions</li>
+                <li>Retrieves detailed information about the best matching algorithms</li>
+                <li>Uses a language model to analyze the matches and generate a recommendation tailored to your specific problem</li>
+                <li>Formats and presents the recommendation with explanations of why the algorithm is suitable</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Technology Stack</h2>
+            <p>This project was built using the following technologies:</p>
+            <div class="tech-stack">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">Flask</span>
+                <span class="tech-badge">Sentence Transformers</span>
+                <span class="tech-badge">FAISS</span>
+                <span class="tech-badge">LLM Integration</span>
+                <span class="tech-badge">HTML/CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Bootstrap</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Features</h2>
+            <ul>
+                <li>Natural language understanding of programming problems</li>
+                <li>Semantic search for finding relevant algorithms</li>
+                <li>Detailed explanations of why an algorithm is recommended</li>
+                <li>Information about algorithm complexity and use cases</li>
+                <li>Conversation memory to reference previous queries</li>
+                <li>Special commands for system interaction</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Team</h2>
+            <p>
+                This project was developed as part of a course project on RAG systems and LLM applications.
+            </p>
+            <p>
+                <strong>Team Members:</strong>
+            </p>
+            <ul>
+                <li>Member 1 - RAG System Development</li>
+                <li>Member 2 - Data Collection and Processing</li>
+                <li>Member 3 - LLM Integration</li>
+                <li>Member 4 - Frontend Development and Deployment</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
