@@ -5,8 +5,8 @@
       "sorting",
       "divide and conquer",
       "comparison sort",
-      "divide",
-      "conquer",
+      "strategy",
+      "selecting",
       "quick",
       "partitioning",
       "highly",
@@ -31,341 +31,8 @@
       "Problems where elements need to be partitioned"
     ],
     "implementation": "\"\ndef quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    \n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    \n    return quick_sort(left) + middle + quick_sort(right)\n",
-    "id": "26a6e461-6b36-4fce-a12b-cd67e8f02328",
-    "cluster_id": 11
-  },
-  {
-    "name": "Sliding Window Technique",
-    "description": "The sliding window technique is an algorithmic approach that reduces the use of nested loops and replaces it with a single loop, improving efficiency. It's typically used for problems involving arrays or strings where you need to find or calculate something within a contiguous sequence of elements. The technique involves maintaining a 'window' that either grows or shrinks as needed while moving through the array or string. A common application is finding the longest substring without repeating characters, where the window expands until a duplicate is found, then contracts from the left until the duplicate is removed.",
-    "implementation": "def sliding_window_fixed(arr, k):\n    \"\"\"\n    Fixed-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        k: Size of the window\n        \n    Returns:\n        List of results (e.g., sums, max values) for each window position\n    \"\"\"\n    n = len(arr)\n    \n    # Handle edge cases\n    if n < k:\n        return \"Invalid: window size larger than array\"\n    \n    # Compute the result for first window\n    window_sum = sum(arr[:k])\n    results = [window_sum]\n    \n    # Slide the window from left to right\n    for i in range(n - k):\n        # Subtract the element leaving the window\n        window_sum -= arr[i]\n        # Add the element entering the window\n        window_sum += arr[i + k]\n        # Store result for current window\n        results.append(window_sum)\n        \n    return results\n\n\ndef sliding_window_variable(arr, condition_func):\n    \"\"\"\n    Variable-size sliding window implementation.\n    \n    Args:\n        arr: List or string to apply sliding window on\n        condition_func: Function that determines whether window meets criteria\n                       Should return True if window is valid, False otherwise\n                       \n    Returns:\n        Best window size and position that satisfies the condition\n    \"\"\"\n    n = len(arr)\n    start = 0\n    end = 0\n    best_window = None\n    best_size = 0\n    \n    while end < n:\n        # Expand window by moving right pointer\n        if condition_func(arr[start:end+1]):\n            window_size = end - start + 1\n            \n            # Update best window if current is better\n            if window_size > best_size:\n                best_size = window_size\n                best_window = (start, end)\n                \n            # Try to expand window further\n            end += 1\n        else:\n            # Shrink window from left to maintain validity\n            start += 1\n            \n            # If window becomes invalid, move end pointer too\n            if start > end:\n                end = start\n    \n    return best_window, best_size",
-    "complexity": {
-      "time": "O(n) in most cases, where n is the size of the array/string",
-      "space": "O(1) for the algorithm itself, though extra space may be needed to store results"
-    },
-    "tags": [
-      "array",
-      "string",
-      "sliding window",
-      "optimization",
-      "two pointers",
-      "removed",
-      "repeating",
-      "calculate",
-      "replaces",
-      "typically",
-      "sliding",
-      "something",
-      "technique",
-      "duplicate",
-      "window"
-    ],
-    "url": "https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/",
-    "problem_patterns": [
-      "Finding subarrays/substrings of fixed size k that maximize or minimize a value",
-      "Finding the longest/shortest subarray/substring that satisfies certain conditions",
-      "Detecting patterns in continuous sequences of elements",
-      "Find the length of the longest/shortest substring/subarray",
-      "Problems involving calculating running sums or averages",
-      "Finding minimum window that contains all required elements"
-    ],
-    "leetcode_indicators": [
-      "Maximum sum subarray of size k",
-      "Longest substring without repeating characters",
-      "Minimum window substring",
-      "Maximum sliding window",
-      "Contains all characters from another string"
-    ],
-    "id": "40a27bb0-60e3-45a6-b617-30a668262b67",
-    "cluster_id": 18
-  },
-  {
-    "name": "Bubble Sort Algorithm",
-    "description": "Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity are quite high. Below is the implementation of the bubble sort. It can be optimized by stopping the algorithm if the inner loop didn\u2019t cause any swap. Time Complexity: O(n2)Auxiliary Space: O(1)Please refer Complexity Analysis of Bubble Sort for details.  ",
-    "implementation": "def bubble_sort(arr):\n    n = len(arr)\n    \n    # Traverse through all array elements\n    for i in range(n):\n        # Flag to optimize if no swapping occurs\n        swapped = False\n        \n        # Last i elements are already in place\n        for j in range(0, n-i-1):\n            # Traverse the array from 0 to n-i-1\n            # Swap if the element found is greater than the next element\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n                swapped = True\n        \n        # If no swapping occurred in this pass, array is sorted\n        if not swapped:\n            break\n    \n    return arr",
-    "complexity": {
-      "time": "O(n\u00b2) for worst and average case, O(n) for best case when array is already sorted",
-      "space": "O(1) as it only requires a single additional memory space for the swap operation"
-    },
-    "problem_patterns": [
-      "Sorting small arrays or lists where simplicity is more important than efficiency",
-      "Educational purposes to demonstrate sorting concepts",
-      "When array is nearly sorted (best case scenario)",
-      "When auxiliary space is a concern and an in-place algorithm is required",
-      "When a stable sorting algorithm is needed (preserves relative order of equal elements)"
-    ],
-    "leetcode_indicators": [
-      "Simple sorting problems with small datasets",
-      "Problems requiring in-place sorting with minimal space",
-      "Questions explicitly asking for Bubble Sort implementation",
-      "Sorting problems where stability is required"
-    ],
-    "tags": [
-      "sorting",
-      "comparison sort",
-      "in-place",
-      "stable",
-      "stopping",
-      "suitable",
-      "cause",
-      "swap",
-      "wrong",
-      "algorithm",
-      "time",
-      "sort",
-      "complexity",
-      "bubble"
-    ],
-    "url": "https://www.geeksforgeeks.org/bubble-sort-algorithm/",
-    "id": "d5885c8d-92fb-403a-bfaf-7c9eb62e588c",
-    "cluster_id": 17
-  },
-  {
-    "name": "Insertion Sort Algorithm",
-    "description": "Insertion sort is a simple sorting algorithm that works by iteratively inserting each element of an unsorted list into its correct position in a sorted portion of the list. It is like sorting playing cards in your hands. You split the cards into two groups: the sorted cards and the unsorted cards. Then, you pick a card from the unsorted group and put it in the right place in the sorted group.  arr = {23, 1, 10, 5, 2} Initial: First Pass: Second Pass: Third Pass: Fourth Pass: Final Array: Time Complexity Space Complexity Please refer Complexity Analysis of Insertion Sort for details. Advantages Disadvantages Insertion sort is commonly used in situations where: What are the Boundary Cases of the Insertion Sort algorithm? Insertion sort takes the maximum time to sort if elements are sorted in reverse order. And it takes minimum time (Order of n) when elements are already sorted. What is the Algorithmic Paradigm of the Insertion Sort algorithm? The Insertion Sort algorithm follows an incremental approach. Is Insertion Sort an in-place sorting algorithm? Yes, insertion sort is an in-place sorting algorithm. Is Insertion Sort a stable algorithm? Yes, insertion sort is a stable sorting algorithm. When is the Insertion Sort algorithm used? Insertion sort is used when number of elements is small. It can also be useful when the input array is almost sorted, and only a few elements are misplaced in a complete big array.  ",
-    "implementation": "def insertion_sort(arr):\n    # Traverse through 1 to len(arr)\n    for i in range(1, len(arr)):\n        key = arr[i]\n        \n        # Move elements of arr[0..i-1], that are greater than key,\n        # to one position ahead of their current position\n        j = i - 1\n        while j >= 0 and arr[j] > key:\n            arr[j + 1] = arr[j]\n            j -= 1\n        \n        # Place key at its correct position in sorted array\n        arr[j + 1] = key\n    \n    return arr",
-    "complexity": {
-      "time": "O(n\u00b2) for worst and average case, O(n) for best case when array is already sorted",
-      "space": "O(1) since it sorts in-place requiring only a single additional memory space"
-    },
-    "tags": [
-      "sorting",
-      "comparison sort",
-      "in-place",
-      "stable",
-      "adaptive",
-      "elements",
-      "place",
-      "unsorted",
-      "algorithm",
-      "sorted",
-      "cards",
-      "pass",
-      "sort",
-      "insertion"
-    ],
-    "url": "https://www.geeksforgeeks.org/insertion-sort-algorithm/",
-    "problem_patterns": [
-      "Sorting small arrays where simplicity and low overhead are important",
-      "Sorting arrays that are already partially sorted",
-      "Online sorting where items come one at a time and need to be inserted into a sorted sequence",
-      "As a component in more complex algorithms like Shell Sort",
-      "When a stable sorting algorithm is needed"
-    ],
-    "leetcode_indicators": [
-      "Problems requiring insertion into a sorted array",
-      "Questions explicitly asking for Insertion Sort implementation",
-      "Sorting problems with small input sizes",
-      "Problems where elements arrive one at a time and need to be placed correctly",
-      "Situations where nearly sorted arrays need to be fully sorted efficiently"
-    ],
-    "id": "bd9ef5d4-63ea-4fbf-90bf-0cd70ec127f7",
-    "cluster_id": 10
-  },
-  {
-    "name": "Selection Sort",
-    "description": "Selection Sort is a comparison-based sorting algorithm. It sorts an array by repeatedly selecting the smallest (or largest) element from the unsorted portion and swapping it with the first unsorted element. This process continues until the entire array is sorted. Time Complexity: O(n2) ,as there are two nested loops: Auxiliary Space: O(1) as the only extra memory used is for temporary variables. Question 1: Is Selection Sort a stable sorting algorithm? Answer: No, Selection Sort is not stable as it may change the relative order of equal elements. Question 2: What is the time complexity of Selection Sort? Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases. Question 3: Does Selection Sort require extra memory? Answer: No, Selection Sort is an in-place sorting algorithm and requires only O(1) additional space. Question 4: When is it best to use Selection Sort? Answer: Selection Sort is best used for small datasets, educational purposes, or when memory usage needs to be minimal. Question 5: How does Selection Sort differ from Bubble Sort? Answer: Selection Sort selects the minimum element and places it in the correct position with fewer swaps, while Bubble Sort repeatedly swaps adjacent elements to sort the array.  ",
-    "implementation": "def insertion_sort(arr):\n    # Traverse through 1 to len(arr)\n    for i in range(1, len(arr)):\n        key = arr[i]\n        \n        # Move elements of arr[0..i-1], that are greater than key,\n        # to one position ahead of their current position\n        j = i - 1\n        while j >= 0 and arr[j] > key:\n            arr[j + 1] = arr[j]\n            j -= 1\n        \n        # Place key at its correct position in sorted array\n        arr[j + 1] = key\n    \n    return arr",
-    "complexity": {
-      "time": "Answer: Selection Sort has a time complexity of O(n^2) in the best, average, and worst cases.",
-      "space": ""
-    },
-    "tags": [
-      "sorting",
-      "comparison sort",
-      "in-place",
-      "unstable",
-      "extra",
-      "swaps",
-      "complexity",
-      "time",
-      "best",
-      "memory",
-      "question",
-      "answer",
-      "sort",
-      "selection"
-    ],
-    "url": "https://www.geeksforgeeks.org/selection-sort-algorithm-2/",
-    "problem_patterns": [
-      "Sorting small arrays where simplicity is more important than efficiency",
-      "When memory usage needs to be minimized (performs minimum number of swaps)",
-      "Educational purposes to demonstrate comparison-based sorting",
-      "Systems where write operations are significantly more expensive than read operations",
-      "When finding the minimum/maximum elements in an array is a recurring operation"
-    ],
-    "leetcode_indicators": [
-      "Simple sorting problems with small datasets",
-      "Problems explicitly asking for Selection Sort implementation",
-      "Questions involving finding minimum/maximum elements repeatedly",
-      "Problems where minimizing the number of swaps is important"
-    ],
-    "id": "5c96deac-acce-43e7-8f51-2b76b3807b62",
-    "cluster_id": 10
-  },
-  {
-    "name": "Radix Sort",
-    "description": "Radix Sort is a linear sorting algorithm that sorts elements by processing them digit by digit. It is an efficient sorting algorithm for integers or strings with fixed-size keys. Rather than comparing elements directly, Radix Sort distributes the elements into buckets based on each digit\u2019s value. By repeatedly sorting the elements by their significant digits, from the least significant to the most significant, Radix Sort achieves the final sorted order. The key idea behind Radix Sort is to exploit the concept of place value. It assumes that sorting numbers digit by digit will eventually result in a fully sorted list. Radix Sort can be performed using different variations, such as Least Significant Digit (LSD) Radix Sort or Most Significant Digit (MSD) Radix Sort. To perform radix sort on the array [170, 45, 75, 90, 802, 24, 2, 66], we follow these steps: How does Radix Sort Algorithm work | Step 1 Step 1: Find the largest element in the array, which is 802. It has three digits, so we will iterate three times, once for each significant place. Step 2: Sort the elements based on the unit place digits (X=0). We use a stable sorting technique, such as counting sort, to sort the digits at each significant place. It\u2019s important to understand that the default implementation of counting sort is unstable i.e. same keys can be in a different order than the input array. To solve this problem, We can iterate the input array in reverse order to build the output array. This strategy helps us to keep the same keys in the same order as they appear in the input array. Sorting based on the unit place: How does Radix Sort Algorithm work | Step 2 Step 3: Sort the elements based on the tens place digits. Sorting based on the tens place: How does Radix Sort Algorithm work | Step 3 Step 4: Sort the elements based on the hundreds place digits. Sorting based on the hundreds place: How does Radix Sort Algorithm work | Step 4 Step 5: The array is now sorted in ascending order. The final sorted array using radix sort is [2, 24, 45, 66, 75, 90, 170, 802]. How does Radix Sort Algorithm work | Step 5 Below is the implementation for the above illustrations: Time Complexity: Auxiliary Space:  ",
-    "implementation": "def radix_sort(arr):\n    # Find the maximum number to know number of digits\n    max_num = max(arr)\n    \n    # Do counting sort for every digit\n    # Start from least significant digit to most significant digit\n    exp = 1\n    while max_num // exp > 0:\n        counting_sort(arr, exp)\n        exp *= 10\n    \n    return arr\n\ndef counting_sort(arr, exp):\n    n = len(arr)\n    output = [0] * n\n    count = [0] * 10  # Range for digits is 0-9\n    \n    # Store count of occurrences in count[]\n    for i in range(n):\n        index = (arr[i] // exp) % 10\n        count[index] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this digit in output[]\n    for i in range(1, 10):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, we iterate in reverse order\n    for i in range(n - 1, -1, -1):\n        index = (arr[i] // exp) % 10\n        output[count[index] - 1] = arr[i]\n        count[index] -= 1\n    \n    # Copy the output array to arr[]\n    for i in range(n):\n        arr[i] = output[i]",
-    "complexity": {
-      "time": "O(d*(n+k)) where d is the number of digits, n is the number of elements, and k is the range of digits (typically 10 for decimal)",
-      "space": "O(n+k) for storing the output array and count array in counting sort"
-    },
-    "tags": [
-      "sorting",
-      "non-comparison sort",
-      "integer sort",
-      "linear time",
-      "based",
-      "work",
-      "digits",
-      "place",
-      "digit",
-      "significant",
-      "step",
-      "sort",
-      "radix"
-    ],
-    "url": "https://www.geeksforgeeks.org/radix-sort/",
-    "problem_patterns": [
-      "Sorting integers where the range of possible values is bounded",
-      "When sorting stability is important (original order of equal elements is preserved)",
-      "Sorting fixed-length strings lexicographically",
-      "Situations where comparison-based sorting would be inefficient",
-      "When sorting large numbers with relatively few digits"
-    ],
-    "leetcode_indicators": [
-      "Problems involving sorting of integers within a specific range",
-      "Scenarios where stable sorting is required",
-      "Questions explicitly asking for Radix Sort implementation",
-      "When linear time sorting is needed and comparison-based methods are too slow",
-      "Problems involving sorting where numbers have a known digit count"
-    ],
-    "id": "74a33dfe-2eb2-4a2f-9c72-31fdde88e399",
-    "cluster_id": 1
-  },
-  {
-    "name": "Counting Sort",
-    "description": "Counting Sort is a non-comparison-based sorting algorithm. It is particularly efficient when the range of input values is small compared to the number of elements to be sorted. The basic idea behind Counting Sort is to count the frequency of each distinct element in the input array and use that information to place the elements in their correct sorted positions. Step1 :  Step 2:  Step 3:  Step 4:  Step 5:  Step 6: For i = 6, Update outputArray[ countArray[ inputArray[6] ] \u2013 1] = inputArray[6]Also, update countArray[ inputArray[6] ]  = countArray[ inputArray[6] ]- \u2013  Step 7: For i = 5, Update outputArray[ countArray[ inputArray[5] ] \u2013 1] = inputArray[5]Also, update countArray[ inputArray[5] ]  = countArray[ inputArray[5] ]- \u2013  Step 8: For i = 4, Update outputArray[ countArray[ inputArray[4] ] \u2013 1] = inputArray[4]Also, update countArray[ inputArray[4] ]  = countArray[ inputArray[4] ]- \u2013  Step 9: For i = 3, Update outputArray[ countArray[ inputArray[3] ] \u2013 1] = inputArray[3]Also, update countArray[ inputArray[3] ]  = countArray[ inputArray[3] ]- \u2013  Step 10: For i = 2, Update outputArray[ countArray[ inputArray[2] ] \u2013 1] = inputArray[2]Also, update countArray[ inputArray[2] ]  = countArray[ inputArray[2] ]- \u2013  Step 11: For i = 1, Update outputArray[ countArray[ inputArray[1] ] \u2013 1] = inputArray[1]Also, update countArray[ inputArray[1] ]  = countArray[ inputArray[1] ]- \u2013  Step 12: For i = 0, Update outputArray[ countArray[ inputArray[0] ] \u2013 1] = inputArray[0]Also, update countArray[ inputArray[0] ]  = countArray[ inputArray[0] ]- \u2013  Below is the implementation of the above algorithm:  ",
-    "implementation": "def counting_sort(arr):\n    # Find the range of input elements\n    if not arr:\n        return []\n        \n    # Finding the maximum and minimum values\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Size of count array\n    range_of_elements = max_val - min_val + 1\n    \n    # Create a count array and output array\n    count = [0] * range_of_elements\n    output = [0] * len(arr)\n    \n    # Store count of each element\n    for num in arr:\n        count[num - min_val] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this element in output array\n    for i in range(1, len(count)):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, iterate in reverse order\n    for i in range(len(arr) - 1, -1, -1):\n        output[count[arr[i] - min_val] - 1] = arr[i]\n        count[arr[i] - min_val] -= 1\n    \n    return output",
-    "complexity": {
-      "time": "O(n+k) where n is the number of elements and k is the range of input (max element - min element + 1)",
-      "space": "O(n+k) for the output array and count array"
-    },
-    "tags": [
-      "sorting",
-      "non-comparison sort",
-      "integer sort",
-      "linear time",
-      "stable",
-      "sort",
-      "sorted",
-      "input",
-      "counting",
-      "also",
-      "outputarray",
-      "step",
-      "update",
-      "countarray",
-      "inputarray"
-    ],
-    "url": "https://www.geeksforgeeks.org/counting-sort/",
-    "problem_patterns": [
-      "Sorting integers within a small range",
-      "When stability in sorting is required (original order of equal elements is preserved)",
-      "As a subroutine in other sorting algorithms like Radix Sort",
-      "When the range of possible values is known in advance",
-      "Situations where linear time performance is crucial"
-    ],
-    "leetcode_indicators": [
-      "Problems involving sorting of integers with a limited range",
-      "Questions where the input consists of a small set of integers repeated many times",
-      "Scenarios where maintaining the original order of equal elements is necessary",
-      "Problems explicitly asking for Counting Sort implementation",
-      "When sorting needs to be done in linear time"
-    ],
-    "id": "f403bd03-2092-49ab-b87c-1145383493e0",
+    "id": "62a41d19-471c-4370-943d-a1f335ab4531",
     "cluster_id": 8
-  },
-  {
-    "name": "Bucket Sort \u2013 Data Structures and Algorithms Tutorials",
-    "description": "Bucket sort is a sorting technique that involves dividing elements into various groups, or buckets. These buckets are formed by uniformly distributing the elements. Once the elements are divided into buckets, they can be sorted using any other sorting algorithm. Finally, the sorted elements are gathered together in an ordered fashion. Create n empty buckets (Or lists) and do the following for every array element arr[i]. To apply bucket sort on the input array [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68], we follow these steps: Step 1: Create an array of size 10, where each slot represents a bucket. Creating Buckets for sorting Step 2: Insert elements into the buckets from the input array based on their range. Inserting elements into the buckets: Inserting Array elements into respective buckets Step 3: Sort the elements within each bucket. In this example, we use quicksort (or any stable sorting algorithm) to sort the elements within each bucket. Sorting the elements within each bucket: Sorting individual bucket Step 4: Gather the elements from each bucket and put them back into the original array. Gathering elements from each bucket: Inserting buckets in ascending order into the resultant array Step 5: The original array now contains the sorted elements. The final sorted array using bucket sort for the given input is [0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94]. Return the Sorted Array Below is the implementation for the Bucket Sort: Worst Case Time Complexity: O(n2)  The worst case happens when one bucket gets all the elements. In this case, we will be running insertion sort on all items which will make the time complexity as O(n2).  We can reduce the worst case time complexity to O(n Log n) by using a O(n Log n) algorithm like Merge Sort or Heap Sort to sort the individual buckets, but that will improve the algorithm time for cases when buckets have small number of items as insertion sort works better for small arrays. Best Case Time Complexity : O(n + k)  The best case happens when every bucket gets equal number of elements. In this case every call to insertion sort will take constant time as the number of items in every bucket would be constant (Assuming that k is linearly proportional to n). Auxiliary Space: O(n+k)  ",
-    "implementation": "def counting_sort(arr):\n    # Find the range of input elements\n    if not arr:\n        return []\n        \n    # Finding the maximum and minimum values\n    max_val = max(arr)\n    min_val = min(arr)\n    \n    # Size of count array\n    range_of_elements = max_val - min_val + 1\n    \n    # Create a count array and output array\n    count = [0] * range_of_elements\n    output = [0] * len(arr)\n    \n    # Store count of each element\n    for num in arr:\n        count[num - min_val] += 1\n    \n    # Change count[i] so that count[i] now contains\n    # actual position of this element in output array\n    for i in range(1, len(count)):\n        count[i] += count[i - 1]\n    \n    # Build the output array\n    # To make it stable, iterate in reverse order\n    for i in range(len(arr) - 1, -1, -1):\n        output[count[arr[i] - min_val] - 1] = arr[i]\n        count[arr[i] - min_val] -= 1\n    \n    return output",
-    "complexity": {
-      "time": "O(n+k) average case where n is the number of elements and k is the number of buckets; O(n\u00b2) worst case when all elements are placed in a single bucket",
-      "space": "O(n+k) for the n elements across k buckets"
-    },
-    "tags": [
-      "sorting",
-      "distribution sort",
-      "comparison sort",
-      "external sort",
-      "stable",
-      "every",
-      "step",
-      "time",
-      "array",
-      "case",
-      "sort",
-      "elements",
-      "buckets",
-      "bucket"
-    ],
-    "url": "https://www.geeksforgeeks.org/bucket-sort-2/",
-    "problem_patterns": [
-      "Sorting data that is uniformly distributed over a range",
-      "When input is expected to be distributed uniformly",
-      "Sorting floating point numbers in the range [0.0, 1.0]",
-      "External sorting where data doesn't fit in memory",
-      "When stable sorting is required and data distribution is known"
-    ],
-    "leetcode_indicators": [
-      "Problems involving sorting of uniformly distributed data",
-      "Scenarios where the data range is known in advance",
-      "Questions explicitly asking for Bucket Sort implementation",
-      "When sorting floating point numbers in a specific range",
-      "Problems where you can take advantage of expected uniform distribution"
-    ],
-    "id": "535dcebc-c781-4b1c-a016-bf0a345da49f",
-    "cluster_id": 10
-  },
-  {
-    "name": "Linear Search Algorithm",
-    "description": "Given an array, arr of n integers, and an integer element x, find whether element x is present in the array. Return the index of the first occurrence of x in the array, or -1 if it doesn\u2019t exist. Input: arr[] = [1, 2, 3, 4], x = 3Output: 2Explanation: There is one test case with array as [1, 2, 3 4] and element to be searched as 3. Since 3 is present at index 2, the output is 2. Input: arr[] = [10, 8, 30, 4, 5], x = 5Output: 4Explanation: For array [10, 8, 30, 4, 5], the element to be searched is 5 and it is at index 4. So, the output is 4. Input: arr[] = [10, 8, 30], x = 6Output: -1Explanation: The element to be searched is 6 and its not present, so we return -1. In Linear Search, we iterate over all the elements of the array and check if it the current element is equal to the target element. If we find any element to be equal to the target element, then return the index of the current element. Otherwise, if no element is equal to the target element, then return -1 as the element is not found. Linear search is also known as sequential search. For example: Consider the array arr[] = {10, 50, 30, 70, 80, 20, 90, 40} and key = 30  Below is the implementation of the linear search algorithm: Time Complexity: Auxiliary Space: O(1) as except for the variable to iterate through the list, no other variable is used.  ",
-    "implementation": "def linear_search(arr, target):\n    \"\"\"\n    Performs a linear search to find target in arr.\n    \n    Args:\n        arr: List of elements to search through\n        target: Element to search for\n        \n    Returns:\n        Index of the target if found, -1 otherwise\n    \"\"\"\n    # Iterate through each element in the array\n    for i in range(len(arr)):\n        # If current element matches target, return its index\n        if arr[i] == target:\n            return i\n    \n    # If target is not found, return -1\n    return -1\n\n# Variation: Linear search that returns all occurrences\ndef linear_search_all_occurrences(arr, target):\n    \"\"\"\n    Finds all occurrences of target in arr.\n    \n    Args:\n        arr: List of elements to search through\n        target: Element to search for\n        \n    Returns:\n        List of indices where target appears\n    \"\"\"\n    indices = []\n    \n    for i in range(len(arr)):\n        if arr[i] == target:\n            indices.append(i)\n    \n    return indices",
-    "complexity": {
-      "time": "O(n) for worst and average case, O(1) for best case when the target is at the first position",
-      "space": "O(1) as it requires only a constant amount of extra space regardless of input size"
-    },
-    "tags": [
-      "searching",
-      "sequential search",
-      "brute force",
-      "array",
-      "list",
-      "search",
-      "target",
-      "searched",
-      "index",
-      "return",
-      "element"
-    ],
-    "url": "https://www.geeksforgeeks.org/linear-search/",
-    "problem_patterns": [
-      "Searching for an element in an unsorted array",
-      "When the list is small enough that the overhead of more complex algorithms isn't justified",
-      "When a search needs to be performed only once on a dataset",
-      "Searching for an element that matches specific criteria rather than an exact value",
-      "When the data structure doesn't support random access (like linked lists)"
-    ],
-    "leetcode_indicators": [
-      "Basic searching problems with unsorted arrays",
-      "Problems explicitly asking for a linear search implementation",
-      "When the list needs to be searched for multiple conditions",
-      "Problems where other search algorithms cannot be applied due to data structure constraints",
-      "When searching through a small dataset"
-    ],
-    "id": "3a224a77-8ad5-4cfa-8611-d1900c87129f",
-    "cluster_id": 9
   },
   {
     "name": "Merge Sort",
@@ -373,15 +40,15 @@
       "sorting",
       "divide and conquer",
       "stable sort",
-      "divides",
-      "divide",
       "conquer",
+      "stable",
+      "sorts",
       "merges",
       "combined",
       "array",
       "merge",
-      "sorted",
-      "halves"
+      "halves",
+      "sorted"
     ],
     "description": "Merge sort is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves. The merge step is the key operation, where the two sorted sub-arrays are combined to form a single sorted array.",
     "complexity": {
@@ -399,8 +66,8 @@
       "Problems involving counting inversions"
     ],
     "implementation": "\ndef merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    \n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    \n    return merge(left, right)\n\ndef merge(left, right):\n    result = []\n    i = j = 0\n    \n    while i < len(left) and j < len(right):\n        if left[i] <= right[j]:\n            result.append(left[i])\n            i += 1\n        else:\n            result.append(right[j])\n            j += 1\n    \n    result.extend(left[i:])\n    result.extend(right[j:])\n    return result\n",
-    "id": "113121ef-4aa1-4db3-bf9a-c58fd25dde4e",
-    "cluster_id": 11
+    "id": "2e6e60af-42dd-43d6-ab07-ebece9734190",
+    "cluster_id": 8
   },
   {
     "name": "Heap Sort",
@@ -408,11 +75,11 @@
       "sorting",
       "comparison sort",
       "in-place",
-      "comparison",
-      "inserting",
+      "input",
+      "divides",
       "shrinks",
       "iteratively",
-      "divides",
+      "inserting",
       "extracting",
       "sorted",
       "heap",
@@ -435,8 +102,8 @@
       "Sorting with minimal extra space"
     ],
     "implementation": "\ndef heapify(arr, n, i):\n    largest = i\n    left = 2 * i + 1\n    right = 2 * i + 2\n    \n    if left < n and arr[left] > arr[largest]:\n        largest = left\n    \n    if right < n and arr[right] > arr[largest]:\n        largest = right\n    \n    if largest != i:\n        arr[i], arr[largest] = arr[largest], arr[i]\n        heapify(arr, n, largest)\n\ndef heap_sort(arr):\n    n = len(arr)\n    \n    # Build max heap\n    for i in range(n // 2 - 1, -1, -1):\n        heapify(arr, n, i)\n    \n    # Extract elements one by one\n    for i in range(n - 1, 0, -1):\n        arr[i], arr[0] = arr[0], arr[i]\n        heapify(arr, i, 0)\n    \n    return arr\n",
-    "id": "e2179e53-dc26-4efa-aa7a-9017b7bbed07",
-    "cluster_id": 10
+    "id": "880f43d7-96b1-45ca-9c81-996b4c5bc1f0",
+    "cluster_id": 8
   },
   {
     "name": "Binary Search",
@@ -444,13 +111,13 @@
       "searching",
       "divide and conquer",
       "sorted array",
-      "finding",
-      "dividing",
-      "could",
+      "contain",
+      "repeatedly",
+      "portion",
       "narrowed",
       "locations",
       "half",
-      "contain",
+      "dividing",
       "list",
       "item"
     ],
@@ -471,8 +138,8 @@
       "Problems involving rotated sorted arrays"
     ],
     "implementation": "\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1  # Target not found\n",
-    "id": "abb41f0e-dc3e-461d-b3d5-9738d5d00b9d",
-    "cluster_id": 15
+    "id": "26099e2c-d358-4d93-8b45-4cc4ac1516f2",
+    "cluster_id": 4
   },
   {
     "name": "Depth-First Search (DFS)",
@@ -480,14 +147,14 @@
       "searching",
       "graph algorithm",
       "tree traversal",
-      "structures",
+      "first",
       "root",
       "traversing",
+      "backtracking",
       "starts",
       "explores",
       "depth",
       "branch",
-      "backtracking",
       "along"
     ],
     "description": "Depth-First Search is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.",
@@ -509,8 +176,8 @@
       "Problems requiring backtracking"
     ],
     "implementation": "\ndef dfs(graph, start, visited=None):\n    if visited is None:\n        visited = set()\n    \n    visited.add(start)\n    print(start, end=' ')\n    \n    for neighbor in graph[start]:\n        if neighbor not in visited:\n            dfs(graph, neighbor, visited)\n    \n    return visited\n",
-    "id": "be68a447-3860-436e-873e-d0bbf744ea8b",
-    "cluster_id": 4
+    "id": "c8deeb3b-d101-41ef-a4c1-d0ede9ed56fd",
+    "cluster_id": 6
   },
   {
     "name": "Breadth-First Search (BFS)",
@@ -518,15 +185,15 @@
       "searching",
       "graph algorithm",
       "tree traversal",
-      "explores",
       "prior",
       "neighbor",
+      "moving",
       "level",
       "breadth",
       "arbitrary",
       "tree",
-      "nodes",
       "graph",
+      "nodes",
       "depth"
     ],
     "description": "Breadth-First Search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node in a graph) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.",
@@ -547,8 +214,8 @@
       "Problems involving word ladder or transformation"
     ],
     "implementation": "\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    \n    while queue:\n        vertex = queue.popleft()\n        print(vertex, end=' ')\n        \n        for neighbor in graph[vertex]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    \n    return visited\n",
-    "id": "a36ec1e3-f266-4328-99ef-f04c5e51099e",
-    "cluster_id": 4
+    "id": "902a354d-685c-45e3-97fe-5c29d7b09df1",
+    "cluster_id": 6
   },
   {
     "name": "Dijkstra's Algorithm",
@@ -558,14 +225,13 @@
       "weighted graph",
       "graph",
       "shortest_path",
+      "updates",
+      "priority",
+      "select",
       "processed",
-      "paths",
       "neighbors",
-      "negative",
       "greedily",
       "distances",
-      "weights",
-      "dijkstra",
       "closest"
     ],
     "description": "Dijkstra's algorithm is used to find the shortest paths between nodes in a graph with non-negative edge weights. It uses a priority queue to greedily select the closest vertex that has not yet been processed and updates the distances to all its neighbors.",
@@ -584,8 +250,8 @@
       "Network routing problems"
     ],
     "implementation": "\nimport heapq\n\ndef dijkstra(graph, start):\n    # Initialize distances with infinity for all nodes except start\n    distances = {node: float('infinity') for node in graph}\n    distances[start] = 0\n    \n    # Priority queue to store vertices to be processed\n    priority_queue = [(0, start)]\n    \n    while priority_queue:\n        current_distance, current_node = heapq.heappop(priority_queue)\n        \n        # If current distance is greater than the known distance, skip\n        if current_distance > distances[current_node]:\n            continue\n        \n        # Process neighbors\n        for neighbor, weight in graph[current_node].items():\n            distance = current_distance + weight\n            \n            # If we found a shorter path, update and add to queue\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(priority_queue, (distance, neighbor))\n    \n    return distances\n",
-    "id": "769b1caa-976e-4774-995f-c455f773f289",
-    "cluster_id": 0
+    "id": "1f20bef5-784e-40bd-92a5-79fab9dbe6e7",
+    "cluster_id": 2
   },
   {
     "name": "Kruskal's Algorithm",
@@ -593,14 +259,14 @@
       "graph algorithm",
       "minimum spanning tree",
       "greedy",
-      "cycle",
-      "create",
-      "spanning",
-      "weighted",
-      "long",
       "kruskal",
       "edges",
+      "cycle",
       "connected",
+      "spanning",
+      "smallest",
+      "long",
+      "create",
       "adds"
     ],
     "description": "Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It adds the edges in order of their weight (smallest to largest) as long as adding an edge doesn't create a cycle.",
@@ -619,8 +285,8 @@
       "Network design optimization"
     ],
     "implementation": "\ndef find(parent, i):\n    if parent[i] != i:\n        parent[i] = find(parent, parent[i])\n    return parent[i]\n\ndef union(parent, rank, x, y):\n    root_x = find(parent, x)\n    root_y = find(parent, y)\n    \n    if root_x == root_y:\n        return\n    \n    if rank[root_x] < rank[root_y]:\n        parent[root_x] = root_y\n    elif rank[root_x] > rank[root_y]:\n        parent[root_y] = root_x\n    else:\n        parent[root_y] = root_x\n        rank[root_x] += 1\n\ndef kruskal(graph, vertices):\n    result = []\n    i, e = 0, 0\n    \n    # Sort edges by weight\n    graph = sorted(graph, key=lambda item: item[2])\n    \n    parent = []\n    rank = []\n    \n    # Initialize parent and rank arrays\n    for node in range(vertices):\n        parent.append(node)\n        rank.append(0)\n    \n    # Process edges\n    while e < vertices - 1 and i < len(graph):\n        u, v, w = graph[i]\n        i += 1\n        \n        x = find(parent, u)\n        y = find(parent, v)\n        \n        if x != y:\n            e += 1\n            result.append([u, v, w])\n            union(parent, rank, x, y)\n    \n    return result\n",
-    "id": "a49bf13a-548a-4c9f-ba43-9507a8a6310e",
-    "cluster_id": 5
+    "id": "58a726c8-3afe-47a7-b6f2-fb2b50e462c6",
+    "cluster_id": 15
   },
   {
     "name": "Topological Sort",
@@ -629,10 +295,10 @@
       "directed acyclic graph",
       "ordering",
       "edge",
-      "every",
       "vertices",
-      "topological",
       "comes",
+      "topological",
+      "every",
       "acyclic",
       "vertex",
       "directed"
@@ -653,8 +319,8 @@
       "Problems involving dependency ordering"
     ],
     "implementation": "\nfrom collections import defaultdict, deque\n\ndef topological_sort(graph):\n    # Count in-degrees of all vertices\n    in_degree = {node: 0 for node in graph}\n    for node in graph:\n        for neighbor in graph[node]:\n            in_degree[neighbor] += 1\n    \n    # Queue with all nodes that have no incoming edges\n    queue = deque([node for node, degree in in_degree.items() if degree == 0])\n    result = []\n    \n    # Process nodes\n    while queue:\n        node = queue.popleft()\n        result.append(node)\n        \n        # Decrease in-degree of neighbors\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n    \n    # Check if there's a cycle\n    if len(result) != len(graph):\n        return []  # Graph has at least one cycle\n    \n    return result\n",
-    "id": "8de913dc-f6be-4752-8a2b-5caeac7ee89b",
-    "cluster_id": 0
+    "id": "17064309-b19e-42e8-aa53-fcb1b8160c44",
+    "cluster_id": 2
   },
   {
     "name": "Linked List Reversal",
@@ -664,14 +330,14 @@
       "in-place",
       "data_structures",
       "linear",
+      "singly",
       "reverses",
       "reversal",
-      "previous",
+      "place",
       "iterating",
       "done",
-      "changing",
-      "linked",
       "node",
+      "linked",
       "next",
       "list"
     ],
@@ -691,8 +357,8 @@
       "Problems involving list direction manipulation"
     ],
     "implementation": "\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    \n    while current:\n        # Store next node\n        next_node = current.next\n        \n        # Reverse the pointer\n        current.next = prev\n        \n        # Move to next iteration\n        prev = current\n        current = next_node\n    \n    # Return new head (which is the previous tail)\n    return prev\n",
-    "id": "7ecab621-dee9-4ce0-8bab-c70007f9d130",
-    "cluster_id": 6
+    "id": "a415732d-3fbc-4acc-b9c8-261ed003a205",
+    "cluster_id": 4
   },
   {
     "name": "Linked List Cycle Detection",
@@ -702,14 +368,14 @@
       "cycle detection",
       "data_structures",
       "linear",
+      "catch",
+      "known",
       "hare",
-      "floyd",
-      "fast",
+      "eventually",
       "determines",
       "detection",
-      "catch",
-      "list",
       "linked",
+      "list",
       "pointer",
       "cycle"
     ],
@@ -729,8 +395,8 @@
       "Check if a linked list contains a loop"
     ],
     "implementation": "\ndef has_cycle(head):\n    if not head or not head.next:\n        return False\n    \n    # Initialize slow and fast pointers\n    slow = head\n    fast = head\n    \n    # Move slow by 1 and fast by 2\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        \n        # If they meet, there's a cycle\n        if slow == fast:\n            return True\n    \n    # If fast reaches the end, there's no cycle\n    return False\n\ndef find_cycle_start(head):\n    if not head or not head.next:\n        return None\n    \n    # First, detect if there's a cycle\n    slow = fast = head\n    has_cycle = False\n    \n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        \n        if slow == fast:\n            has_cycle = True\n            break\n    \n    # If no cycle, return None\n    if not has_cycle:\n        return None\n    \n    # Reset slow to head and keep fast at meeting point\n    slow = head\n    \n    # Move both at same pace until they meet\n    while slow != fast:\n        slow = slow.next\n        fast = fast.next\n    \n    # Return the start of the cycle\n    return slow\n",
-    "id": "ddad4fa9-a6d4-4410-8a71-83cc20973769",
-    "cluster_id": 5
+    "id": "8ee8179c-ba82-4a61-b819-e36c7efb55ff",
+    "cluster_id": 14
   },
   {
     "name": "Linked List Rotation",
@@ -740,9 +406,9 @@
       "two pointers",
       "data_structures",
       "linear",
-      "tail",
       "rotation",
       "rotates",
+      "performed",
       "head",
       "connecting",
       "breaking",
@@ -767,8 +433,8 @@
       "Shift node positions in a linked list"
     ],
     "implementation": "\ndef rotate_right(head, k):\n    # Handle edge cases\n    if not head or not head.next or k == 0:\n        return head\n    \n    # Find the length of the list and the tail\n    current = head\n    length = 1\n    \n    while current.next:\n        current = current.next\n        length += 1\n    \n    # Connect tail to head to make it circular\n    tail = current\n    tail.next = head\n    \n    # Calculate the number of effective rotations\n    k = k % length\n    \n    # Find the new tail: (length - k - 1)th node\n    current = head\n    for _ in range(length - k - 1):\n        current = current.next\n    \n    # The new head is the next node\n    new_head = current.next\n    \n    # Break the circle\n    current.next = None\n    \n    return new_head\n",
-    "id": "50386326-4292-41f1-9081-06086439be0b",
-    "cluster_id": 6
+    "id": "35a1b5c8-fad6-4ed6-bd8e-8cb8757d5f2b",
+    "cluster_id": 4
   },
   {
     "name": "Linked List Merge",
@@ -776,14 +442,14 @@
       "linked list",
       "two pointers",
       "sorting",
-      "correct",
       "single",
       "merge",
       "comparing",
       "linking",
+      "correct",
       "combines",
-      "sorted",
       "list",
+      "sorted",
       "lists",
       "linked"
     ],
@@ -803,8 +469,8 @@
       "Sort a linked list using merge sort"
     ],
     "implementation": "\ndef merge_two_lists(l1, l2):\n    # Create a dummy head\n    dummy = ListNode(0)\n    current = dummy\n    \n    # Compare nodes and link them in order\n    while l1 and l2:\n        if l1.val <= l2.val:\n            current.next = l1\n            l1 = l1.next\n        else:\n            current.next = l2\n            l2 = l2.next\n        current = current.next\n    \n    # Link remaining nodes\n    current.next = l1 if l1 else l2\n    \n    return dummy.next\n",
-    "id": "daea5126-4f8f-48f1-84ed-01a0122dfeeb",
-    "cluster_id": 6
+    "id": "4075164e-26ec-4b4d-a0fd-8707080dce41",
+    "cluster_id": 8
   },
   {
     "name": "Stack Implementation",
@@ -814,9 +480,9 @@
       "LIFO",
       "data_structures",
       "linear",
-      "removing",
-      "principle",
+      "stacks",
       "primary",
+      "follows",
       "push",
       "lifo",
       "last",
@@ -839,8 +505,8 @@
       "Undo operations"
     ],
     "implementation": "\n# Array-based stack implementation\nclass Stack:\n    def __init__(self):\n        self.items = []\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def push(self, item):\n        self.items.append(item)\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty stack\")\n        return self.items.pop()\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty stack\")\n        return self.items[-1]\n    \n    def size(self):\n        return len(self.items)\n\n# Linked list-based stack implementation\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nclass LinkedStack:\n    def __init__(self):\n        self.top = None\n        self.size = 0\n    \n    def is_empty(self):\n        return self.top is None\n    \n    def push(self, value):\n        new_node = Node(value)\n        new_node.next = self.top\n        self.top = new_node\n        self.size += 1\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty stack\")\n        value = self.top.value\n        self.top = self.top.next\n        self.size -= 1\n        return value\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty stack\")\n        return self.top.value\n",
-    "id": "cdc54b68-d38c-43ba-9b7a-d0be0ca1783e",
-    "cluster_id": 3
+    "id": "12b329e9-5e2d-40f0-a5ec-6f47c621cc20",
+    "cluster_id": 1
   },
   {
     "name": "Balanced Parentheses Check",
@@ -848,9 +514,9 @@
       "stack",
       "string",
       "validation",
-      "matching",
-      "encountered",
+      "verify",
       "closing",
+      "check",
       "brackets",
       "braces",
       "parentheses",
@@ -874,8 +540,8 @@
       "Expression validation"
     ],
     "implementation": "\ndef is_balanced(expression):\n    stack = []\n    \n    # Dictionary to map closing brackets to their opening counterparts\n    brackets_map = {')': '(', '}': '{', ']': '['}\n    \n    # Scan the expression\n    for char in expression:\n        # If it's an opening bracket, push to stack\n        if char in '({[':\n            stack.append(char)\n        # If it's a closing bracket\n        elif char in ')}]':\n            # If stack is empty or brackets don't match, it's not balanced\n            if not stack or stack.pop() != brackets_map[char]:\n                return False\n    \n    # If stack is empty, all brackets were matched\n    return len(stack) == 0\n",
-    "id": "d0424ec8-8f0d-477b-af94-4bfed0eae97d",
-    "cluster_id": 12
+    "id": "6c8c478b-db64-47c8-af04-e46d47c4f7b5",
+    "cluster_id": 0
   },
   {
     "name": "Infix to Postfix Conversion",
@@ -883,10 +549,10 @@
       "stack",
       "expression",
       "conversion",
-      "standard",
       "precedence",
       "operator",
       "mathematical",
+      "follow",
       "postfix",
       "operators",
       "operands",
@@ -909,8 +575,8 @@
       "Calculator implementation"
     ],
     "implementation": "\ndef infix_to_postfix(expression):\n    # Define operator precedence\n    precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}\n    \n    # Initialize result and stack\n    result = []\n    stack = []\n    \n    # Process each character\n    for char in expression:\n        # If character is an operand, add to result\n        if char.isalnum():\n            result.append(char)\n        # If character is an opening bracket, push to stack\n        elif char == '(':\n            stack.append(char)\n        # If character is a closing bracket, pop from stack until opening bracket\n        elif char == ')':\n            while stack and stack[-1] != '(':\n                result.append(stack.pop())\n            stack.pop()  # Remove the opening bracket\n        # If character is an operator\n        else:\n            # Pop operators with higher or equal precedence\n            while stack and stack[-1] != '(' and (stack[-1] in precedence) and (precedence.get(char, 0) <= precedence.get(stack[-1], 0)):\n                result.append(stack.pop())\n            stack.append(char)\n    \n    # Pop any remaining operators\n    while stack:\n        result.append(stack.pop())\n    \n    # Join the result\n    return ''.join(result)\n",
-    "id": "13287a01-8d09-424d-bf7c-774d07c96112",
-    "cluster_id": 12
+    "id": "24190139-9938-48e6-bf75-6b4bca8f6269",
+    "cluster_id": 0
   },
   {
     "name": "0/1 Knapsack",
@@ -920,14 +586,14 @@
       "combinatorial",
       "dynamic_programming",
       "optimization",
-      "limit",
-      "knapsack",
+      "large",
+      "equal",
       "collection",
       "value",
       "given",
+      "weight",
       "problem",
       "items",
-      "weight",
       "total"
     ],
     "description": "The 0/1 Knapsack problem is a problem in combinatorial optimization: given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.",
@@ -946,8 +612,8 @@
       "Target sum with specific items"
     ],
     "implementation": "\ndef knapsack_01(values, weights, capacity):\n    n = len(values)\n    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]\n    \n    for i in range(1, n + 1):\n        for w in range(capacity + 1):\n            if weights[i-1] <= w:\n                dp[i][w] = max(\n                    values[i-1] + dp[i-1][w-weights[i-1]],  # Include item\n                    dp[i-1][w]  # Exclude item\n                )\n            else:\n                dp[i][w] = dp[i-1][w]  # Can't include, so exclude\n    \n    return dp[n][capacity]\n",
-    "id": "94d2c0d4-5427-41f6-8dcf-86f7ff7b14b6",
-    "cluster_id": 2
+    "id": "60c4ee04-911c-46a0-b202-8d9d8b212a61",
+    "cluster_id": 3
   },
   {
     "name": "Longest Common Subsequence",
@@ -957,12 +623,12 @@
       "sequence comparison",
       "dynamic_programming",
       "optimization",
-      "finds",
+      "given",
       "common",
-      "present",
-      "sequence",
       "subsequence",
       "sequences",
+      "sequence",
+      "present",
       "necessarily",
       "consecutive",
       "longest"
@@ -984,8 +650,8 @@
       "Edit distance variations"
     ],
     "implementation": "\ndef lcs(text1, text2):\n    m, n = len(text1), len(text2)\n    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n    \n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if text1[i-1] == text2[j-1]:\n                dp[i][j] = dp[i-1][j-1] + 1\n            else:\n                dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n    \n    return dp[m][n]\n",
-    "id": "e116165f-52df-40b6-acc7-b5f17f4712ae",
-    "cluster_id": 7
+    "id": "e7e7406e-488e-4bcb-81bf-d7239b028068",
+    "cluster_id": 13
   },
   {
     "name": "Coin Change",
@@ -993,15 +659,16 @@
       "dynamic programming",
       "greedy",
       "optimization",
+      "minimum",
+      "certain",
       "needed",
       "make",
       "denominations",
       "coins",
-      "certain",
       "asks",
       "amount",
-      "change",
-      "coin"
+      "coin",
+      "change"
     ],
     "description": "The Coin Change problem asks for the minimum number of coins needed to make a certain amount of change, given a set of coin denominations.",
     "complexity": {
@@ -1019,8 +686,8 @@
       "Problems involving counting combinations"
     ],
     "implementation": "\ndef coin_change(coins, amount):\n    # Initialize dp array with amount+1 (representing infinity)\n    dp = [amount + 1] * (amount + 1)\n    dp[0] = 0\n    \n    for coin in coins:\n        for i in range(coin, amount + 1):\n            dp[i] = min(dp[i], dp[i - coin] + 1)\n    \n    return dp[amount] if dp[amount] <= amount else -1\n",
-    "id": "22c5e193-362f-4ba6-aae5-df97efd94b73",
-    "cluster_id": 14
+    "id": "ab7b5b41-6bab-421b-847d-048a624ac66e",
+    "cluster_id": 9
   },
   {
     "name": "Knuth-Morris-Pratt (KMP)",
@@ -1030,15 +697,15 @@
       "substring search",
       "string",
       "pattern_matching",
-      "mismatch",
-      "matched",
-      "match",
       "main",
       "knuth",
+      "information",
       "examination",
       "employing",
+      "characters",
       "bypassing",
       "begin",
+      "matched",
       "pattern"
     ],
     "description": "The Knuth-Morris-Pratt algorithm searches for occurrences of a 'pattern' within a main 'text' by employing the observation that when a mismatch occurs, the pattern itself contains sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.",
@@ -1057,8 +724,8 @@
       "Problems requiring efficient substring search"
     ],
     "implementation": "\ndef kmp_search(text, pattern):\n    if not pattern:\n        return 0  # Empty pattern matches at position 0\n    \n    # Preprocess: Compute the longest proper prefix which is also suffix array\n    lps = [0] * len(pattern)\n    compute_lps_array(pattern, lps)\n    \n    i, j = 0, 0  # i for text, j for pattern\n    results = []\n    \n    while i < len(text):\n        if pattern[j] == text[i]:\n            i += 1\n            j += 1\n        \n        if j == len(pattern):\n            results.append(i - j)  # Found a match\n            j = lps[j - 1]\n        elif i < len(text) and pattern[j] != text[i]:\n            if j != 0:\n                j = lps[j - 1]\n            else:\n                i += 1\n    \n    return results\n\ndef compute_lps_array(pattern, lps):\n    length = 0\n    i = 1\n    \n    while i < len(pattern):\n        if pattern[i] == pattern[length]:\n            length += 1\n            lps[i] = length\n            i += 1\n        else:\n            if length != 0:\n                length = lps[length - 1]\n            else:\n                lps[i] = 0\n                i += 1\n",
-    "id": "477756fa-35c3-4a9b-a1f4-b04bde351d5c",
-    "cluster_id": 15
+    "id": "65cf2b0a-34ef-4985-810e-24693924b986",
+    "cluster_id": 17
   },
   {
     "name": "Rabin-Karp",
@@ -1068,7 +735,7 @@
       "hashing",
       "string",
       "pattern_matching",
-      "instead",
+      "comparing",
       "rabin",
       "patterns",
       "karp",
@@ -1095,24 +762,24 @@
       "Substring search problems"
     ],
     "implementation": "\ndef rabin_karp(text, pattern):\n    if not pattern:\n        return 0\n    \n    # Prime number for hash calculation\n    q = 101\n    \n    # Radix for the number system (ASCII)\n    d = 256\n    \n    m, n = len(pattern), len(text)\n    p = 0  # Hash value for pattern\n    t = 0  # Hash value for text\n    h = 1\n    results = []\n    \n    # Calculate h = d^(m-1) % q\n    for i in range(m - 1):\n        h = (h * d) % q\n    \n    # Calculate initial hash values\n    for i in range(m):\n        p = (d * p + ord(pattern[i])) % q\n        t = (d * t + ord(text[i])) % q\n    \n    # Slide pattern over text\n    for i in range(n - m + 1):\n        # Check hash values\n        if p == t:\n            # Check characters one by one\n            match = True\n            for j in range(m):\n                if text[i + j] != pattern[j]:\n                    match = False\n                    break\n            \n            if match:\n                results.append(i)\n        \n        # Calculate hash for next window\n        if i < n - m:\n            t = (d * (t - ord(text[i]) * h) + ord(text[i + m])) % q\n            if t < 0:\n                t += q\n    \n    return results\n",
-    "id": "684fd37d-5e36-44f1-90da-49e57243c84c",
-    "cluster_id": 9
+    "id": "0e9f7833-9d18-427a-80a6-642c6d28f0a3",
+    "cluster_id": 7
   },
   {
     "name": "Longest Palindromic Substring",
     "tags": [
       "string algorithm",
       "dynamic programming",
-      "within",
       "finds",
       "string",
+      "within",
       "reads",
       "palindromic",
       "palindrome",
       "forward",
       "backward",
-      "substring",
-      "longest"
+      "longest",
+      "substring"
     ],
     "description": "The Longest Palindromic Substring algorithm finds the longest substring within a string that is a palindrome (reads the same backward as forward).",
     "complexity": {
@@ -1130,7 +797,7 @@
       "String symmetry problems"
     ],
     "implementation": "\ndef longest_palindromic_substring(s):\n    if not s:\n        return \"\"\n    \n    start = 0\n    max_length = 1\n    \n    # Helper function to expand around center\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return right - left - 1\n    \n    for i in range(len(s)):\n        # Expand for odd length palindromes\n        odd_length = expand_around_center(i, i)\n        \n        # Expand for even length palindromes\n        even_length = expand_around_center(i, i + 1)\n        \n        # Update if longer palindrome found\n        length = max(odd_length, even_length)\n        if length > max_length:\n            max_length = length\n            start = i - (length - 1) // 2\n    \n    return s[start:start + max_length]\n",
-    "id": "220a0409-0332-49c1-b30f-82eca4a5a912",
+    "id": "7ba7938e-2c8d-4181-9217-46d583975a8e",
     "cluster_id": 7
   },
   {
@@ -1141,8 +808,8 @@
       "traversal",
       "data_structures",
       "tree",
-      "post",
       "methods",
+      "visit",
       "algorithms",
       "binary",
       "order",
@@ -1166,8 +833,8 @@
       "Problems requiring specific node visit order"
     ],
     "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\n# In-order traversal\ndef inorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        dfs(node.left)\n        result.append(node.val)\n        dfs(node.right)\n    \n    dfs(root)\n    return result\n\n# Pre-order traversal\ndef preorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        result.append(node.val)\n        dfs(node.left)\n        dfs(node.right)\n    \n    dfs(root)\n    return result\n\n# Post-order traversal\ndef postorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        dfs(node.left)\n        dfs(node.right)\n        result.append(node.val)\n    \n    dfs(root)\n    return result\n",
-    "id": "ea3fdbc3-f214-446e-928a-8e24f95caad1",
-    "cluster_id": 13
+    "id": "9b989cd7-6e10-4cc5-9647-cf5b1a68a39b",
+    "cluster_id": 12
   },
   {
     "name": "Binary Search Tree Operations",
@@ -1178,13 +845,13 @@
       "searching",
       "array_search",
       "less",
-      "insertion",
       "include",
       "greater",
+      "insertion",
       "deletion",
-      "elements",
       "tree",
       "node",
+      "elements",
       "subtree"
     ],
     "description": "Binary Search Tree (BST) operations include insertion, deletion, and searching in a tree where for each node, all elements in the left subtree are less than the node's value, and all elements in the right subtree are greater.",
@@ -1203,8 +870,8 @@
       "Problems involving tree insertion/deletion"
     ],
     "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\n# Insert value into BST\ndef insert(root, val):\n    if not root:\n        return TreeNode(val)\n    \n    if val < root.val:\n        root.left = insert(root.left, val)\n    else:\n        root.right = insert(root.right, val)\n    \n    return root\n\n# Search for value in BST\ndef search(root, val):\n    if not root or root.val == val:\n        return root\n    \n    if val < root.val:\n        return search(root.left, val)\n    else:\n        return search(root.right, val)\n\n# Delete value from BST\ndef delete(root, val):\n    if not root:\n        return None\n    \n    if val < root.val:\n        root.left = delete(root.left, val)\n    elif val > root.val:\n        root.right = delete(root.right, val)\n    else:\n        # Node with only one child or no child\n        if not root.left:\n            return root.right\n        elif not root.right:\n            return root.left\n        \n        # Node with two children\n        # Get inorder successor (smallest in right subtree)\n        temp = find_min(root.right)\n        root.val = temp.val\n        root.right = delete(root.right, temp.val)\n    \n    return root\n\ndef find_min(node):\n    current = node\n    while current.left:\n        current = current.left\n    return current\n",
-    "id": "bc58803e-0daf-478f-9c0e-b37b51349887",
-    "cluster_id": 13
+    "id": "f57cfa89-5170-443f-b236-98f3e497573e",
+    "cluster_id": 12
   },
   {
     "name": "Lowest Common Ancestor",
@@ -1212,9 +879,9 @@
       "tree algorithm",
       "binary tree",
       "ancestor finding",
-      "given",
-      "nodes",
       "finds",
+      "nodes",
+      "given",
       "common",
       "descendants",
       "descendant",
@@ -1238,8 +905,8 @@
       "Problems involving finding a common parent"
     ],
     "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef lowest_common_ancestor(root, p, q):\n    # Base case\n    if not root or root == p or root == q:\n        return root\n    \n    # Look for p and q in left and right subtrees\n    left = lowest_common_ancestor(root.left, p, q)\n    right = lowest_common_ancestor(root.right, p, q)\n    \n    # If both p and q are found, this node is the LCA\n    if left and right:\n        return root\n    \n    # Otherwise, return the non-null value\n    return left if left else right\n",
-    "id": "eb159464-7ef9-4cf6-9bf3-99659c455ab9",
-    "cluster_id": 19
+    "id": "2d698322-5474-4898-b0b4-d85ec99205ec",
+    "cluster_id": 5
   },
   {
     "name": "Queue Implementation",
@@ -1249,8 +916,8 @@
       "FIFO",
       "data_structures",
       "linear",
-      "primary",
       "front",
+      "follows",
       "queues",
       "fifo",
       "enqueue",
@@ -1276,8 +943,8 @@
       "First-come-first-serve processing"
     ],
     "implementation": "\n# Array-based queue implementation (using a Python list)\nclass Queue:\n    def __init__(self):\n        self.items = []\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def enqueue(self, item):\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        return self.items.pop(0)\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.items[0]\n    \n    def size(self):\n        return len(self.items)\n\n# Linked list-based queue implementation\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nclass LinkedQueue:\n    def __init__(self):\n        self.front = None\n        self.rear = None\n        self.size = 0\n    \n    def is_empty(self):\n        return self.front is None\n    \n    def enqueue(self, value):\n        new_node = Node(value)\n        \n        if self.is_empty():\n            self.front = new_node\n        else:\n            self.rear.next = new_node\n        \n        self.rear = new_node\n        self.size += 1\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        \n        value = self.front.value\n        self.front = self.front.next\n        \n        # If queue becomes empty, update rear\n        if self.front is None:\n            self.rear = None\n        \n        self.size -= 1\n        return value\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.front.value\n",
-    "id": "dc0dade2-8744-4ff0-8554-69524b6215ef",
-    "cluster_id": 3
+    "id": "0865fba0-b937-454f-ac20-0d09211ef903",
+    "cluster_id": 1
   },
   {
     "name": "Circular Queue Implementation",
@@ -1292,7 +959,6 @@
       "beginning",
       "arithmetic",
       "allocated",
-      "wrap",
       "uses",
       "space",
       "around"
@@ -1314,8 +980,8 @@
       "Problems involving wraparound indexing"
     ],
     "implementation": "\nclass CircularQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.queue = [None] * capacity\n        self.front = self.size = 0\n        self.rear = capacity - 1\n    \n    def is_full(self):\n        return self.size == self.capacity\n    \n    def is_empty(self):\n        return self.size == 0\n    \n    def enqueue(self, item):\n        if self.is_full():\n            raise IndexError(\"Queue is full\")\n        \n        self.rear = (self.rear + 1) % self.capacity\n        self.queue[self.rear] = item\n        self.size += 1\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        \n        item = self.queue[self.front]\n        self.front = (self.front + 1) % self.capacity\n        self.size -= 1\n        return item\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.queue[self.front]\n",
-    "id": "743c9294-8a1d-4645-8dbb-d2add7851b41",
-    "cluster_id": 16
+    "id": "02a6b88b-9cc1-4314-8d04-76d2fac92261",
+    "cluster_id": 19
   },
   {
     "name": "Priority Queue Implementation",
@@ -1327,9 +993,8 @@
       "data_structures",
       "linear",
       "regular",
-      "ordered",
-      "abstract",
       "similar",
+      "ordered",
       "lower",
       "higher",
       "dequeued",
@@ -1353,8 +1018,8 @@
       "Merge k sorted lists"
     ],
     "implementation": "\nimport heapq\n\n# Priority Queue using Python's heapq (min-heap)\nclass PriorityQueue:\n    def __init__(self):\n        self.elements = []\n    \n    def is_empty(self):\n        return len(self.elements) == 0\n    \n    def put(self, item, priority):\n        # For min-heap, use priority as the first element\n        heapq.heappush(self.elements, (priority, item))\n    \n    def get(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty priority queue\")\n        return heapq.heappop(self.elements)[1]\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty priority queue\")\n        return self.elements[0][1]\n    \n    def size(self):\n        return len(self.elements)\n\n# Custom implementation of a Priority Queue using a binary heap\nclass CustomPriorityQueue:\n    def __init__(self, is_min_heap=True):\n        self.heap = []\n        self.is_min_heap = is_min_heap\n    \n    def size(self):\n        return len(self.heap)\n    \n    def is_empty(self):\n        return self.size() == 0\n    \n    def get_parent(self, i):\n        return (i - 1) // 2\n    \n    def get_left_child(self, i):\n        return 2 * i + 1\n    \n    def get_right_child(self, i):\n        return 2 * i + 2\n    \n    def has_parent(self, i):\n        return self.get_parent(i) >= 0\n    \n    def has_left_child(self, i):\n        return self.get_left_child(i) < self.size()\n    \n    def has_right_child(self, i):\n        return self.get_right_child(i) < self.size()\n    \n    def compare(self, a, b):\n        if self.is_min_heap:\n            return a < b\n        return a > b\n    \n    def swap(self, i, j):\n        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty priority queue\")\n        return self.heap[0][1]\n    \n    def push(self, priority, item):\n        self.heap.append((priority, item))\n        self.heapify_up(self.size() - 1)\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty priority queue\")\n        \n        item = self.heap[0][1]\n        self.heap[0] = self.heap[-1]\n        self.heap.pop()\n        if self.size() > 0:\n            self.heapify_down(0)\n        return item\n    \n    def heapify_up(self, index):\n        while (self.has_parent(index) and \n               self.compare(self.heap[index][0], self.heap[self.get_parent(index)][0])):\n            self.swap(index, self.get_parent(index))\n            index = self.get_parent(index)\n    \n    def heapify_down(self, index):\n        smallest = index\n        \n        if (self.has_left_child(index) and \n            self.compare(self.heap[self.get_left_child(index)][0], self.heap[smallest][0])):\n            smallest = self.get_left_child(index)\n        \n        if (self.has_right_child(index) and \n            self.compare(self.heap[self.get_right_child(index)][0], self.heap[smallest][0])):\n            smallest = self.get_right_child(index)\n        \n        if smallest != index:\n            self.swap(index, smallest)\n            self.heapify_down(smallest)\n",
-    "id": "8056307f-7a9b-4393-bfb0-f5bf2581da94",
-    "cluster_id": 0
+    "id": "084e8821-5c9d-4c01-9c67-1254dd1687b6",
+    "cluster_id": 1
   },
   {
     "name": "Hash Table Implementation",
@@ -1365,13 +1030,14 @@
       "data_structures",
       "hash",
       "implements",
-      "function",
+      "found",
       "desired",
       "compute",
+      "buckets",
       "associative",
-      "array",
       "data",
-      "structure"
+      "structure",
+      "array"
     ],
     "description": "A Hash Table is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.",
     "complexity": {
@@ -1391,8 +1057,8 @@
       "Symbol tables"
     ],
     "implementation": "\nclass HashNode:\n    def __init__(self, key, value):\n        self.key = key\n        self.value = value\n        self.next = None\n\nclass HashTable:\n    def __init__(self, size=10):\n        # Initialize the hash table with empty buckets\n        self.size = size\n        self.buckets = [None] * size\n        self.count = 0\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # If key is a string, sum the ASCII values\n        if isinstance(key, str):\n            total = 0\n            for char in key:\n                total += ord(char)\n            return total % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def set(self, key, value):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        \n        # Check if key already exists\n        while node:\n            if node.key == key:\n                node.value = value  # Update value\n                return\n            node = node.next\n        \n        # Key not found, create new node\n        new_node = HashNode(key, value)\n        new_node.next = self.buckets[index]\n        self.buckets[index] = new_node\n        self.count += 1\n        \n        # Resize if load factor exceeds threshold\n        if self.count > self.size * 0.7:\n            self._resize(self.size * 2)\n    \n    def get(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        \n        # Look for the key\n        while node:\n            if node.key == key:\n                return node.value\n            node = node.next\n        \n        # Key not found\n        return None\n    \n    def delete(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        prev = None\n        \n        # Look for the key\n        while node and node.key != key:\n            prev = node\n            node = node.next\n        \n        # If key found\n        if node:\n            if prev:\n                prev.next = node.next\n            else:\n                self.buckets[index] = node.next\n            self.count -= 1\n            return True\n        \n        # Key not found\n        return False\n    \n    def contains(self, key):\n        return self.get(key) is not None\n    \n    def _resize(self, new_size):\n        old_buckets = self.buckets\n        self.size = new_size\n        self.buckets = [None] * new_size\n        self.count = 0\n        \n        # Rehash all entries\n        for head in old_buckets:\n            node = head\n            while node:\n                self.set(node.key, node.value)\n                node = node.next\n",
-    "id": "50eed330-b8d9-48e3-b383-b7b3a14cc153",
-    "cluster_id": 9
+    "id": "d129490c-6a73-4bf2-a316-6cfecf1f71ea",
+    "cluster_id": 10
   },
   {
     "name": "Collision Resolution with Chaining",
@@ -1400,10 +1066,10 @@
       "hash table",
       "collision resolution",
       "linked list",
-      "pairs",
       "location",
-      "whose",
+      "exist",
       "entries",
+      "bucket",
       "allowing",
       "keys",
       "multiple",
@@ -1427,8 +1093,8 @@
       "Problems involving custom hash table implementation"
     ],
     "implementation": "\nclass HashTableWithChaining:\n    def __init__(self, size=10):\n        self.size = size\n        self.table = [[] for _ in range(size)]  # List of lists for chaining\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # For strings, sum the ASCII values\n        if isinstance(key, str):\n            return sum(ord(char) for char in key) % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def insert(self, key, value):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Check if key already exists\n        for i, (k, v) in enumerate(bucket):\n            if k == key:\n                bucket[i] = (key, value)  # Update value\n                return\n        \n        # Key not found, add new entry\n        bucket.append((key, value))\n    \n    def get(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Look for the key\n        for k, v in bucket:\n            if k == key:\n                return v\n        \n        # Key not found\n        return None\n    \n    def remove(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Look for the key and remove it\n        for i, (k, v) in enumerate(bucket):\n            if k == key:\n                del bucket[i]\n                return True\n        \n        # Key not found\n        return False\n    \n    def display(self):\n        for i, bucket in enumerate(self.table):\n            if bucket:  # Only show non-empty buckets\n                print(f\"Bucket {i}: {bucket}\")\n",
-    "id": "f3d26399-617a-4884-a460-a0177ce52572",
-    "cluster_id": 9
+    "id": "3c208b99-14f1-47b6-8ab4-aceba745726b",
+    "cluster_id": 10
   },
   {
     "name": "Open Addressing (Linear Probing)",
@@ -1436,8 +1102,8 @@
       "hash table",
       "collision resolution",
       "open addressing",
-      "occurs",
-      "stored",
+      "linear",
+      "slot",
       "sequentially",
       "probing",
       "method",
@@ -1463,7 +1129,451 @@
       "Cache-friendly hash table design"
     ],
     "implementation": "\nclass HashTableWithLinearProbing:\n    def __init__(self, size=10):\n        self.size = size\n        self.keys = [None] * size\n        self.values = [None] * size\n        self.tombstone = object()  # Special marker for deleted entries\n        self.count = 0\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # For strings, sum the ASCII values\n        if isinstance(key, str):\n            return sum(ord(char) for char in key) % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def _get_index(self, key):\n        # Find the position for a key using linear probing\n        start_index = self._hash(key)\n        \n        # Linear probe until we find the key, an empty slot, or visit all positions\n        for i in range(self.size):\n            index = (start_index + i) % self.size\n            \n            # Found the key\n            if self.keys[index] == key:\n                return index\n            \n            # Found an empty slot\n            if self.keys[index] is None:\n                return -1\n        \n        # Hash table is full and key not found\n        return -1\n    \n    def _find_slot(self, key):\n        # Find the position to insert a key using linear probing\n        start_index = self._hash(key)\n        \n        # Linear probe until we find the key, an empty slot, or a tombstone\n        for i in range(self.size):\n            index = (start_index + i) % self.size\n            \n            # Found the key\n            if self.keys[index] == key:\n                return index\n            \n            # Found an empty slot or tombstone\n            if self.keys[index] is None or self.keys[index] is self.tombstone:\n                return index\n        \n        # Hash table is full\n        return -1\n    \n    def put(self, key, value):\n        # Don't allow None as a key\n        if key is None:\n            raise ValueError(\"None is not allowed as a key\")\n        \n        # If load factor is too high, resize\n        if self.count >= self.size * 0.7:\n            self._resize(self.size * 2)\n        \n        # Find slot for insertion\n        index = self._find_slot(key)\n        \n        # If hash table is full\n        if index == -1:\n            self._resize(self.size * 2)\n            index = self._find_slot(key)\n        \n        # Check if this is a new entry\n        is_new = self.keys[index] is None or self.keys[index] is self.tombstone\n        \n        # Insert key-value pair\n        self.keys[index] = key\n        self.values[index] = value\n        \n        # Increment count for new entries\n        if is_new:\n            self.count += 1\n    \n    def get(self, key):\n        index = self._get_index(key)\n        \n        # Key not found\n        if index == -1:\n            return None\n        \n        # Return value\n        return self.values[index]\n    \n    def remove(self, key):\n        index = self._get_index(key)\n        \n        # Key not found\n        if index == -1:\n            return False\n        \n        # Mark as deleted with tombstone\n        self.keys[index] = self.tombstone\n        self.values[index] = None\n        self.count -= 1\n        return True\n    \n    def _resize(self, new_size):\n        old_keys = self.keys\n        old_values = self.values\n        \n        # Create new arrays\n        self.size = new_size\n        self.keys = [None] * new_size\n        self.values = [None] * new_size\n        self.count = 0\n        \n        # Rehash all entries\n        for i in range(len(old_keys)):\n            if old_keys[i] is not None and old_keys[i] is not self.tombstone:\n                self.put(old_keys[i], old_values[i])\n",
-    "id": "e7d4e816-ec36-45dc-bfe7-dbe4fba285da",
+    "id": "de9ef811-4174-477b-9e78-c529b67b5379",
+    "cluster_id": 10
+  },
+  {
+    "name": "Trie (Prefix Tree)",
+    "tags": [
+      "data structure",
+      "tree",
+      "string",
+      "prefix",
+      "search",
+      "defines",
+      "dataset",
+      "commonly",
+      "node",
+      "used",
+      "strings",
+      "trie",
+      "associated"
+    ],
+    "description": "A Trie is a tree-like data structure used to store a dynamic set of strings. Tries are efficient for prefix-based operations and are commonly used for fast retrieval of keys in a dataset of strings. Unlike a binary search tree, no node in the trie stores the key associated with that node; instead, its position in the tree defines the key with which it is associated.",
+    "complexity": {
+      "time": "O(m) for insert/search/delete where m is the length of the key",
+      "space": "O(n * m) where n is the number of keys and m is the key length"
+    },
+    "problem_patterns": [
+      "Dictionary implementations",
+      "Prefix searching",
+      "Autocomplete systems",
+      "Spell checkers",
+      "IP routing (longest prefix matching)"
+    ],
+    "leetcode_indicators": [
+      "Word dictionary implementation",
+      "Problems involving prefix matching",
+      "Add and Search Word",
+      "Implement Trie (Prefix Tree)",
+      "Word Search II"
+    ],
+    "implementation": "\nclass TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end_of_word = False\n\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n    \n    def insert(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                node.children[char] = TrieNode()\n            node = node.children[char]\n        node.is_end_of_word = True\n    \n    def search(self, word):\n        node = self.root\n        for char in word:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return node.is_end_of_word\n    \n    def starts_with(self, prefix):\n        node = self.root\n        for char in prefix:\n            if char not in node.children:\n                return False\n            node = node.children[char]\n        return True\n    \n    def delete(self, word):\n        def _delete_helper(node, word, index):\n            # If we've reached the end of the word\n            if index == len(word):\n                # This node is no longer the end of a word\n                if node.is_end_of_word:\n                    node.is_end_of_word = False\n                    \n                # Return True if this node can be deleted (has no children and is not end of another word)\n                return len(node.children) == 0 and not node.is_end_of_word\n            \n            char = word[index]\n            if char not in node.children:\n                return False  # Word not in trie\n            \n            should_delete_child = _delete_helper(node.children[char], word, index + 1)\n            \n            # If child can be deleted, remove it\n            if should_delete_child:\n                del node.children[char]\n                \n            # Current node can be deleted if it has no children and is not end of another word\n            return len(node.children) == 0 and not node.is_end_of_word\n        \n        _delete_helper(self.root, word, 0)\n",
+    "id": "1ecf38ea-6967-4c50-b65b-ab8ad498db43",
+    "cluster_id": 16
+  },
+  {
+    "name": "Segment Tree",
+    "tags": [
+      "data structure",
+      "tree",
+      "range queries",
+      "interval tree",
+      "modified",
+      "allows",
+      "time",
+      "structure",
+      "segments",
+      "intervals",
+      "built",
+      "segment"
+    ],
+    "description": "A Segment Tree is a tree data structure for storing intervals or segments. It allows querying which of the stored segments contain a given point. It is, in principle, a static structure; that is, it's a structure that cannot be modified once it's built. A segment tree for a set of n intervals uses O(n log n) storage and can be built in O(n log n) time. Segment trees support range queries and updates in O(log n) time.",
+    "complexity": {
+      "time": "O(n log n) to build, O(log n) for range query and update",
+      "space": "O(n)"
+    },
+    "problem_patterns": [
+      "Range sum/min/max queries",
+      "Range update operations",
+      "Problems requiring efficient interval operations",
+      "Finding the minimum/maximum in a range",
+      "Counting number of elements in a range"
+    ],
+    "leetcode_indicators": [
+      "Range sum query",
+      "Finding minimum/maximum in a range",
+      "Problems involving interval modifications and queries",
+      "Problems requiring efficient range operations"
+    ],
+    "implementation": "\nclass SegmentTree:\n    def __init__(self, arr):\n        self.n = len(arr)\n        # The size of the segment tree array\n        self.tree = [0] * (4 * self.n)\n        if self.n > 0:\n            self._build_tree(arr, 0, 0, self.n - 1)\n    \n    def _build_tree(self, arr, node_idx, start, end):\n        # Leaf node\n        if start == end:\n            self.tree[node_idx] = arr[start]\n            return\n        \n        mid = (start + end) // 2\n        # Build left subtree\n        self._build_tree(arr, 2 * node_idx + 1, start, mid)\n        # Build right subtree\n        self._build_tree(arr, 2 * node_idx + 2, mid + 1, end)\n        # Internal node will have the sum of both its children\n        self.tree[node_idx] = self.tree[2 * node_idx + 1] + self.tree[2 * node_idx + 2]\n    \n    def query(self, start, end):\n        if start < 0 or end >= self.n or start > end:\n            raise ValueError(\"Invalid range\")\n        return self._query(0, 0, self.n - 1, start, end)\n    \n    def _query(self, node_idx, node_start, node_end, query_start, query_end):\n        # If segment of this node is completely outside the query range\n        if query_end < node_start or query_start > node_end:\n            return 0\n        \n        # If segment of this node is completely inside the query range\n        if node_start >= query_start and node_end <= query_end:\n            return self.tree[node_idx]\n        \n        # If segment of this node is partially inside and partially outside the query range\n        mid = (node_start + node_end) // 2\n        left_sum = self._query(2 * node_idx + 1, node_start, mid, query_start, query_end)\n        right_sum = self._query(2 * node_idx + 2, mid + 1, node_end, query_start, query_end)\n        return left_sum + right_sum\n    \n    def update(self, index, value):\n        if index < 0 or index >= self.n:\n            raise ValueError(\"Invalid index\")\n        self._update(0, 0, self.n - 1, index, value)\n    \n    def _update(self, node_idx, node_start, node_end, index, value):\n        # Leaf node: update the value\n        if node_start == node_end:\n            self.tree[node_idx] = value\n            return\n        \n        mid = (node_start + node_end) // 2\n        if index <= mid:\n            # Update left subtree\n            self._update(2 * node_idx + 1, node_start, mid, index, value)\n        else:\n            # Update right subtree\n            self._update(2 * node_idx + 2, mid + 1, node_end, index, value)\n        \n        # Update the current node based on its children\n        self.tree[node_idx] = self.tree[2 * node_idx + 1] + self.tree[2 * node_idx + 2]\n",
+    "id": "946e0960-6e45-45e1-8182-fe26e5ceb203",
+    "cluster_id": 16
+  },
+  {
+    "name": "Union Find (Disjoint Set)",
+    "tags": [
+      "data structure",
+      "graph",
+      "disjoint set",
+      "connectivity",
+      "subsets",
+      "constant",
+      "components",
+      "tracking",
+      "elements",
+      "find",
+      "sets",
+      "union"
+    ],
+    "description": "Union Find is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets. It provides near-constant-time operations to add new sets, merge existing sets, and determine whether elements are in the same set. Union Find is particularly useful for Kruskal's algorithm and for tracking connected components in graphs.",
+    "complexity": {
+      "time": "O(\u03b1(n)) for find and union operations, where \u03b1(n) is the inverse Ackermann function",
+      "space": "O(n)"
+    },
+    "problem_patterns": [
+      "Finding connected components in a graph",
+      "Detecting cycles in an undirected graph",
+      "Minimum spanning tree algorithms (Kruskal's)",
+      "Network connectivity",
+      "Least common ancestor in trees"
+    ],
+    "leetcode_indicators": [
+      "Problems involving graph connectivity",
+      "Friend circles",
+      "Number of connected components",
+      "Redundant connection",
+      "Account merging"
+    ],
+    "implementation": "\nclass UnionFind:\n    def __init__(self, n):\n        # Initially, each element is its own parent/representative\n        self.parent = list(range(n))\n        # Rank is used for union by rank optimization\n        self.rank = [0] * n\n        # Number of disjoint sets\n        self.count = n\n    \n    def find(self, x):\n        # Path compression: make every examined node point directly to the root\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n    \n    def union(self, x, y):\n        # Find the roots of x and y\n        root_x = self.find(x)\n        root_y = self.find(y)\n        \n        # If x and y are already in the same set\n        if root_x == root_y:\n            return False\n        \n        # Union by rank: attach smaller rank tree under root of higher rank tree\n        if self.rank[root_x] < self.rank[root_y]:\n            self.parent[root_x] = root_y\n        elif self.rank[root_x] > self.rank[root_y]:\n            self.parent[root_y] = root_x\n        else:\n            # If ranks are same, make one as root and increment its rank\n            self.parent[root_y] = root_x\n            self.rank[root_x] += 1\n        \n        # Decrease the count of disjoint sets\n        self.count -= 1\n        return True\n    \n    def is_connected(self, x, y):\n        return self.find(x) == self.find(y)\n    \n    def get_count(self):\n        return self.count\n",
+    "id": "46f66bfa-74fb-4951-bc95-db0e3df9c587",
     "cluster_id": 9
+  },
+  {
+    "name": "A* Search Algorithm",
+    "tags": [
+      "graph algorithm",
+      "pathfinding",
+      "heuristic",
+      "search",
+      "searching",
+      "graph_search",
+      "star",
+      "evaluates",
+      "estimated",
+      "systems",
+      "combining",
+      "cases",
+      "widely",
+      "nodes",
+      "reach",
+      "cost"
+    ],
+    "description": "A* (pronounced 'A star') is a pathfinding algorithm that finds the shortest path between two nodes. It uses a heuristic function to guide the search, making it more efficient than Dijkstra's algorithm in many cases. A* evaluates nodes by combining the cost to reach the node and the estimated cost to reach the goal. It's widely used in games, robotics, and navigation systems.",
+    "complexity": {
+      "time": "O(E) in the worst case, where E is the number of edges, but typically much better with a good heuristic",
+      "space": "O(V), where V is the number of vertices"
+    },
+    "problem_patterns": [
+      "Shortest path finding with heuristics",
+      "Maze solving",
+      "Navigation in games and robotics",
+      "Path planning with obstacles",
+      "Routing algorithms with additional constraints"
+    ],
+    "leetcode_indicators": [
+      "Shortest path problems with specific constraints",
+      "Problems requiring path optimization with heuristics",
+      "Grid-based pathfinding"
+    ],
+    "implementation": "\nimport heapq\n\ndef a_star(graph, start, goal, heuristic):\n    # Open set is a priority queue of nodes to explore\n    # Each element is (f_score, node) where f_score = g_score + heuristic\n    # g_score is the cost from start to node\n    # f_score is the estimated cost from start to goal through node\n    open_set = [(0 + heuristic(start, goal), start)]\n    \n    # g_score[n] is the cost of the cheapest path from start to n\n    g_score = {start: 0}\n    \n    # came_from[n] is the node immediately preceding n on the cheapest path\n    came_from = {}\n    \n    while open_set:\n        # Get the node with lowest f_score\n        current_f, current = heapq.heappop(open_set)\n        \n        # If we've reached the goal, reconstruct the path\n        if current == goal:\n            path = []\n            while current in came_from:\n                path.append(current)\n                current = came_from[current]\n            path.append(start)\n            path.reverse()\n            return path\n        \n        # Explore neighbors\n        for neighbor, weight in graph[current].items():\n            # Tentative g_score is the cost from start to neighbor through current\n            tentative_g_score = g_score[current] + weight\n            \n            # If this path to neighbor is better than any previous one, record it\n            if neighbor not in g_score or tentative_g_score < g_score[neighbor]:\n                came_from[neighbor] = current\n                g_score[neighbor] = tentative_g_score\n                f_score = tentative_g_score + heuristic(neighbor, goal)\n                heapq.heappush(open_set, (f_score, neighbor))\n    \n    # If we get here, there's no path from start to goal\n    return None\n\n# Example heuristic for a grid-based graph (Manhattan distance)\ndef manhattan_distance(a, b):\n    return abs(a[0] - b[0]) + abs(a[1] - b[1])\n\n# Example usage:\n# graph = {\n#     (0, 0): {(0, 1): 1, (1, 0): 1},\n#     (0, 1): {(0, 0): 1, (0, 2): 1, (1, 1): 1},\n#     # ... more nodes and edges\n# }\n# start = (0, 0)\n# goal = (5, 5)\n# path = a_star(graph, start, goal, manhattan_distance)\n",
+    "id": "59a7f44f-200c-4b10-80bc-6381da2e275c",
+    "cluster_id": 5
+  },
+  {
+    "name": "Bellman-Ford Algorithm",
+    "tags": [
+      "graph algorithm",
+      "shortest path",
+      "negative weight",
+      "dynamic programming",
+      "graph",
+      "shortest_path",
+      "relaxes",
+      "detects",
+      "algorithm",
+      "weight",
+      "vertices",
+      "cycles",
+      "ford",
+      "bellman",
+      "negative",
+      "edges"
+    ],
+    "description": "The Bellman-Ford algorithm finds the shortest paths from a single source vertex to all other vertices in a weighted graph. Unlike Dijkstra's algorithm, Bellman-Ford can handle graphs with negative weight edges. It also detects negative weight cycles, which are cycles whose edges sum to a negative value. The algorithm relaxes all edges V-1 times, where V is the number of vertices.",
+    "complexity": {
+      "time": "O(V * E) where V is the number of vertices and E is the number of edges",
+      "space": "O(V)"
+    },
+    "problem_patterns": [
+      "Finding shortest paths with negative weights",
+      "Detecting negative cycles in graphs",
+      "Network routing",
+      "Currency exchange and arbitrage detection",
+      "Dynamic programming on graphs"
+    ],
+    "leetcode_indicators": [
+      "Shortest path problems with negative weights",
+      "Problems requiring detection of negative cycles",
+      "Network delay with possible negative costs"
+    ],
+    "implementation": "\ndef bellman_ford(graph, source):\n    # Initialize distances\n    distances = {vertex: float('infinity') for vertex in graph}\n    distances[source] = 0\n    \n    # Store predecessors for path reconstruction\n    predecessors = {vertex: None for vertex in graph}\n    \n    # Get all vertices\n    vertices = list(graph.keys())\n    \n    # Relax all edges |V| - 1 times\n    for _ in range(len(vertices) - 1):\n        for u in graph:\n            for v, weight in graph[u].items():\n                if distances[u] != float('infinity') and distances[u] + weight < distances[v]:\n                    distances[v] = distances[u] + weight\n                    predecessors[v] = u\n    \n    # Check for negative weight cycles\n    # If we can still relax edges, then we have a negative cycle\n    negative_cycle = False\n    for u in graph:\n        for v, weight in graph[u].items():\n            if distances[u] != float('infinity') and distances[u] + weight < distances[v]:\n                negative_cycle = True\n                break\n    \n    return distances, predecessors, negative_cycle\n\ndef reconstruct_path(predecessors, source, destination):\n    path = []\n    current = destination\n    \n    while current != source:\n        if current is None:\n            return None  # No path exists\n        path.append(current)\n        current = predecessors[current]\n    \n    path.append(source)\n    path.reverse()\n    return path\n\n# Example usage:\n# graph = {\n#     'A': {'B': -1, 'C': 4},\n#     'B': {'C': 3, 'D': 2, 'E': 2},\n#     'C': {},\n#     'D': {'B': 1, 'C': 5},\n#     'E': {'D': -3}\n# }\n# source = 'A'\n# distances, predecessors, has_negative_cycle = bellman_ford(graph, source)\n# if has_negative_cycle:\n#     print(\"Graph contains a negative weight cycle\")\n# else:\n#     for vertex in distances:\n#         print(f\"Distance from {source} to {vertex}: {distances[vertex]}\")\n#         path = reconstruct_path(predecessors, source, vertex)\n#         print(f\"Path: {path}\")\n",
+    "id": "00214f12-41bd-4dbe-aea1-5e69a07123bf",
+    "cluster_id": 2
+  },
+  {
+    "name": "Floyd-Warshall Algorithm",
+    "tags": [
+      "graph algorithm",
+      "all-pairs shortest path",
+      "dynamic programming",
+      "graph",
+      "shortest_path",
+      "intermediate",
+      "including",
+      "improve",
+      "gradually",
+      "estimate",
+      "detect",
+      "warshall",
+      "shortest",
+      "negative",
+      "vertices"
+    ],
+    "description": "The Floyd-Warshall algorithm finds the shortest paths between all pairs of vertices in a weighted graph. It works with positive or negative edge weights and can detect negative cycles. The algorithm uses dynamic programming to gradually improve an estimate on the shortest path between two vertices by including intermediate vertices.",
+    "complexity": {
+      "time": "O(V\u00b3) where V is the number of vertices",
+      "space": "O(V\u00b2)"
+    },
+    "problem_patterns": [
+      "Finding shortest paths between all pairs of vertices",
+      "Transitive closure of directed graphs",
+      "Detecting negative cycles",
+      "Problems requiring the shortest distance between any two points"
+    ],
+    "leetcode_indicators": [
+      "All-pairs shortest path problems",
+      "Problems requiring shortest paths between multiple sources and destinations",
+      "Network connectivity with shortest path requirement",
+      "Graph diameter calculation"
+    ],
+    "implementation": "\ndef floyd_warshall(graph):\n    # Number of vertices\n    n = len(graph)\n    \n    # Initialize distance matrix\n    # dist[i][j] will be the shortest distance from vertex i to j\n    dist = [row[:] for row in graph]  # Create a copy of the graph\n    \n    # Initialize path reconstruction matrix\n    # next_vertex[i][j] will be the next vertex on the path from i to j\n    next_vertex = [[j if graph[i][j] != float('inf') and i != j else None for j in range(n)] for i in range(n)]\n    \n    # Main algorithm: consider each vertex as an intermediate\n    for k in range(n):\n        for i in range(n):\n            for j in range(n):\n                if dist[i][k] != float('inf') and dist[k][j] != float('inf') and dist[i][k] + dist[k][j] < dist[i][j]:\n                    dist[i][j] = dist[i][k] + dist[k][j]\n                    next_vertex[i][j] = next_vertex[i][k]\n    \n    # Check for negative cycles\n    has_negative_cycle = False\n    for i in range(n):\n        if dist[i][i] < 0:\n            has_negative_cycle = True\n            break\n    \n    return dist, next_vertex, has_negative_cycle\n\ndef reconstruct_path(next_vertex, u, v):\n    # If there's no path\n    if next_vertex[u][v] is None:\n        return []\n    \n    path = [u]\n    while u != v:\n        u = next_vertex[u][v]\n        path.append(u)\n    \n    return path\n\n# Example usage:\n# Convert adjacency list to adjacency matrix\n# def to_matrix(graph_list, n):\n#     matrix = [[float('inf') for _ in range(n)] for _ in range(n)]\n#     for i in range(n):\n#         matrix[i][i] = 0  # Distance from a vertex to itself is 0\n#         for j, weight in graph_list[i].items():\n#             matrix[i][j] = weight\n#     return matrix\n# \n# graph_list = {\n#     0: {1: 3, 2: 6},\n#     1: {2: 2, 3: 4},\n#     2: {3: 1},\n#     3: {0: 2}\n# }\n# n = 4\n# graph_matrix = to_matrix(graph_list, n)\n# distances, next_vertex, has_negative_cycle = floyd_warshall(graph_matrix)\n",
+    "id": "73bccc92-f1fa-477d-965c-4d720988095d",
+    "cluster_id": 2
+  },
+  {
+    "name": "Two Pointers Technique",
+    "tags": [
+      "algorithm technique",
+      "array",
+      "string",
+      "optimization",
+      "iterate",
+      "direction",
+      "subarrays",
+      "complexity",
+      "toward",
+      "triplets",
+      "technique",
+      "different",
+      "pointers"
+    ],
+    "description": "The Two Pointers technique is an algorithmic approach that uses two pointers to iterate through a data structure (usually an array or linked list). The pointers can move toward each other, in the same direction at different speeds, or start at different positions. This technique is often used to search for pairs, triplets, or subarrays with certain properties, and it typically reduces the time complexity from O(n\u00b2) to O(n).",
+    "complexity": {
+      "time": "O(n) in most cases",
+      "space": "O(1)"
+    },
+    "problem_patterns": [
+      "Finding pairs with a target sum in a sorted array",
+      "Detecting palindromes",
+      "Removing duplicates from sorted arrays",
+      "Finding the longest substring without repeating characters",
+      "Container with most water problem",
+      "Three sum problem"
+    ],
+    "leetcode_indicators": [
+      "Two pointers",
+      "Problems involving sorted arrays",
+      "Finding pairs/triplets with specific sum",
+      "Problems with phrases like 'find a pair'",
+      "Container with most water"
+    ],
+    "implementation": "\n# Example 1: Two sum in sorted array\ndef two_sum_sorted(nums, target):\n    left, right = 0, len(nums) - 1\n    \n    while left < right:\n        current_sum = nums[left] + nums[right]\n        \n        if current_sum == target:\n            return [left, right]\n        elif current_sum < target:\n            left += 1\n        else:\n            right -= 1\n    \n    return []  # No solution\n\n# Example 2: Remove duplicates from sorted array\ndef remove_duplicates(nums):\n    if not nums:\n        return 0\n    \n    # Position to place the next non-duplicate\n    write_pointer = 1\n    \n    # Iterate through the array\n    for read_pointer in range(1, len(nums)):\n        # If current element is different from the previous one\n        if nums[read_pointer] != nums[read_pointer - 1]:\n            # Place it at the write_pointer position\n            nums[write_pointer] = nums[read_pointer]\n            write_pointer += 1\n    \n    return write_pointer  # Length of the array without duplicates\n\n# Example 3: Check if string is palindrome (ignoring non-alphanumeric)\ndef is_palindrome(s):\n    # Convert to lowercase and filter out non-alphanumeric characters\n    s = ''.join(c.lower() for c in s if c.isalnum())\n    \n    left, right = 0, len(s) - 1\n    while left < right:\n        if s[left] != s[right]:\n            return False\n        left += 1\n        right -= 1\n    \n    return True\n",
+    "id": "ab43bd71-8da3-4459-9b72-7576706630cd",
+    "cluster_id": 14
+  },
+  {
+    "name": "Monotonic Stack/Queue",
+    "tags": [
+      "data structure",
+      "stack",
+      "queue",
+      "optimization",
+      "data_structures",
+      "linear",
+      "smaller",
+      "window",
+      "decreasing",
+      "problems",
+      "structures",
+      "maintains",
+      "property",
+      "strictly",
+      "monotonic"
+    ],
+    "description": "A Monotonic Stack is a stack that maintains its elements in either strictly increasing or strictly decreasing order. Similarly, a Monotonic Queue maintains the same property. These structures are particularly useful for problems involving finding the next greater/smaller element or maximum/minimum in a sliding window. By maintaining the monotonic property, these structures allow for efficient solving of these problems in linear time.",
+    "complexity": {
+      "time": "O(n) for most operations (each element is pushed and popped at most once)",
+      "space": "O(n)"
+    },
+    "problem_patterns": [
+      "Next greater/smaller element problems",
+      "Largest rectangle in histogram",
+      "Maximum value in sliding window",
+      "Problems involving finding the closest boundary",
+      "Stock span problem",
+      "Problems involving 'finding the next' pattern"
+    ],
+    "leetcode_indicators": [
+      "Next greater element",
+      "Next smaller element",
+      "Largest rectangle in histogram",
+      "Sliding window maximum",
+      "Problems involving finding closest larger/smaller elements"
+    ],
+    "implementation": "\n# Example 1: Next Greater Element\ndef next_greater_element(nums):\n    n = len(nums)\n    result = [-1] * n  # Initialize with -1 (no greater element)\n    stack = []  # Monotonic decreasing stack\n    \n    for i in range(n):\n        # While stack is not empty and current element is greater than stack top\n        while stack and nums[i] > nums[stack[-1]]:\n            # Pop and update result\n            result[stack.pop()] = nums[i]\n        \n        # Push current index\n        stack.append(i)\n    \n    return result\n\n# Example 2: Largest Rectangle in Histogram\ndef largest_rectangle_area(heights):\n    n = len(heights)\n    stack = []  # Monotonic increasing stack of indices\n    max_area = 0\n    \n    i = 0\n    while i < n:\n        # If stack is empty or current height is >= height at stack top\n        if not stack or heights[i] >= heights[stack[-1]]:\n            stack.append(i)\n            i += 1\n        else:\n            # Pop and calculate area\n            top_index = stack.pop()\n            \n            # Calculate width\n            width = i if not stack else i - stack[-1] - 1\n            \n            # Update max area\n            max_area = max(max_area, heights[top_index] * width)\n    \n    # Process remaining elements in stack\n    while stack:\n        top_index = stack.pop()\n        width = n if not stack else n - stack[-1] - 1\n        max_area = max(max_area, heights[top_index] * width)\n    \n    return max_area\n\n# Example 3: Sliding Window Maximum using Monotonic Queue\nfrom collections import deque\n\ndef max_sliding_window(nums, k):\n    n = len(nums)\n    if n == 0 or k == 0:\n        return []\n    \n    result = []\n    queue = deque()  # Monotonic decreasing queue of indices\n    \n    for i in range(n):\n        # Remove elements outside the window\n        while queue and queue[0] < i - k + 1:\n            queue.popleft()\n        \n        # Remove smaller elements (they will never be the maximum)\n        while queue and nums[i] > nums[queue[-1]]:\n            queue.pop()\n        \n        # Add current element\n        queue.append(i)\n        \n        # Add to result if we have a full window\n        if i >= k - 1:\n            result.append(nums[queue[0]])\n    \n    return result\n",
+    "id": "9e110b95-adb8-416d-8569-5c10b8f80cfa",
+    "cluster_id": 11
+  },
+  {
+    "name": "Backtracking",
+    "tags": [
+      "algorithm technique",
+      "recursion",
+      "combinatorial",
+      "search",
+      "incrementally",
+      "fail",
+      "fact",
+      "error",
+      "build",
+      "backtrack",
+      "trial",
+      "state"
+    ],
+    "description": "Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one step at a time, removing solutions that fail to satisfy the constraints of the problem. It's like a systematic trial and error approach. The name comes from the fact that when you reach a state where you can't proceed further, you 'backtrack' to the previous state and try a different path.",
+    "complexity": {
+      "time": "O(b^d) where b is the branching factor and d is the maximum depth",
+      "space": "O(d) for the recursion stack"
+    },
+    "problem_patterns": [
+      "Permutations and combinations",
+      "Subset problems",
+      "Constraint satisfaction problems",
+      "N-Queens problem",
+      "Sudoku solving",
+      "Path finding in a maze",
+      "Parsing and grammar-related problems"
+    ],
+    "leetcode_indicators": [
+      "Generate all possible",
+      "All permutations/combinations/subsets",
+      "N-Queens",
+      "Problems involving trying all possibilities",
+      "Sudoku solver"
+    ],
+    "implementation": "\n# Example 1: Generate all permutations\ndef permute(nums):\n    result = []\n    \n    def backtrack(current, remaining):\n        # If no more elements to add, add current permutation to result\n        if not remaining:\n            result.append(current[:])\n            return\n        \n        # Try each remaining element\n        for i, num in enumerate(remaining):\n            # Add the current element\n            current.append(num)\n            \n            # Recursively generate permutations with the remaining elements\n            backtrack(current, remaining[:i] + remaining[i+1:])\n            \n            # Backtrack by removing the current element\n            current.pop()\n    \n    backtrack([], nums)\n    return result\n\n# Example 2: Subset Generation\ndef subsets(nums):\n    result = []\n    \n    def backtrack(start, current):\n        # Add the current subset to the result\n        result.append(current[:])\n        \n        # Try each element as the next to add\n        for i in range(start, len(nums)):\n            # Add the element\n            current.append(nums[i])\n            \n            # Recursively generate subsets with next elements\n            backtrack(i + 1, current)\n            \n            # Backtrack by removing the element\n            current.pop()\n    \n    backtrack(0, [])\n    return result\n\n# Example 3: N-Queens\ndef solve_n_queens(n):\n    result = []\n    \n    def is_safe(board, row, col):\n        # Check column\n        for i in range(row):\n            if board[i][col] == 'Q':\n                return False\n        \n        # Check upper-left diagonal\n        for i, j in zip(range(row-1, -1, -1), range(col-1, -1, -1)):\n            if board[i][j] == 'Q':\n                return False\n        \n        # Check upper-right diagonal\n        for i, j in zip(range(row-1, -1, -1), range(col+1, n)):\n            if board[i][j] == 'Q':\n                return False\n        \n        return True\n    \n    def backtrack(board, row):\n        # If all queens are placed, add the solution\n        if row == n:\n            result.append([''.join(row) for row in board])\n            return\n        \n        # Try placing a queen in each column of the current row\n        for col in range(n):\n            if is_safe(board, row, col):\n                # Place the queen\n                board[row][col] = 'Q'\n                \n                # Recursively place queens in the next row\n                backtrack(board, row + 1)\n                \n                # Backtrack by removing the queen\n                board[row][col] = '.'\n    \n    # Initialize board with empty cells\n    board = [['.' for _ in range(n)] for _ in range(n)]\n    backtrack(board, 0)\n    \n    return result\n",
+    "id": "5ccaaba5-b7ef-4079-8aca-2df3d9a3b824",
+    "cluster_id": 18
+  },
+  {
+    "name": "0/1 Knapsack Pattern",
+    "tags": [
+      "dynamic programming",
+      "optimization",
+      "knapsack",
+      "decision",
+      "dynamic_programming",
+      "optimization",
+      "hence",
+      "excluded",
+      "need",
+      "constraint",
+      "staying",
+      "pattern",
+      "problems",
+      "items"
+    ],
+    "description": "The 0/1 Knapsack pattern is a dynamic programming approach for problems where you have a set of items with values and weights, and you need to determine which items to include to maximize the value while staying within a weight constraint. Each item can either be included (1) or excluded (0), hence the name 0/1 Knapsack. This pattern extends to many problems involving decision-making with constraints.",
+    "complexity": {
+      "time": "O(n*W) where n is the number of items and W is the weight constraint",
+      "space": "O(n*W) for the standard approach, can be optimized to O(W)"
+    },
+    "problem_patterns": [
+      "Subset sum problems",
+      "Partition equal subset sum",
+      "Minimum difference subset sum",
+      "Count of subsets with given sum",
+      "Target sum problems",
+      "Problems involving picking items with constraints"
+    ],
+    "leetcode_indicators": [
+      "Given array of numbers, find subset with target sum",
+      "Partition array into two subsets with equal/minimum difference sum",
+      "Problems involving either including or excluding items",
+      "Problems with phrases like 'pick items to maximize value with weight constraint'"
+    ],
+    "implementation": "\n# Example 1: Classic 0/1 Knapsack\ndef knapsack_01(values, weights, capacity):\n    n = len(values)\n    \n    # Initialize DP table\n    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]\n    \n    # Fill DP table\n    for i in range(1, n + 1):\n        for w in range(capacity + 1):\n            # If current item's weight is less than or equal to the capacity\n            if weights[i-1] <= w:\n                # Max of including or excluding the current item\n                dp[i][w] = max(\n                    values[i-1] + dp[i-1][w-weights[i-1]],  # Include item\n                    dp[i-1][w]  # Exclude item\n                )\n            else:\n                # Can't include this item\n                dp[i][w] = dp[i-1][w]\n    \n    # Reconstruct the solution\n    selected_items = []\n    i, j = n, capacity\n    while i > 0 and j > 0:\n        if dp[i][j] != dp[i-1][j]:\n            # Item was included\n            selected_items.append(i-1)\n            j -= weights[i-1]\n        i -= 1\n    \n    return dp[n][capacity], selected_items[::-1]\n\n# Example 2: Subset Sum Problem\ndef subset_sum(nums, target_sum):\n    n = len(nums)\n    \n    # Initialize DP table\n    dp = [[False for _ in range(target_sum + 1)] for _ in range(n + 1)]\n    \n    # Empty subset has sum 0\n    for i in range(n + 1):\n        dp[i][0] = True\n    \n    # Fill DP table\n    for i in range(1, n + 1):\n        for j in range(1, target_sum + 1):\n            # If current element is greater than sum j\n            if nums[i-1] > j:\n                dp[i][j] = dp[i-1][j]\n            else:\n                # Include or exclude current element\n                dp[i][j] = dp[i-1][j] or dp[i-1][j-nums[i-1]]\n    \n    return dp[n][target_sum]\n\n# Example 3: Partition Equal Subset Sum\ndef can_partition(nums):\n    total_sum = sum(nums)\n    \n    # If sum is odd, can't partition into equal subsets\n    if total_sum % 2 != 0:\n        return False\n    \n    target_sum = total_sum // 2\n    return subset_sum(nums, target_sum)\n",
+    "id": "381043ed-3eaf-46c3-9f88-a0656cae9f07",
+    "cluster_id": 3
+  },
+  {
+    "name": "Longest Common Subsequence Pattern",
+    "tags": [
+      "dynamic programming",
+      "string",
+      "sequence",
+      "comparison",
+      "derived",
+      "deleting",
+      "another",
+      "elements",
+      "pattern",
+      "common",
+      "longest",
+      "subsequence"
+    ],
+    "description": "The Longest Common Subsequence (LCS) pattern is a dynamic programming approach for finding the longest subsequence common to two sequences. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. The LCS pattern extends to many string and sequence comparison problems.",
+    "complexity": {
+      "time": "O(m*n) where m and n are the lengths of the sequences",
+      "space": "O(m*n)"
+    },
+    "problem_patterns": [
+      "Longest common subsequence/substring",
+      "Edit distance (insert, delete, replace)",
+      "Shortest common supersequence",
+      "Longest palindromic subsequence",
+      "Minimum deletions/insertions to transform one string to another",
+      "Sequence alignment problems"
+    ],
+    "leetcode_indicators": [
+      "Find longest common subsequence/substring",
+      "Minimum edits to transform one string to another",
+      "Problems involving comparison of two strings/sequences",
+      "Problems involving finding similarities between sequences"
+    ],
+    "implementation": "\n# Example 1: Longest Common Subsequence\ndef longest_common_subsequence(text1, text2):\n    m, n = len(text1), len(text2)\n    \n    # Initialize DP table\n    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n    \n    # Fill DP table\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if text1[i-1] == text2[j-1]:\n                dp[i][j] = dp[i-1][j-1] + 1\n            else:\n                dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n    \n    # Reconstruct the LCS\n    i, j = m, n\n    lcs = []\n    \n    while i > 0 and j > 0:\n        if text1[i-1] == text2[j-1]:\n            lcs.append(text1[i-1])\n            i -= 1\n            j -= 1\n        elif dp[i-1][j] > dp[i][j-1]:\n            i -= 1\n        else:\n            j -= 1\n    \n    return ''.join(reversed(lcs)), dp[m][n]\n\n# Example 2: Edit Distance\ndef edit_distance(word1, word2):\n    m, n = len(word1), len(word2)\n    \n    # Initialize DP table\n    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n    \n    # Fill the first row and column\n    for i in range(m + 1):\n        dp[i][0] = i\n    for j in range(n + 1):\n        dp[0][j] = j\n    \n    # Fill DP table\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if word1[i-1] == word2[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n            else:\n                dp[i][j] = 1 + min(\n                    dp[i-1][j],      # Delete\n                    dp[i][j-1],      # Insert\n                    dp[i-1][j-1]     # Replace\n                )\n    \n    return dp[m][n]\n\n# Example 3: Longest Palindromic Subsequence\ndef longest_palindromic_subsequence(s):\n    # The LPS of a string is the LCS of the string and its reverse\n    return longest_common_subsequence(s, s[::-1])[1]\n",
+    "id": "9740ffb9-5226-4b8a-81ce-2cf6bed61f87",
+    "cluster_id": 13
   }
 ]

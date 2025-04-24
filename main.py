@@ -22,14 +22,10 @@ def setup_folders():
 def run_data_collection():
     """Run all data collection scripts."""
     from scripts.scrapers.geeksforgeeks_scraper import scrape_geeksforgeeks_algorithms
-    from scripts.scrapers.leetcode_scraper import scrape_leetcode_algorithms
     from scripts.scrapers.custom_algorithms import create_custom_algorithms
     
     print("Running GeeksforGeeks scraper...")
     scrape_geeksforgeeks_algorithms()
-    
-    print("Running LeetCode scraper...")
-    scrape_leetcode_algorithms()
     
     print("Creating custom algorithm entries...")
     create_custom_algorithms()

@@ -82,7 +82,6 @@ def get_category_for_algorithm(algorithm_name):
     return None, None
 
 if __name__ == "__main__":
-    # Print all algorithms in the hierarchy
     all_algorithms = get_all_algorithm_names()
     print(f"Total algorithms in hierarchy: {len(all_algorithms)}")
-    print(all_algorithms)  # Print first 10 as example
+    print(all_algorithms)
