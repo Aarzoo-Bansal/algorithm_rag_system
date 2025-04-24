@@ -210,7 +210,7 @@ except ImportError as e:
     # Try a different import path
     try:
         sys.path.append(os.path.join(BASE_DIR, "scripts"))
-        from embedding.vector_store import AlgorithmVectorStore
+        from scripts.embedding.vector_store import AlgorithmVectorStore
         print("Successfully imported AlgorithmVectorStore from alternate path")
     except ImportError as e:
         print(f"Failed to import from alternate path: {e}")
