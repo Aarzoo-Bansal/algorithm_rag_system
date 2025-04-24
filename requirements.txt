@@ -24,3 +24,5 @@ requests==2.31.0
 
 # Utilities
 pydantic==2.5.2  # Required for FastAPI models
+
+beautifulsoup4==4.12.2
