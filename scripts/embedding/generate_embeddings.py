@@ -32,7 +32,7 @@ def generate_embeddings(model_name="all-mpnet-base-v2"):
     embeddings = []
     
    
-    batch_size = 16 
+    batch_size = 2
     num_batches = (len(texts) + batch_size - 1) // batch_size
     
     for i in tqdm(range(num_batches), desc=f"Generating embeddings with {model_name}"):
