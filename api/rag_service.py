@@ -458,6 +458,31 @@ def query_algorithms(request: QueryRequest):
         print(f"Error in query_algorithms: {str(e)}\n{error_details}")
         raise HTTPException(status_code=500, detail=f"Error processing query: {str(e)}")
 
+@app.get("/api/query", response_model=QueryResponse)
+def query_algorithms_get(
+    query: str = Query(..., description="The problem description"),
+    top_k: int = Query(3, description="Number of results to return"),
+    hybrid_search: bool = Query(True, description="Use hybrid search"),
+    alpha: float = Query(0.6, description="Hybrid search alpha parameter")
+):
+    """
+    GET endpoint for querying algorithms. Accepts query parameters.
+    """
+    try:
+        # Reuse your POST logic by creating a QueryRequest object
+        request = QueryRequest(
+            query=query,
+            top_k=top_k,
+            hybrid_search=hybrid_search,
+            alpha=alpha
+        )
+        return query_algorithms(request)
+    except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"Error in query_algorithms_get: {str(e)}\n{error_details}")
+        raise HTTPException(status_code=500, detail=f"Error processing query: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
