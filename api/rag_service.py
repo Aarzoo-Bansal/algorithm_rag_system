@@ -99,6 +99,7 @@ class AlgorithmResult(BaseModel):
     use_cases: Optional[List[str]] = None
     problem_patterns: Optional[List[str]] = None
     leetcode_indicators: Optional[List[str]] = None
+    examples: Optional[List[str]] = None
     similarity_score: float
     match_details: Optional[str] = None
 
