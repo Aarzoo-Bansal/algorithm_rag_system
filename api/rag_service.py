@@ -97,6 +97,8 @@ class AlgorithmResult(BaseModel):
     difficulty: Optional[str] = None
     complexity: Optional[Dict[str, str]] = None
     use_cases: Optional[List[str]] = None
+    problem_patterns: Optional[List[str]] = None
+    leetcode_indicators: Optional[List[str]] = None
     similarity_score: float
     match_details: Optional[str] = None
 
@@ -282,3 +284,4 @@ def query_algorithms_get(
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+    

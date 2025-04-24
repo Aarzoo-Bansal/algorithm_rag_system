@@ -1,414 +1,694 @@
 [
   {
-    "content": "Algorithm: Quick Sort\nDescription: Quick sort is a highly efficient sorting algorithm that uses a divide-and-conquer strategy. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.\nTags: sorting, divide and conquer, comparison sort\nComplexity (Time): O(n log n)\nComplexity (Space): O(log n)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Quick Sort\n            Description: Quick sort is a highly efficient sorting algorithm that uses a divide-and-conquer strategy. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.\n            Tags: sorting, divide and conquer, comparison sort\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(log n)\n            Use Cases: \n            Problem Patterns: Need to sort an array or list efficiently, When average-case performance is more important than worst-case, When in-place sorting is desired\n            Example Problems: Sorting array or list, Problems requiring efficient ordering, Problems where elements need to be partitioned",
     "metadata": {
-      "id": "62a41d19-471c-4370-943d-a1f335ab4531",
-      "title": "",
+      "id": "3c96770a-7620-48c1-ba8f-a3622d959f0e",
+      "title": "Quick Sort",
       "name": "Quick Sort",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "sorting",
         "divide and conquer",
         "comparison sort"
+      ],
+      "problem_patterns": [
+        "Need to sort an array or list efficiently",
+        "When average-case performance is more important than worst-case",
+        "When in-place sorting is desired"
+      ],
+      "examples": [
+        "Sorting array or list",
+        "Problems requiring efficient ordering",
+        "Problems where elements need to be partitioned"
       ]
     }
   },
   {
-    "content": "Algorithm: Merge Sort\nDescription: Merge sort is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves. The merge step is the key operation, where the two sorted sub-arrays are combined to form a single sorted array.\nTags: sorting, divide and conquer, stable sort\nComplexity (Time): O(n log n)\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Merge Sort\n            Description: Merge sort is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves. The merge step is the key operation, where the two sorted sub-arrays are combined to form a single sorted array.\n            Tags: sorting, divide and conquer, stable sort\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Need for stable sorting (preserving relative order of equal elements), When guaranteed worst-case performance is important, Sorting linked lists\n            Example Problems: Stable sorting required, Linked list sorting, Problems involving counting inversions",
     "metadata": {
-      "id": "2e6e60af-42dd-43d6-ab07-ebece9734190",
-      "title": "",
+      "id": "0f6edd1a-d1c4-4c0a-9b8e-9efd3c5b1cd5",
+      "title": "Merge Sort",
       "name": "Merge Sort",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "sorting",
         "divide and conquer",
         "stable sort"
+      ],
+      "problem_patterns": [
+        "Need for stable sorting (preserving relative order of equal elements)",
+        "When guaranteed worst-case performance is important",
+        "Sorting linked lists"
+      ],
+      "examples": [
+        "Stable sorting required",
+        "Linked list sorting",
+        "Problems involving counting inversions"
       ]
     }
   },
   {
-    "content": "Algorithm: Heap Sort\nDescription: Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted region and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element and inserting it into the sorted region.\nTags: sorting, comparison sort, in-place\nComplexity (Time): O(n log n)\nComplexity (Space): O(1)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Heap Sort\n            Description: Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted region and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element and inserting it into the sorted region.\n            Tags: sorting, comparison sort, in-place\n            Complexity (Time): O(n log n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: When space complexity is a concern, Finding the k largest/smallest elements, When in-place sorting is required\n            Example Problems: K largest/smallest elements, Priority queue problems, Sorting with minimal extra space",
     "metadata": {
-      "id": "880f43d7-96b1-45ca-9c81-996b4c5bc1f0",
-      "title": "",
+      "id": "2a4ebb3a-d30c-44bf-a0f5-7bf433319e2b",
+      "title": "Heap Sort",
       "name": "Heap Sort",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "sorting",
         "comparison sort",
         "in-place"
+      ],
+      "problem_patterns": [
+        "When space complexity is a concern",
+        "Finding the k largest/smallest elements",
+        "When in-place sorting is required"
+      ],
+      "examples": [
+        "K largest/smallest elements",
+        "Priority queue problems",
+        "Sorting with minimal extra space"
       ]
     }
   },
   {
-    "content": "Algorithm: Binary Search\nDescription: Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed down the possible locations to just one.\nTags: searching, divide and conquer, sorted array\nComplexity (Time): O(log n)\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Search in a sorted array\n2. Find first and last occurrence of an element\n3. Search in a rotated sorted array\n4. Find peak element\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Binary Search\n            Description: Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed down the possible locations to just one.\n            Tags: searching, divide and conquer, sorted array\n            Complexity (Time): O(log n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Searching in a sorted array or list, Finding the position to insert an element in a sorted array, Problems requiring efficient search in monotonic functions\n            Example Problems: Search in sorted array, Find first/last position of element, Problems with O(log n) time complexity requirement, Problems involving rotated sorted arrays",
     "metadata": {
-      "id": "26099e2c-d358-4d93-8b45-4cc4ac1516f2",
-      "title": "",
+      "id": "cd2e3419-704c-4cd1-b625-5f6c71e8e415",
+      "title": "Binary Search",
       "name": "Binary Search",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "searching",
         "divide and conquer",
         "sorted array"
+      ],
+      "problem_patterns": [
+        "Searching in a sorted array or list",
+        "Finding the position to insert an element in a sorted array",
+        "Problems requiring efficient search in monotonic functions"
+      ],
+      "examples": [
+        "Search in sorted array",
+        "Find first/last position of element",
+        "Problems with O(log n) time complexity requirement",
+        "Problems involving rotated sorted arrays"
       ]
     }
   },
   {
-    "content": "Algorithm: Depth-First Search (DFS)\nDescription: Depth-First Search is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.\nTags: searching, graph algorithm, tree traversal\nComplexity (Time): O(V + E)\nComplexity (Space): O(V)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Depth-First Search (DFS)\n            Description: Depth-First Search is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.\n            Tags: searching, graph algorithm, tree traversal\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Problem Patterns: Traversing trees or graphs, Finding connected components, Path finding problems, Cycle detection\n            Example Problems: Graph or tree traversal, Path finding, Connected components, Cycle detection, Problems requiring backtracking",
     "metadata": {
-      "id": "c8deeb3b-d101-41ef-a4c1-d0ede9ed56fd",
-      "title": "",
+      "id": "63cfd14f-ad35-4e29-aff1-e8763adef9ad",
+      "title": "Depth-First Search (DFS)",
       "name": "Depth-First Search (DFS)",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "searching",
         "graph algorithm",
         "tree traversal"
+      ],
+      "problem_patterns": [
+        "Traversing trees or graphs",
+        "Finding connected components",
+        "Path finding problems",
+        "Cycle detection"
+      ],
+      "examples": [
+        "Graph or tree traversal",
+        "Path finding",
+        "Connected components",
+        "Cycle detection",
+        "Problems requiring backtracking"
       ]
     }
   },
   {
-    "content": "Algorithm: Breadth-First Search (BFS)\nDescription: Breadth-First Search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node in a graph) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.\nTags: searching, graph algorithm, tree traversal\nComplexity (Time): O(V + E)\nComplexity (Space): O(V)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Breadth-First Search (BFS)\n            Description: Breadth-First Search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node in a graph) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.\n            Tags: searching, graph algorithm, tree traversal\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Problem Patterns: Finding shortest path in unweighted graphs, Level order traversal of trees, Finding all nodes within a distance k, Problems requiring level-by-level processing\n            Example Problems: Shortest path in unweighted graph, Level order traversal, Minimum steps to reach target, Problems involving word ladder or transformation",
     "metadata": {
-      "id": "902a354d-685c-45e3-97fe-5c29d7b09df1",
-      "title": "",
+      "id": "694d1a82-a090-407a-a13a-cc24895b5d48",
+      "title": "Breadth-First Search (BFS)",
       "name": "Breadth-First Search (BFS)",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "searching",
         "graph algorithm",
         "tree traversal"
+      ],
+      "problem_patterns": [
+        "Finding shortest path in unweighted graphs",
+        "Level order traversal of trees",
+        "Finding all nodes within a distance k",
+        "Problems requiring level-by-level processing"
+      ],
+      "examples": [
+        "Shortest path in unweighted graph",
+        "Level order traversal",
+        "Minimum steps to reach target",
+        "Problems involving word ladder or transformation"
       ]
     }
   },
   {
-    "content": "Algorithm: Dijkstra's Algorithm\nDescription: Dijkstra's algorithm is used to find the shortest paths between nodes in a graph with non-negative edge weights. It uses a priority queue to greedily select the closest vertex that has not yet been processed and updates the distances to all its neighbors.\nTags: graph algorithm, shortest path, weighted graph, graph, shortest_path\nComplexity (Time): O((V + E) log V)\nComplexity (Space): O(V)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Dijkstra's Algorithm\n            Description: Dijkstra's algorithm is used to find the shortest paths between nodes in a graph with non-negative edge weights. It uses a priority queue to greedily select the closest vertex that has not yet been processed and updates the distances to all its neighbors.\n            Tags: graph algorithm, shortest path, weighted graph, graph, shortest_path\n            Complexity (Time): O((V + E) log V)\n            Complexity (Space): O(V)\n            Use Cases: \n            Problem Patterns: Finding shortest path in weighted graphs, Network routing problems, Problems involving path optimization\n            Example Problems: Shortest path in weighted graph, Path with minimum cost/time/distance, Network routing problems",
     "metadata": {
-      "id": "1f20bef5-784e-40bd-92a5-79fab9dbe6e7",
-      "title": "",
+      "id": "89f1ba31-4f16-4a52-aeac-a85f8a02cde5",
+      "title": "Dijkstra's Algorithm",
       "name": "Dijkstra's Algorithm",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "shortest path",
         "weighted graph",
         "graph",
         "shortest_path"
+      ],
+      "problem_patterns": [
+        "Finding shortest path in weighted graphs",
+        "Network routing problems",
+        "Problems involving path optimization"
+      ],
+      "examples": [
+        "Shortest path in weighted graph",
+        "Path with minimum cost/time/distance",
+        "Network routing problems"
       ]
     }
   },
   {
-    "content": "Algorithm: Kruskal's Algorithm\nDescription: Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It adds the edges in order of their weight (smallest to largest) as long as adding an edge doesn't create a cycle.\nTags: graph algorithm, minimum spanning tree, greedy\nComplexity (Time): O(E log E)\nComplexity (Space): O(V + E)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Kruskal's Algorithm\n            Description: Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It adds the edges in order of their weight (smallest to largest) as long as adding an edge doesn't create a cycle.\n            Tags: graph algorithm, minimum spanning tree, greedy\n            Complexity (Time): O(E log E)\n            Complexity (Space): O(V + E)\n            Use Cases: \n            Problem Patterns: Finding minimum spanning tree, Network design problems, Clustering problems\n            Example Problems: Minimum spanning tree, Problems involving connecting all nodes at minimum cost, Network design optimization",
     "metadata": {
-      "id": "58a726c8-3afe-47a7-b6f2-fb2b50e462c6",
-      "title": "",
+      "id": "96d8dc91-70cf-41c2-8406-eba97fd940e7",
+      "title": "Kruskal's Algorithm",
       "name": "Kruskal's Algorithm",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "minimum spanning tree",
         "greedy"
+      ],
+      "problem_patterns": [
+        "Finding minimum spanning tree",
+        "Network design problems",
+        "Clustering problems"
+      ],
+      "examples": [
+        "Minimum spanning tree",
+        "Problems involving connecting all nodes at minimum cost",
+        "Network design optimization"
       ]
     }
   },
   {
-    "content": "Algorithm: Topological Sort\nDescription: Topological Sort is an algorithm for ordering the vertices of a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.\nTags: graph algorithm, directed acyclic graph, ordering\nComplexity (Time): O(V + E)\nComplexity (Space): O(V)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Topological Sort\n            Description: Topological Sort is an algorithm for ordering the vertices of a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.\n            Tags: graph algorithm, directed acyclic graph, ordering\n            Complexity (Time): O(V + E)\n            Complexity (Space): O(V)\n            Use Cases: \n            Problem Patterns: Task scheduling with dependencies, Course prerequisites ordering, Any problem requiring ordering based on dependencies\n            Example Problems: Course schedule problems, Task scheduling with prerequisites, Problems involving dependency ordering",
     "metadata": {
-      "id": "17064309-b19e-42e8-aa53-fcb1b8160c44",
-      "title": "",
+      "id": "095376a9-f476-42bd-8809-7832e4ebd180",
+      "title": "Topological Sort",
       "name": "Topological Sort",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "directed acyclic graph",
         "ordering"
+      ],
+      "problem_patterns": [
+        "Task scheduling with dependencies",
+        "Course prerequisites ordering",
+        "Any problem requiring ordering based on dependencies"
+      ],
+      "examples": [
+        "Course schedule problems",
+        "Task scheduling with prerequisites",
+        "Problems involving dependency ordering"
       ]
     }
   },
   {
-    "content": "Algorithm: Linked List Reversal\nDescription: The Linked List Reversal algorithm takes a singly linked list and reverses the order of its nodes in-place by manipulating the pointers. This is done by iterating through the list and changing each node's next pointer to point to the previous node instead of the next one.\nTags: linked list, pointer manipulation, in-place, data_structures, linear\nComplexity (Time): O(n)\nComplexity (Space): O(1)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Linked List Reversal\n            Description: The Linked List Reversal algorithm takes a singly linked list and reverses the order of its nodes in-place by manipulating the pointers. This is done by iterating through the list and changing each node's next pointer to point to the previous node instead of the next one.\n            Tags: linked list, pointer manipulation, in-place, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Reversing a linked list or parts of a linked list, Problems requiring modification of link directions, In-place list restructuring\n            Example Problems: Reverse a linked list, Reverse nodes in k-group, Problems involving list direction manipulation",
     "metadata": {
-      "id": "a415732d-3fbc-4acc-b9c8-261ed003a205",
-      "title": "",
+      "id": "6bdf856f-0fe2-441d-8a8e-b216c711bc36",
+      "title": "Linked List Reversal",
       "name": "Linked List Reversal",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "linked list",
         "pointer manipulation",
         "in-place",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Reversing a linked list or parts of a linked list",
+        "Problems requiring modification of link directions",
+        "In-place list restructuring"
+      ],
+      "examples": [
+        "Reverse a linked list",
+        "Reverse nodes in k-group",
+        "Problems involving list direction manipulation"
       ]
     }
   },
   {
-    "content": "Algorithm: Linked List Cycle Detection\nDescription: The Linked List Cycle Detection algorithm (also known as Floyd's Tortoise and Hare algorithm) determines if a linked list has a cycle by using two pointers that move at different speeds. If there is a cycle, the fast pointer will eventually catch up to the slow pointer.\nTags: linked list, two pointers, cycle detection, data_structures, linear\nComplexity (Time): O(n)\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Two sum problem\n2. Container with most water\n3. Remove duplicates from sorted array\n4. Finding triplets that sum to zero\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Linked List Cycle Detection\n            Description: The Linked List Cycle Detection algorithm (also known as Floyd's Tortoise and Hare algorithm) determines if a linked list has a cycle by using two pointers that move at different speeds. If there is a cycle, the fast pointer will eventually catch up to the slow pointer.\n            Tags: linked list, two pointers, cycle detection, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Detecting cycles in linked lists, Finding the start of a cycle, Problems involving loop detection\n            Example Problems: Linked list cycle detection, Find the start of cycle, Check if a linked list contains a loop",
     "metadata": {
-      "id": "8ee8179c-ba82-4a61-b819-e36c7efb55ff",
-      "title": "",
+      "id": "7fe10e88-254d-4599-858b-e08ce302b8d7",
+      "title": "Linked List Cycle Detection",
       "name": "Linked List Cycle Detection",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "linked list",
         "two pointers",
         "cycle detection",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Detecting cycles in linked lists",
+        "Finding the start of a cycle",
+        "Problems involving loop detection"
+      ],
+      "examples": [
+        "Linked list cycle detection",
+        "Find the start of cycle",
+        "Check if a linked list contains a loop"
       ]
     }
   },
   {
-    "content": "Algorithm: Linked List Rotation\nDescription: The Linked List Rotation algorithm rotates a linked list to the right or left by k positions by manipulating pointers. The operation is performed by connecting the tail of the list to the head to form a circle, then breaking the circle at the appropriate point.\nTags: linked list, pointer manipulation, two pointers, data_structures, linear\nComplexity (Time): O(n)\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Two sum problem\n2. Container with most water\n3. Remove duplicates from sorted array\n4. Finding triplets that sum to zero\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Linked List Rotation\n            Description: The Linked List Rotation algorithm rotates a linked list to the right or left by k positions by manipulating pointers. The operation is performed by connecting the tail of the list to the head to form a circle, then breaking the circle at the appropriate point.\n            Tags: linked list, pointer manipulation, two pointers, data_structures, linear\n            Complexity (Time): O(n)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Rotating elements in a linked list, Problems involving circular rearrangement, Shifting node positions without creating new nodes\n            Example Problems: Rotate list to the right/left by k places, Rotate elements in a linked list, Shift node positions in a linked list",
     "metadata": {
-      "id": "35a1b5c8-fad6-4ed6-bd8e-8cb8757d5f2b",
-      "title": "",
+      "id": "195600ff-904a-4105-b698-e20257671be6",
+      "title": "Linked List Rotation",
       "name": "Linked List Rotation",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "linked list",
         "pointer manipulation",
         "two pointers",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Rotating elements in a linked list",
+        "Problems involving circular rearrangement",
+        "Shifting node positions without creating new nodes"
+      ],
+      "examples": [
+        "Rotate list to the right/left by k places",
+        "Rotate elements in a linked list",
+        "Shift node positions in a linked list"
       ]
     }
   },
   {
-    "content": "Algorithm: Linked List Merge\nDescription: The Linked List Merge algorithm combines two sorted linked lists into a single sorted linked list by comparing nodes from both lists and linking them in the correct order.\nTags: linked list, two pointers, sorting\nComplexity (Time): O(n + m)\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Two sum problem\n2. Container with most water\n3. Remove duplicates from sorted array\n4. Finding triplets that sum to zero\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Linked List Merge\n            Description: The Linked List Merge algorithm combines two sorted linked lists into a single sorted linked list by comparing nodes from both lists and linking them in the correct order.\n            Tags: linked list, two pointers, sorting\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Merging sorted linked lists, Combining multiple sorted structures, In-place list integration\n            Example Problems: Merge two sorted linked lists, Merge k sorted linked lists, Sort a linked list using merge sort",
     "metadata": {
-      "id": "4075164e-26ec-4b4d-a0fd-8707080dce41",
-      "title": "",
+      "id": "f650832a-e2a9-4a32-822d-d9b518980d10",
+      "title": "Linked List Merge",
       "name": "Linked List Merge",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "linked list",
         "two pointers",
         "sorting"
+      ],
+      "problem_patterns": [
+        "Merging sorted linked lists",
+        "Combining multiple sorted structures",
+        "In-place list integration"
+      ],
+      "examples": [
+        "Merge two sorted linked lists",
+        "Merge k sorted linked lists",
+        "Sort a linked list using merge sort"
       ]
     }
   },
   {
-    "content": "Algorithm: Stack Implementation\nDescription: The Stack data structure follows Last-In-First-Out (LIFO) principle. It supports two primary operations: push (adding an element to the top) and pop (removing the top element). Stacks can be implemented using arrays or linked lists.\nTags: stack, data structure, LIFO, data_structures, linear\nComplexity (Time): O(1) for push/pop operations\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Stack Implementation\n            Description: The Stack data structure follows Last-In-First-Out (LIFO) principle. It supports two primary operations: push (adding an element to the top) and pop (removing the top element). Stacks can be implemented using arrays or linked lists.\n            Tags: stack, data structure, LIFO, data_structures, linear\n            Complexity (Time): O(1) for push/pop operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Problems requiring last-in-first-out processing, Function call management, Expression evaluation and parsing\n            Example Problems: Valid parentheses, Evaluate expressions, History tracking, Undo operations",
     "metadata": {
-      "id": "12b329e9-5e2d-40f0-a5ec-6f47c621cc20",
-      "title": "",
+      "id": "6c2445cd-04c0-4ea8-8f5a-939e40bac2ba",
+      "title": "Stack Implementation",
       "name": "Stack Implementation",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "stack",
         "data structure",
         "LIFO",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Problems requiring last-in-first-out processing",
+        "Function call management",
+        "Expression evaluation and parsing"
+      ],
+      "examples": [
+        "Valid parentheses",
+        "Evaluate expressions",
+        "History tracking",
+        "Undo operations"
       ]
     }
   },
   {
-    "content": "Algorithm: Balanced Parentheses Check\nDescription: The Balanced Parentheses Check algorithm uses a stack to verify if an expression has balanced parentheses, brackets, and braces. It scans the expression from left to right, pushing opening delimiters onto a stack and popping when matching closing delimiters are encountered.\nTags: stack, string, validation\nComplexity (Time): O(n)\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Balanced Parentheses Check\n            Description: The Balanced Parentheses Check algorithm uses a stack to verify if an expression has balanced parentheses, brackets, and braces. It scans the expression from left to right, pushing opening delimiters onto a stack and popping when matching closing delimiters are encountered.\n            Tags: stack, string, validation\n            Complexity (Time): O(n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Validating proper nesting of parentheses, brackets, and braces, Checking syntax in expressions, Problems requiring matching of opening and closing characters\n            Example Problems: Valid parentheses, Check balanced brackets, Expression validation",
     "metadata": {
-      "id": "6c8c478b-db64-47c8-af04-e46d47c4f7b5",
-      "title": "",
+      "id": "4582c9b6-aba3-42da-b002-ab522196bc97",
+      "title": "Balanced Parentheses Check",
       "name": "Balanced Parentheses Check",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "stack",
         "string",
         "validation"
+      ],
+      "problem_patterns": [
+        "Validating proper nesting of parentheses, brackets, and braces",
+        "Checking syntax in expressions",
+        "Problems requiring matching of opening and closing characters"
+      ],
+      "examples": [
+        "Valid parentheses",
+        "Check balanced brackets",
+        "Expression validation"
       ]
     }
   },
   {
-    "content": "Algorithm: Infix to Postfix Conversion\nDescription: The Infix to Postfix Conversion algorithm transforms an infix expression (standard mathematical notation with operators between operands) to postfix notation (operators follow their operands) using a stack to handle operator precedence and parentheses.\nTags: stack, expression, conversion\nComplexity (Time): O(n)\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Infix to Postfix Conversion\n            Description: The Infix to Postfix Conversion algorithm transforms an infix expression (standard mathematical notation with operators between operands) to postfix notation (operators follow their operands) using a stack to handle operator precedence and parentheses.\n            Tags: stack, expression, conversion\n            Complexity (Time): O(n)\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Expression parsing and evaluation, Compiler design problems, Problems involving operator precedence\n            Example Problems: Expression evaluation, Convert expression notation, Calculator implementation",
     "metadata": {
-      "id": "24190139-9938-48e6-bf75-6b4bca8f6269",
-      "title": "",
+      "id": "33aab26d-9078-4076-9bf7-1ac51e044f92",
+      "title": "Infix to Postfix Conversion",
       "name": "Infix to Postfix Conversion",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "stack",
         "expression",
         "conversion"
+      ],
+      "problem_patterns": [
+        "Expression parsing and evaluation",
+        "Compiler design problems",
+        "Problems involving operator precedence"
+      ],
+      "examples": [
+        "Expression evaluation",
+        "Convert expression notation",
+        "Calculator implementation"
       ]
     }
   },
   {
-    "content": "Algorithm: 0/1 Knapsack\nDescription: The 0/1 Knapsack problem is a problem in combinatorial optimization: given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.\nTags: dynamic programming, optimization, combinatorial, dynamic_programming, optimization\nComplexity (Time): O(n*W)\nComplexity (Space): O(n*W)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: 0/1 Knapsack\n            Description: The 0/1 Knapsack problem is a problem in combinatorial optimization: given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.\n            Tags: dynamic programming, optimization, combinatorial, dynamic_programming, optimization\n            Complexity (Time): O(n*W)\n            Complexity (Space): O(n*W)\n            Use Cases: \n            Problem Patterns: Resource allocation with constraints, Item selection to maximize value with weight constraint, Problems involving yes/no decisions for each item\n            Example Problems: Maximize value with weight constraint, Problems involving subset selection with constraints, Target sum with specific items",
     "metadata": {
-      "id": "60c4ee04-911c-46a0-b202-8d9d8b212a61",
-      "title": "",
+      "id": "1737df71-53bf-471a-9187-05dcb911d330",
+      "title": "0/1 Knapsack",
       "name": "0/1 Knapsack",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "dynamic programming",
         "optimization",
         "combinatorial",
         "dynamic_programming",
         "optimization"
+      ],
+      "problem_patterns": [
+        "Resource allocation with constraints",
+        "Item selection to maximize value with weight constraint",
+        "Problems involving yes/no decisions for each item"
+      ],
+      "examples": [
+        "Maximize value with weight constraint",
+        "Problems involving subset selection with constraints",
+        "Target sum with specific items"
       ]
     }
   },
   {
-    "content": "Algorithm: Longest Common Subsequence\nDescription: The Longest Common Subsequence (LCS) algorithm finds the longest sequence that is present in both given sequences in the same order (not necessarily consecutive).\nTags: dynamic programming, string algorithm, sequence comparison, dynamic_programming, optimization\nComplexity (Time): O(m*n)\nComplexity (Space): O(m*n)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Longest Common Subsequence\n            Description: The Longest Common Subsequence (LCS) algorithm finds the longest sequence that is present in both given sequences in the same order (not necessarily consecutive).\n            Tags: dynamic programming, string algorithm, sequence comparison, dynamic_programming, optimization\n            Complexity (Time): O(m*n)\n            Complexity (Space): O(m*n)\n            Use Cases: \n            Problem Patterns: String comparison and similarity, Sequence alignment problems, Edit distance variations\n            Example Problems: Find common subsequence between strings, String similarity problems, Problems involving sequence comparison, Edit distance variations",
     "metadata": {
-      "id": "e7e7406e-488e-4bcb-81bf-d7239b028068",
-      "title": "",
+      "id": "0cd38ecb-4364-4c2b-9f0f-40fba6ca38a3",
+      "title": "Longest Common Subsequence",
       "name": "Longest Common Subsequence",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "dynamic programming",
         "string algorithm",
         "sequence comparison",
         "dynamic_programming",
         "optimization"
+      ],
+      "problem_patterns": [
+        "String comparison and similarity",
+        "Sequence alignment problems",
+        "Edit distance variations"
+      ],
+      "examples": [
+        "Find common subsequence between strings",
+        "String similarity problems",
+        "Problems involving sequence comparison",
+        "Edit distance variations"
       ]
     }
   },
   {
-    "content": "Algorithm: Coin Change\nDescription: The Coin Change problem asks for the minimum number of coins needed to make a certain amount of change, given a set of coin denominations.\nTags: dynamic programming, greedy, optimization\nComplexity (Time): O(amount * n)\nComplexity (Space): O(amount)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Coin Change\n            Description: The Coin Change problem asks for the minimum number of coins needed to make a certain amount of change, given a set of coin denominations.\n            Tags: dynamic programming, greedy, optimization\n            Complexity (Time): O(amount * n)\n            Complexity (Space): O(amount)\n            Use Cases: \n            Problem Patterns: Making change with minimum number of coins, Problems involving combinations that sum to target, Minimum resource allocation problems\n            Example Problems: Minimum coins to make change, Ways to make sum with given numbers, Problems involving counting combinations",
     "metadata": {
-      "id": "ab7b5b41-6bab-421b-847d-048a624ac66e",
-      "title": "",
+      "id": "684a0c2d-4962-46dd-83f5-d676b147f399",
+      "title": "Coin Change",
       "name": "Coin Change",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "dynamic programming",
         "greedy",
         "optimization"
+      ],
+      "problem_patterns": [
+        "Making change with minimum number of coins",
+        "Problems involving combinations that sum to target",
+        "Minimum resource allocation problems"
+      ],
+      "examples": [
+        "Minimum coins to make change",
+        "Ways to make sum with given numbers",
+        "Problems involving counting combinations"
       ]
     }
   },
   {
-    "content": "Algorithm: Knuth-Morris-Pratt (KMP)\nDescription: The Knuth-Morris-Pratt algorithm searches for occurrences of a 'pattern' within a main 'text' by employing the observation that when a mismatch occurs, the pattern itself contains sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.\nTags: string algorithm, pattern matching, substring search, string, pattern_matching\nComplexity (Time): O(n + m)\nComplexity (Space): O(m)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Knuth-Morris-Pratt (KMP)\n            Description: The Knuth-Morris-Pratt algorithm searches for occurrences of a 'pattern' within a main 'text' by employing the observation that when a mismatch occurs, the pattern itself contains sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.\n            Tags: string algorithm, pattern matching, substring search, string, pattern_matching\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(m)\n            Use Cases: \n            Problem Patterns: Efficient substring search, Pattern matching in strings, Text processing problems\n            Example Problems: Find all occurrences of pattern in text, String matching problems, Problems requiring efficient substring search",
     "metadata": {
-      "id": "65cf2b0a-34ef-4985-810e-24693924b986",
-      "title": "",
+      "id": "2608eb30-4da5-4cf0-a0a2-40d1d72095a5",
+      "title": "Knuth-Morris-Pratt (KMP)",
       "name": "Knuth-Morris-Pratt (KMP)",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "string algorithm",
         "pattern matching",
         "substring search",
         "string",
         "pattern_matching"
+      ],
+      "problem_patterns": [
+        "Efficient substring search",
+        "Pattern matching in strings",
+        "Text processing problems"
+      ],
+      "examples": [
+        "Find all occurrences of pattern in text",
+        "String matching problems",
+        "Problems requiring efficient substring search"
       ]
     }
   },
   {
-    "content": "Algorithm: Rabin-Karp\nDescription: The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to find patterns in strings. It calculates a hash value for the pattern and for each possible substring of the text, then compares the hash values instead of comparing the strings character by character.\nTags: string algorithm, pattern matching, hashing, string, pattern_matching\nComplexity (Time): O(n + m)\nComplexity (Space): O(1)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Rabin-Karp\n            Description: The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to find patterns in strings. It calculates a hash value for the pattern and for each possible substring of the text, then compares the hash values instead of comparing the strings character by character.\n            Tags: string algorithm, pattern matching, hashing, string, pattern_matching\n            Complexity (Time): O(n + m)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Multiple pattern search, Substring matching, Plagiarism detection\n            Example Problems: String matching with hash function, Multiple pattern search in text, Substring search problems",
     "metadata": {
-      "id": "0e9f7833-9d18-427a-80a6-642c6d28f0a3",
-      "title": "",
+      "id": "7d85f7bc-9f82-4c4a-be53-6a308d03fcc5",
+      "title": "Rabin-Karp",
       "name": "Rabin-Karp",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "string algorithm",
         "pattern matching",
         "hashing",
         "string",
         "pattern_matching"
+      ],
+      "problem_patterns": [
+        "Multiple pattern search",
+        "Substring matching",
+        "Plagiarism detection"
+      ],
+      "examples": [
+        "String matching with hash function",
+        "Multiple pattern search in text",
+        "Substring search problems"
       ]
     }
   },
   {
-    "content": "Algorithm: Longest Palindromic Substring\nDescription: The Longest Palindromic Substring algorithm finds the longest substring within a string that is a palindrome (reads the same backward as forward).\nTags: string algorithm, dynamic programming\nComplexity (Time): O(n\u00b2)\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Longest Palindromic Substring\n            Description: The Longest Palindromic Substring algorithm finds the longest substring within a string that is a palindrome (reads the same backward as forward).\n            Tags: string algorithm, dynamic programming\n            Complexity (Time): O(n\u00b2)\n            Complexity (Space): O(1)\n            Use Cases: \n            Problem Patterns: Finding palindromes in strings, String processing with symmetry, Text analysis problems\n            Example Problems: Find longest palindrome in string, Problems involving substring palindromes, String symmetry problems",
     "metadata": {
-      "id": "7ba7938e-2c8d-4181-9217-46d583975a8e",
-      "title": "",
+      "id": "6f67ce43-df8d-4d08-ab9b-5e4c087dca93",
+      "title": "Longest Palindromic Substring",
       "name": "Longest Palindromic Substring",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "string algorithm",
         "dynamic programming"
+      ],
+      "problem_patterns": [
+        "Finding palindromes in strings",
+        "String processing with symmetry",
+        "Text analysis problems"
+      ],
+      "examples": [
+        "Find longest palindrome in string",
+        "Problems involving substring palindromes",
+        "String symmetry problems"
       ]
     }
   },
   {
-    "content": "Algorithm: Binary Tree Traversal\nDescription: Binary Tree Traversal algorithms systematically visit each node in a binary tree. The three most common traversal methods are in-order (left-root-right), pre-order (root-left-right), and post-order (left-right-root).\nTags: tree algorithm, data structure, traversal, data_structures, tree\nComplexity (Time): O(n)\nComplexity (Space): O(h)\nUse Cases:\nExample Problems:\n1. Inorder, preorder, postorder traversal\n2. Level order traversal\n3. Find height/depth of a tree\n4. Check if a binary tree is balanced\n",
+    "content": "Algorithm Type: data structure\n            Algorithm: Binary Tree Traversal\n            Description: Binary Tree Traversal algorithms systematically visit each node in a binary tree. The three most common traversal methods are in-order (left-root-right), pre-order (root-left-right), and post-order (left-right-root).\n            Tags: tree algorithm, data structure, traversal, data_structures, tree\n            Complexity (Time): O(n)\n            Complexity (Space): O(h)\n            Use Cases: \n            Problem Patterns: Tree processing in specific orders, Converting tree to array representations, Tree validation problems\n            Example Problems: Tree traversal problems, Convert tree to array, Problems requiring specific node visit order",
     "metadata": {
-      "id": "9b989cd7-6e10-4cc5-9647-cf5b1a68a39b",
-      "title": "",
+      "id": "c4b7be12-cbf4-402f-aea0-b11b780d5cf7",
+      "title": "Binary Tree Traversal",
       "name": "Binary Tree Traversal",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "tree algorithm",
         "data structure",
         "traversal",
         "data_structures",
         "tree"
+      ],
+      "problem_patterns": [
+        "Tree processing in specific orders",
+        "Converting tree to array representations",
+        "Tree validation problems"
+      ],
+      "examples": [
+        "Tree traversal problems",
+        "Convert tree to array",
+        "Problems requiring specific node visit order"
       ]
     }
   },
   {
-    "content": "Algorithm: Binary Search Tree Operations\nDescription: Binary Search Tree (BST) operations include insertion, deletion, and searching in a tree where for each node, all elements in the left subtree are less than the node's value, and all elements in the right subtree are greater.\nTags: tree algorithm, binary search tree, data structure, searching, array_search\nComplexity (Time): O(h)\nComplexity (Space): O(h)\nUse Cases:\nExample Problems:\n1. Search in a sorted array\n2. Find first and last occurrence of an element\n3. Search in a rotated sorted array\n4. Find peak element\n",
+    "content": "Algorithm Type: data structure\n            Algorithm: Binary Search Tree Operations\n            Description: Binary Search Tree (BST) operations include insertion, deletion, and searching in a tree where for each node, all elements in the left subtree are less than the node's value, and all elements in the right subtree are greater.\n            Tags: tree algorithm, binary search tree, data structure, searching, array_search\n            Complexity (Time): O(h)\n            Complexity (Space): O(h)\n            Use Cases: \n            Problem Patterns: Efficient data structures for sorted data, Problems requiring ordered data operations, Tree construction and modification\n            Example Problems: Binary search tree problems, Tree with ordered property, Problems involving tree insertion/deletion",
     "metadata": {
-      "id": "f57cfa89-5170-443f-b236-98f3e497573e",
-      "title": "",
+      "id": "53b8d281-368a-42d2-8b66-e3c157b4b0ce",
+      "title": "Binary Search Tree Operations",
       "name": "Binary Search Tree Operations",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "tree algorithm",
         "binary search tree",
         "data structure",
         "searching",
         "array_search"
+      ],
+      "problem_patterns": [
+        "Efficient data structures for sorted data",
+        "Problems requiring ordered data operations",
+        "Tree construction and modification"
+      ],
+      "examples": [
+        "Binary search tree problems",
+        "Tree with ordered property",
+        "Problems involving tree insertion/deletion"
       ]
     }
   },
   {
-    "content": "Algorithm: Lowest Common Ancestor\nDescription: The Lowest Common Ancestor (LCA) algorithm finds the lowest node in a tree that has both given nodes as descendants. A node can be a descendant of itself.\nTags: tree algorithm, binary tree, ancestor finding\nComplexity (Time): O(n)\nComplexity (Space): O(h)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Lowest Common Ancestor\n            Description: The Lowest Common Ancestor (LCA) algorithm finds the lowest node in a tree that has both given nodes as descendants. A node can be a descendant of itself.\n            Tags: tree algorithm, binary tree, ancestor finding\n            Complexity (Time): O(n)\n            Complexity (Space): O(h)\n            Use Cases: \n            Problem Patterns: Finding common ancestors in trees, Relationship problems in hierarchical structures, Tree navigation problems\n            Example Problems: Lowest common ancestor problems, Tree node relationship questions, Problems involving finding a common parent",
     "metadata": {
-      "id": "2d698322-5474-4898-b0b4-d85ec99205ec",
-      "title": "",
+      "id": "025193de-af47-4e55-b3ae-1dce2890bb0f",
+      "title": "Lowest Common Ancestor",
       "name": "Lowest Common Ancestor",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "tree algorithm",
         "binary tree",
         "ancestor finding"
+      ],
+      "problem_patterns": [
+        "Finding common ancestors in trees",
+        "Relationship problems in hierarchical structures",
+        "Tree navigation problems"
+      ],
+      "examples": [
+        "Lowest common ancestor problems",
+        "Tree node relationship questions",
+        "Problems involving finding a common parent"
       ]
     }
   },
   {
-    "content": "Algorithm: Queue Implementation\nDescription: The Queue data structure follows First-In-First-Out (FIFO) principle. It supports two primary operations: enqueue (adding an element to the rear) and dequeue (removing the front element). Queues can be implemented using arrays, linked lists, or a combination of stacks.\nTags: queue, data structure, FIFO, data_structures, linear\nComplexity (Time): O(1) for enqueue/dequeue operations\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Queue Implementation\n            Description: The Queue data structure follows First-In-First-Out (FIFO) principle. It supports two primary operations: enqueue (adding an element to the rear) and dequeue (removing the front element). Queues can be implemented using arrays, linked lists, or a combination of stacks.\n            Tags: queue, data structure, FIFO, data_structures, linear\n            Complexity (Time): O(1) for enqueue/dequeue operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Problems requiring first-in-first-out processing, Breadth-first search, Task scheduling, Buffer management\n            Example Problems: Level order traversal, BFS problems, First-come-first-serve processing",
     "metadata": {
-      "id": "0865fba0-b937-454f-ac20-0d09211ef903",
-      "title": "",
+      "id": "3b535e56-30f1-4907-9332-fde55f04fb6b",
+      "title": "Queue Implementation",
       "name": "Queue Implementation",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "queue",
         "data structure",
         "FIFO",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Problems requiring first-in-first-out processing",
+        "Breadth-first search",
+        "Task scheduling",
+        "Buffer management"
+      ],
+      "examples": [
+        "Level order traversal",
+        "BFS problems",
+        "First-come-first-serve processing"
       ]
     }
   },
   {
-    "content": "Algorithm: Circular Queue Implementation\nDescription: A Circular Queue (also called Ring Buffer) is an enhancement of the regular queue that efficiently uses space by wrapping around to the beginning when it reaches the end of the allocated space. It maintains two pointers: front and rear, and uses modulo arithmetic to handle the wrap-around.\nTags: queue, circular, data structure, data_structures, linear\nComplexity (Time): O(1) for enqueue/dequeue operations\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Circular Queue Implementation\n            Description: A Circular Queue (also called Ring Buffer) is an enhancement of the regular queue that efficiently uses space by wrapping around to the beginning when it reaches the end of the allocated space. It maintains two pointers: front and rear, and uses modulo arithmetic to handle the wrap-around.\n            Tags: queue, circular, data structure, data_structures, linear\n            Complexity (Time): O(1) for enqueue/dequeue operations\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Fixed-size buffer management, Stream processing, Problems requiring circular data structures, Round-robin scheduling\n            Example Problems: Design circular queue, Circular buffer, Problems involving wraparound indexing",
     "metadata": {
-      "id": "02a6b88b-9cc1-4314-8d04-76d2fac92261",
-      "title": "",
+      "id": "97f60703-9373-431a-b4e8-446cfa1fc569",
+      "title": "Circular Queue Implementation",
       "name": "Circular Queue Implementation",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "queue",
         "circular",
         "data structure",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Fixed-size buffer management",
+        "Stream processing",
+        "Problems requiring circular data structures",
+        "Round-robin scheduling"
+      ],
+      "examples": [
+        "Design circular queue",
+        "Circular buffer",
+        "Problems involving wraparound indexing"
       ]
     }
   },
   {
-    "content": "Algorithm: Priority Queue Implementation\nDescription: A Priority Queue is an abstract data type similar to a regular queue but where each element has a priority. Elements with higher priority are dequeued before elements with lower priority. It can be implemented using a heap, a binary search tree, or an ordered array.\nTags: queue, priority, heap, data structure, data_structures, linear\nComplexity (Time): O(log n) for insertion/deletion with heap implementation\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Priority Queue Implementation\n            Description: A Priority Queue is an abstract data type similar to a regular queue but where each element has a priority. Elements with higher priority are dequeued before elements with lower priority. It can be implemented using a heap, a binary search tree, or an ordered array.\n            Tags: queue, priority, heap, data structure, data_structures, linear\n            Complexity (Time): O(log n) for insertion/deletion with heap implementation\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Problems requiring elements to be processed based on priority, Scheduling algorithms, Graph algorithms like Dijkstra's, Huffman coding\n            Example Problems: Top-k elements, Minimum cost problems, Scheduling problems, Merge k sorted lists",
     "metadata": {
-      "id": "084e8821-5c9d-4c01-9c67-1254dd1687b6",
-      "title": "",
+      "id": "7886f807-a71a-4fa5-bc83-efb64a4bd472",
+      "title": "Priority Queue Implementation",
       "name": "Priority Queue Implementation",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "queue",
         "priority",
@@ -416,106 +696,278 @@
         "data structure",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Problems requiring elements to be processed based on priority",
+        "Scheduling algorithms",
+        "Graph algorithms like Dijkstra's",
+        "Huffman coding"
+      ],
+      "examples": [
+        "Top-k elements",
+        "Minimum cost problems",
+        "Scheduling problems",
+        "Merge k sorted lists"
       ]
     }
   },
   {
-    "content": "Algorithm: Hash Table Implementation\nDescription: A Hash Table is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.\nTags: hash table, data structure, key-value, data_structures, hash\nComplexity (Time): O(1) average for insert/search/delete, O(n) worst case\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Hash Table Implementation\n            Description: A Hash Table is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.\n            Tags: hash table, data structure, key-value, data_structures, hash\n            Complexity (Time): O(1) average for insert/search/delete, O(n) worst case\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Fast lookup, insertion, and deletion, Caching and memoization, Counting occurrences, Two-sum type problems\n            Example Problems: Two sum, Problems requiring fast lookup, Frequency counting, Symbol tables",
     "metadata": {
-      "id": "d129490c-6a73-4bf2-a316-6cfecf1f71ea",
-      "title": "",
+      "id": "5dcc3275-2715-4121-acb8-b6baef4079da",
+      "title": "Hash Table Implementation",
       "name": "Hash Table Implementation",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "hash table",
         "data structure",
         "key-value",
         "data_structures",
         "hash"
+      ],
+      "problem_patterns": [
+        "Fast lookup, insertion, and deletion",
+        "Caching and memoization",
+        "Counting occurrences",
+        "Two-sum type problems"
+      ],
+      "examples": [
+        "Two sum",
+        "Problems requiring fast lookup",
+        "Frequency counting",
+        "Symbol tables"
       ]
     }
   },
   {
-    "content": "Algorithm: Collision Resolution with Chaining\nDescription: Collision Resolution with Chaining is a technique used in hash tables to handle multiple keys that hash to the same index. In chaining, each bucket (array index) contains a linked list of all key-value pairs whose keys hash to that index, allowing multiple entries to exist at the same location.\nTags: hash table, collision resolution, linked list\nComplexity (Time): O(1 + \u03b1) average for operations, where \u03b1 is the load factor\nComplexity (Space): O(n + m) where n is the number of entries and m is the number of buckets\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Collision Resolution with Chaining\n            Description: Collision Resolution with Chaining is a technique used in hash tables to handle multiple keys that hash to the same index. In chaining, each bucket (array index) contains a linked list of all key-value pairs whose keys hash to that index, allowing multiple entries to exist at the same location.\n            Tags: hash table, collision resolution, linked list\n            Complexity (Time): O(1 + \u03b1) average for operations, where \u03b1 is the load factor\n            Complexity (Space): O(n + m) where n is the number of entries and m is the number of buckets\n            Use Cases: \n            Problem Patterns: Implementing hash tables with predictable performance, Handling hash collisions, Problems requiring separate chaining\n            Example Problems: Design hash map, Design hash set, Problems involving custom hash table implementation",
     "metadata": {
-      "id": "3c208b99-14f1-47b6-8ab4-aceba745726b",
-      "title": "",
+      "id": "e61afa20-c5f9-4ddd-bd85-fb2b48c8cfa1",
+      "title": "Collision Resolution with Chaining",
       "name": "Collision Resolution with Chaining",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "hash table",
         "collision resolution",
         "linked list"
+      ],
+      "problem_patterns": [
+        "Implementing hash tables with predictable performance",
+        "Handling hash collisions",
+        "Problems requiring separate chaining"
+      ],
+      "examples": [
+        "Design hash map",
+        "Design hash set",
+        "Problems involving custom hash table implementation"
       ]
     }
   },
   {
-    "content": "Algorithm: Open Addressing (Linear Probing)\nDescription: Open Addressing is a collision resolution technique where all elements are stored in the hash table itself (no external data structures). Linear Probing is one method of open addressing where, if a collision occurs, we sequentially search for the next available slot.\nTags: hash table, collision resolution, open addressing\nComplexity (Time): O(1) average for operations with low load factor, O(n) worst case\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Algorithm Type: algorithm\n            Algorithm: Open Addressing (Linear Probing)\n            Description: Open Addressing is a collision resolution technique where all elements are stored in the hash table itself (no external data structures). Linear Probing is one method of open addressing where, if a collision occurs, we sequentially search for the next available slot.\n            Tags: hash table, collision resolution, open addressing\n            Complexity (Time): O(1) average for operations with low load factor, O(n) worst case\n            Complexity (Space): O(n)\n            Use Cases: \n            Problem Patterns: Implementing memory-efficient hash tables, Problems requiring cache efficiency, Situations where chaining is impractical\n            Example Problems: Design hash map with space constraints, Problems involving linear probing, Cache-friendly hash table design",
     "metadata": {
-      "id": "de9ef811-4174-477b-9e78-c529b67b5379",
-      "title": "",
+      "id": "658d2474-8278-4935-be58-d63806708637",
+      "title": "Open Addressing (Linear Probing)",
       "name": "Open Addressing (Linear Probing)",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "hash table",
         "collision resolution",
         "open addressing"
+      ],
+      "problem_patterns": [
+        "Implementing memory-efficient hash tables",
+        "Problems requiring cache efficiency",
+        "Situations where chaining is impractical"
+      ],
+      "examples": [
+        "Design hash map with space constraints",
+        "Problems involving linear probing",
+        "Cache-friendly hash table design"
       ]
     }
   },
   {
-    "content": "Algorithm: Trie (Prefix Tree)\nDescription: A Trie is a tree-like data structure used to store a dynamic set of strings. Tries are efficient for prefix-based operations and are commonly used for fast retrieval of keys in a dataset of strings. Unlike a binary search tree, no node in the trie stores the key associated with that node; instead, its position in the tree defines the key with which it is associated.\nTags: data structure, tree, string, prefix, search\nComplexity (Time): O(m) for insert/search/delete where m is the length of the key\nComplexity (Space): O(n * m) where n is the number of keys and m is the key length\nUse Cases:",
+    "content": "Algorithm Type: data structure\n            Algorithm: Trie (Prefix Tree)\n            \nDescription: A Trie is a tree-like data structure used to store a dynamic set of strings. Tries are efficient for prefix-based operations and are commonly used for fast retrieval of keys in a dataset of strings. Unlike a binary search tree, no node in the trie stores the key associated with that node; instead, its position in the tree defines the key with which it is associated.\n            \nTags: data structure, tree, string, prefix, search\n            \nComplexity (Time): O(m) for insert/search/delete where m is the length of the key",
     "metadata": {
-      "id": "1ecf38ea-6967-4c50-b65b-ab8ad498db43",
-      "title": "",
+      "id": "307b0a77-f0ad-43ab-91cf-00eed32f8480",
+      "title": "Trie (Prefix Tree)",
       "name": "Trie (Prefix Tree)",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "data structure",
         "tree",
         "string",
         "prefix",
         "search"
+      ],
+      "problem_patterns": [
+        "Dictionary implementations",
+        "Prefix searching",
+        "Autocomplete systems",
+        "Spell checkers",
+        "IP routing (longest prefix matching)"
+      ],
+      "examples": [
+        "Word dictionary implementation",
+        "Problems involving prefix matching",
+        "Add and Search Word",
+        "Implement Trie (Prefix Tree)",
+        "Word Search II"
       ]
     }
   },
   {
-    "content": "Algorithm: Segment Tree\nDescription: A Segment Tree is a tree data structure for storing intervals or segments. It allows querying which of the stored segments contain a given point. It is, in principle, a static structure; that is, it's a structure that cannot be modified once it's built. A segment tree for a set of n intervals uses O(n log n) storage and can be built in O(n log n) time. Segment trees support range queries and updates in O(log n) time.\nTags: data structure, tree, range queries, interval tree\nComplexity (Time): O(n log n) to build, O(log n) for range query and update\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Example Problems: Word dictionary implementation, Problems involving prefix matching, Add and Search Word, Implement Trie (Prefix Tree), Word Search II\nUse Cases: \n            Problem Patterns: Dictionary implementations, Prefix searching, Autocomplete systems, Spell checkers, IP routing (longest prefix matching)\n            Example Problems: Word dictionary implementation, Problems involving prefix matching, Add and Search Word, Implement Trie (Prefix Tree), Word Search II",
     "metadata": {
-      "id": "946e0960-6e45-45e1-8182-fe26e5ceb203",
-      "title": "",
+      "id": "307b0a77-f0ad-43ab-91cf-00eed32f8480",
+      "title": "Trie (Prefix Tree)",
+      "name": "Trie (Prefix Tree)",
+      "difficulty": "Medium",
+      "tags": [
+        "data structure",
+        "tree",
+        "string",
+        "prefix",
+        "search"
+      ],
+      "problem_patterns": [
+        "Dictionary implementations",
+        "Prefix searching",
+        "Autocomplete systems",
+        "Spell checkers",
+        "IP routing (longest prefix matching)"
+      ],
+      "examples": [
+        "Word dictionary implementation",
+        "Problems involving prefix matching",
+        "Add and Search Word",
+        "Implement Trie (Prefix Tree)",
+        "Word Search II"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: data structure\n            Algorithm: Segment Tree\n            \nDescription: A Segment Tree is a tree data structure for storing intervals or segments. It allows querying which of the stored segments contain a given point. It is, in principle, a static structure; that is, it's a structure that cannot be modified once it's built. A segment tree for a set of n intervals uses O(n log n) storage and can be built in O(n log n) time. Segment trees support range queries and updates in O(log n) time.\n            \nTags: data structure, tree, range queries, interval tree\n            \nComplexity (Time): O(n log n) to build, O(log n) for range query and update",
+    "metadata": {
+      "id": "105dd833-9ba5-4cf2-8710-f5d6dd8c27f5",
+      "title": "Segment Tree",
       "name": "Segment Tree",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "data structure",
         "tree",
         "range queries",
         "interval tree"
+      ],
+      "problem_patterns": [
+        "Range sum/min/max queries",
+        "Range update operations",
+        "Problems requiring efficient interval operations",
+        "Finding the minimum/maximum in a range",
+        "Counting number of elements in a range"
+      ],
+      "examples": [
+        "Range sum query",
+        "Finding minimum/maximum in a range",
+        "Problems involving interval modifications and queries",
+        "Problems requiring efficient range operations"
       ]
     }
   },
   {
-    "content": "Algorithm: Union Find (Disjoint Set)\nDescription: Union Find is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets. It provides near-constant-time operations to add new sets, merge existing sets, and determine whether elements are in the same set. Union Find is particularly useful for Kruskal's algorithm and for tracking connected components in graphs.\nTags: data structure, graph, disjoint set, connectivity\nComplexity (Time): O(\u03b1(n)) for find and union operations, where \u03b1(n) is the inverse Ackermann function\nComplexity (Space): O(n)\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Example Problems: Range sum query, Finding minimum/maximum in a range, Problems involving interval modifications and queries, Problems requiring efficient range operations\nUse Cases: \n            Problem Patterns: Range sum/min/max queries, Range update operations, Problems requiring efficient interval operations, Finding the minimum/maximum in a range, Counting number of elements in a range\n            Example Problems: Range sum query, Finding minimum/maximum in a range, Problems involving interval modifications and queries, Problems requiring efficient range operations",
     "metadata": {
-      "id": "46f66bfa-74fb-4951-bc95-db0e3df9c587",
-      "title": "",
+      "id": "105dd833-9ba5-4cf2-8710-f5d6dd8c27f5",
+      "title": "Segment Tree",
+      "name": "Segment Tree",
+      "difficulty": "Easy",
+      "tags": [
+        "data structure",
+        "tree",
+        "range queries",
+        "interval tree"
+      ],
+      "problem_patterns": [
+        "Range sum/min/max queries",
+        "Range update operations",
+        "Problems requiring efficient interval operations",
+        "Finding the minimum/maximum in a range",
+        "Counting number of elements in a range"
+      ],
+      "examples": [
+        "Range sum query",
+        "Finding minimum/maximum in a range",
+        "Problems involving interval modifications and queries",
+        "Problems requiring efficient range operations"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: data structure\n            Algorithm: Union Find (Disjoint Set)\n            \nDescription: Union Find is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets. It provides near-constant-time operations to add new sets, merge existing sets, and determine whether elements are in the same set. Union Find is particularly useful for Kruskal's algorithm and for tracking connected components in graphs.\n            \nTags: data structure, graph, disjoint set, connectivity\n            \nComplexity (Time): O(\u03b1(n)) for find and union operations, where \u03b1(n) is the inverse Ackermann function",
+    "metadata": {
+      "id": "1aa33ca1-ec5f-4f8c-8dda-c570bf9ba578",
+      "title": "Union Find (Disjoint Set)",
       "name": "Union Find (Disjoint Set)",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "data structure",
         "graph",
         "disjoint set",
         "connectivity"
+      ],
+      "problem_patterns": [
+        "Finding connected components in a graph",
+        "Detecting cycles in an undirected graph",
+        "Minimum spanning tree algorithms (Kruskal's)",
+        "Network connectivity",
+        "Least common ancestor in trees"
+      ],
+      "examples": [
+        "Problems involving graph connectivity",
+        "Friend circles",
+        "Number of connected components",
+        "Redundant connection",
+        "Account merging"
       ]
     }
   },
   {
-    "content": "Algorithm: A* Search Algorithm\nDescription: A* (pronounced 'A star') is a pathfinding algorithm that finds the shortest path between two nodes. It uses a heuristic function to guide the search, making it more efficient than Dijkstra's algorithm in many cases. A* evaluates nodes by combining the cost to reach the node and the estimated cost to reach the goal. It's widely used in games, robotics, and navigation systems.\nTags: graph algorithm, pathfinding, heuristic, search, searching, graph_search\nComplexity (Time): O(E) in the worst case, where E is the number of edges, but typically much better with a good heuristic\nComplexity (Space): O(V), where V is the number of vertices\nUse Cases:\nExample Problems:\n1. Shortest path problem\n2. Minimum spanning tree\n3. Detect cycle in a graph\n4. Topological sorting\n",
+    "content": "Example Problems: Problems involving graph connectivity, Friend circles, Number of connected components, Redundant connection, Account merging\nUse Cases: \n            Problem Patterns: Finding connected components in a graph, Detecting cycles in an undirected graph, Minimum spanning tree algorithms (Kruskal's), Network connectivity, Least common ancestor in trees\n            Example Problems: Problems involving graph connectivity, Friend circles, Number of connected components, Redundant connection, Account merging",
     "metadata": {
-      "id": "59a7f44f-200c-4b10-80bc-6381da2e275c",
-      "title": "",
+      "id": "1aa33ca1-ec5f-4f8c-8dda-c570bf9ba578",
+      "title": "Union Find (Disjoint Set)",
+      "name": "Union Find (Disjoint Set)",
+      "difficulty": "Medium",
+      "tags": [
+        "data structure",
+        "graph",
+        "disjoint set",
+        "connectivity"
+      ],
+      "problem_patterns": [
+        "Finding connected components in a graph",
+        "Detecting cycles in an undirected graph",
+        "Minimum spanning tree algorithms (Kruskal's)",
+        "Network connectivity",
+        "Least common ancestor in trees"
+      ],
+      "examples": [
+        "Problems involving graph connectivity",
+        "Friend circles",
+        "Number of connected components",
+        "Redundant connection",
+        "Account merging"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: A* Search Algorithm\n            \nDescription: A* (pronounced 'A star') is a pathfinding algorithm that finds the shortest path between two nodes. It uses a heuristic function to guide the search, making it more efficient than Dijkstra's algorithm in many cases. A* evaluates nodes by combining the cost to reach the node and the estimated cost to reach the goal. It's widely used in games, robotics, and navigation systems.\n            \nTags: graph algorithm, pathfinding, heuristic, search, searching, graph_search\n            \nComplexity (Time): O(E) in the worst case, where E is the number of edges, but typically much better with a good heuristic",
+    "metadata": {
+      "id": "56b598c0-b372-4147-8bdc-cbf09521b646",
+      "title": "A* Search Algorithm",
       "name": "A* Search Algorithm",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "pathfinding",
@@ -523,16 +975,57 @@
         "search",
         "searching",
         "graph_search"
+      ],
+      "problem_patterns": [
+        "Shortest path finding with heuristics",
+        "Maze solving",
+        "Navigation in games and robotics",
+        "Path planning with obstacles",
+        "Routing algorithms with additional constraints"
+      ],
+      "examples": [
+        "Shortest path problems with specific constraints",
+        "Problems requiring path optimization with heuristics",
+        "Grid-based pathfinding"
       ]
     }
   },
   {
-    "content": "Algorithm: Bellman-Ford Algorithm\nDescription: The Bellman-Ford algorithm finds the shortest paths from a single source vertex to all other vertices in a weighted graph. Unlike Dijkstra's algorithm, Bellman-Ford can handle graphs with negative weight edges. It also detects negative weight cycles, which are cycles whose edges sum to a negative value. The algorithm relaxes all edges V-1 times, where V is the number of vertices.\nTags: graph algorithm, shortest path, negative weight, dynamic programming, graph, shortest_path\nComplexity (Time): O(V * E) where V is the number of vertices and E is the number of edges\nComplexity (Space): O(V)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Example Problems: Shortest path problems with specific constraints, Problems requiring path optimization with heuristics, Grid-based pathfinding\nUse Cases: \n            Problem Patterns: Shortest path finding with heuristics, Maze solving, Navigation in games and robotics, Path planning with obstacles, Routing algorithms with additional constraints\n            Example Problems: Shortest path problems with specific constraints, Problems requiring path optimization with heuristics, Grid-based pathfinding",
     "metadata": {
-      "id": "00214f12-41bd-4dbe-aea1-5e69a07123bf",
-      "title": "",
+      "id": "56b598c0-b372-4147-8bdc-cbf09521b646",
+      "title": "A* Search Algorithm",
+      "name": "A* Search Algorithm",
+      "difficulty": "Medium",
+      "tags": [
+        "graph algorithm",
+        "pathfinding",
+        "heuristic",
+        "search",
+        "searching",
+        "graph_search"
+      ],
+      "problem_patterns": [
+        "Shortest path finding with heuristics",
+        "Maze solving",
+        "Navigation in games and robotics",
+        "Path planning with obstacles",
+        "Routing algorithms with additional constraints"
+      ],
+      "examples": [
+        "Shortest path problems with specific constraints",
+        "Problems requiring path optimization with heuristics",
+        "Grid-based pathfinding"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Bellman-Ford Algorithm\n            \nDescription: The Bellman-Ford algorithm finds the shortest paths from a single source vertex to all other vertices in a weighted graph. Unlike Dijkstra's algorithm, Bellman-Ford can handle graphs with negative weight edges. It also detects negative weight cycles, which are cycles whose edges sum to a negative value. The algorithm relaxes all edges V-1 times, where V is the number of vertices.\n            \nTags: graph algorithm, shortest path, negative weight, dynamic programming, graph, shortest_path\n            \nComplexity (Time): O(V * E) where V is the number of vertices and E is the number of edges",
+    "metadata": {
+      "id": "ae0775d5-71c3-41f4-9fb6-d7316762d1d6",
+      "title": "Bellman-Ford Algorithm",
       "name": "Bellman-Ford Algorithm",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "shortest path",
@@ -540,47 +1033,173 @@
         "dynamic programming",
         "graph",
         "shortest_path"
+      ],
+      "problem_patterns": [
+        "Finding shortest paths with negative weights",
+        "Detecting negative cycles in graphs",
+        "Network routing",
+        "Currency exchange and arbitrage detection",
+        "Dynamic programming on graphs"
+      ],
+      "examples": [
+        "Shortest path problems with negative weights",
+        "Problems requiring detection of negative cycles",
+        "Network delay with possible negative costs"
       ]
     }
   },
   {
-    "content": "Algorithm: Floyd-Warshall Algorithm\nDescription: The Floyd-Warshall algorithm finds the shortest paths between all pairs of vertices in a weighted graph. It works with positive or negative edge weights and can detect negative cycles. The algorithm uses dynamic programming to gradually improve an estimate on the shortest path between two vertices by including intermediate vertices.\nTags: graph algorithm, all-pairs shortest path, dynamic programming, graph, shortest_path\nComplexity (Time): O(V\u00b3) where V is the number of vertices\nComplexity (Space): O(V\u00b2)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Example Problems: Shortest path problems with negative weights, Problems requiring detection of negative cycles, Network delay with possible negative costs\nUse Cases: \n            Problem Patterns: Finding shortest paths with negative weights, Detecting negative cycles in graphs, Network routing, Currency exchange and arbitrage detection, Dynamic programming on graphs\n            Example Problems: Shortest path problems with negative weights, Problems requiring detection of negative cycles, Network delay with possible negative costs",
     "metadata": {
-      "id": "73bccc92-f1fa-477d-965c-4d720988095d",
-      "title": "",
+      "id": "ae0775d5-71c3-41f4-9fb6-d7316762d1d6",
+      "title": "Bellman-Ford Algorithm",
+      "name": "Bellman-Ford Algorithm",
+      "difficulty": "Medium",
+      "tags": [
+        "graph algorithm",
+        "shortest path",
+        "negative weight",
+        "dynamic programming",
+        "graph",
+        "shortest_path"
+      ],
+      "problem_patterns": [
+        "Finding shortest paths with negative weights",
+        "Detecting negative cycles in graphs",
+        "Network routing",
+        "Currency exchange and arbitrage detection",
+        "Dynamic programming on graphs"
+      ],
+      "examples": [
+        "Shortest path problems with negative weights",
+        "Problems requiring detection of negative cycles",
+        "Network delay with possible negative costs"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Floyd-Warshall Algorithm\n            \nDescription: The Floyd-Warshall algorithm finds the shortest paths between all pairs of vertices in a weighted graph. It works with positive or negative edge weights and can detect negative cycles. The algorithm uses dynamic programming to gradually improve an estimate on the shortest path between two vertices by including intermediate vertices.\n            \nTags: graph algorithm, all-pairs shortest path, dynamic programming, graph, shortest_path\n            \nComplexity (Time): O(V\u00b3) where V is the number of vertices",
+    "metadata": {
+      "id": "260820a3-e978-4bf4-ae0e-b89b6f8fd104",
+      "title": "Floyd-Warshall Algorithm",
       "name": "Floyd-Warshall Algorithm",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "graph algorithm",
         "all-pairs shortest path",
         "dynamic programming",
         "graph",
         "shortest_path"
+      ],
+      "problem_patterns": [
+        "Finding shortest paths between all pairs of vertices",
+        "Transitive closure of directed graphs",
+        "Detecting negative cycles",
+        "Problems requiring the shortest distance between any two points"
+      ],
+      "examples": [
+        "All-pairs shortest path problems",
+        "Problems requiring shortest paths between multiple sources and destinations",
+        "Network connectivity with shortest path requirement",
+        "Graph diameter calculation"
       ]
     }
   },
   {
-    "content": "Algorithm: Two Pointers Technique\nDescription: The Two Pointers technique is an algorithmic approach that uses two pointers to iterate through a data structure (usually an array or linked list). The pointers can move toward each other, in the same direction at different speeds, or start at different positions. This technique is often used to search for pairs, triplets, or subarrays with certain properties, and it typically reduces the time complexity from O(n\u00b2) to O(n).\nTags: algorithm technique, array, string, optimization\nComplexity (Time): O(n) in most cases\nComplexity (Space): O(1)\nUse Cases:\nExample Problems:\n1. Two sum problem\n2. Container with most water\n3. Remove duplicates from sorted array\n4. Finding triplets that sum to zero\n",
+    "content": "Example Problems: All-pairs shortest path problems, Problems requiring shortest paths between multiple sources and destinations, Network connectivity with shortest path requirement, Graph diameter calculation\nUse Cases: \n            Problem Patterns: Finding shortest paths between all pairs of vertices, Transitive closure of directed graphs, Detecting negative cycles, Problems requiring the shortest distance between any two points\n            Example Problems: All-pairs shortest path problems, Problems requiring shortest paths between multiple sources and destinations, Network connectivity with shortest path requirement, Graph diameter calculation",
     "metadata": {
-      "id": "ab43bd71-8da3-4459-9b72-7576706630cd",
-      "title": "",
+      "id": "260820a3-e978-4bf4-ae0e-b89b6f8fd104",
+      "title": "Floyd-Warshall Algorithm",
+      "name": "Floyd-Warshall Algorithm",
+      "difficulty": "Medium",
+      "tags": [
+        "graph algorithm",
+        "all-pairs shortest path",
+        "dynamic programming",
+        "graph",
+        "shortest_path"
+      ],
+      "problem_patterns": [
+        "Finding shortest paths between all pairs of vertices",
+        "Transitive closure of directed graphs",
+        "Detecting negative cycles",
+        "Problems requiring the shortest distance between any two points"
+      ],
+      "examples": [
+        "All-pairs shortest path problems",
+        "Problems requiring shortest paths between multiple sources and destinations",
+        "Network connectivity with shortest path requirement",
+        "Graph diameter calculation"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Two Pointers Technique\n            \nDescription: The Two Pointers technique is an algorithmic approach that uses two pointers to iterate through a data structure (usually an array or linked list). The pointers can move toward each other, in the same direction at different speeds, or start at different positions. This technique is often used to search for pairs, triplets, or subarrays with certain properties, and it typically reduces the time complexity from O(n\u00b2) to O(n).\n            \nTags: algorithm technique, array, string, optimization\n            \nComplexity (Time): O(n) in most cases",
+    "metadata": {
+      "id": "c9a11e86-cd4a-47b8-92eb-1ac4c7ca44a3",
+      "title": "Two Pointers Technique",
       "name": "Two Pointers Technique",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "algorithm technique",
         "array",
         "string",
         "optimization"
+      ],
+      "problem_patterns": [
+        "Finding pairs with a target sum in a sorted array",
+        "Detecting palindromes",
+        "Removing duplicates from sorted arrays",
+        "Finding the longest substring without repeating characters",
+        "Container with most water problem",
+        "Three sum problem"
+      ],
+      "examples": [
+        "Two pointers",
+        "Problems involving sorted arrays",
+        "Finding pairs/triplets with specific sum",
+        "Problems with phrases like 'find a pair'",
+        "Container with most water"
       ]
     }
   },
   {
-    "content": "Algorithm: Monotonic Stack/Queue\nDescription: A Monotonic Stack is a stack that maintains its elements in either strictly increasing or strictly decreasing order. Similarly, a Monotonic Queue maintains the same property. These structures are particularly useful for problems involving finding the next greater/smaller element or maximum/minimum in a sliding window. By maintaining the monotonic property, these structures allow for efficient solving of these problems in linear time.\nTags: data structure, stack, queue, optimization, data_structures, linear\nComplexity (Time): O(n) for most operations (each element is pushed and popped at most once)\nComplexity (Space): O(n)\nUse Cases:",
+    "content": "Example Problems: Two pointers, Problems involving sorted arrays, Finding pairs/triplets with specific sum, Problems with phrases like 'find a pair', Container with most water\nUse Cases: \n            Problem Patterns: Finding pairs with a target sum in a sorted array, Detecting palindromes, Removing duplicates from sorted arrays, Finding the longest substring without repeating characters, Container with most water problem, Three sum problem\n            Example Problems: Two pointers, Problems involving sorted arrays, Finding pairs/triplets with specific sum, Problems with phrases like 'find a pair', Container with most water",
     "metadata": {
-      "id": "9e110b95-adb8-416d-8569-5c10b8f80cfa",
-      "title": "",
+      "id": "c9a11e86-cd4a-47b8-92eb-1ac4c7ca44a3",
+      "title": "Two Pointers Technique",
+      "name": "Two Pointers Technique",
+      "difficulty": "Easy",
+      "tags": [
+        "algorithm technique",
+        "array",
+        "string",
+        "optimization"
+      ],
+      "problem_patterns": [
+        "Finding pairs with a target sum in a sorted array",
+        "Detecting palindromes",
+        "Removing duplicates from sorted arrays",
+        "Finding the longest substring without repeating characters",
+        "Container with most water problem",
+        "Three sum problem"
+      ],
+      "examples": [
+        "Two pointers",
+        "Problems involving sorted arrays",
+        "Finding pairs/triplets with specific sum",
+        "Problems with phrases like 'find a pair'",
+        "Container with most water"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: data structure\n            Algorithm: Monotonic Stack/Queue\n            \nDescription: A Monotonic Stack is a stack that maintains its elements in either strictly increasing or strictly decreasing order. Similarly, a Monotonic Queue maintains the same property. These structures are particularly useful for problems involving finding the next greater/smaller element or maximum/minimum in a sliding window. By maintaining the monotonic property, these structures allow for efficient solving of these problems in linear time.\n            \nTags: data structure, stack, queue, optimization, data_structures, linear\n            \nComplexity (Time): O(n) for most operations (each element is pushed and popped at most once)",
+    "metadata": {
+      "id": "de6eedbe-8bad-457e-b473-d19e71d1f9f8",
+      "title": "Monotonic Stack/Queue",
       "name": "Monotonic Stack/Queue",
-      "difficulty": "",
+      "difficulty": "Easy",
       "tags": [
         "data structure",
         "stack",
@@ -588,31 +1207,125 @@
         "optimization",
         "data_structures",
         "linear"
+      ],
+      "problem_patterns": [
+        "Next greater/smaller element problems",
+        "Largest rectangle in histogram",
+        "Maximum value in sliding window",
+        "Problems involving finding the closest boundary",
+        "Stock span problem",
+        "Problems involving 'finding the next' pattern"
+      ],
+      "examples": [
+        "Next greater element",
+        "Next smaller element",
+        "Largest rectangle in histogram",
+        "Sliding window maximum",
+        "Problems involving finding closest larger/smaller elements"
       ]
     }
   },
   {
-    "content": "Algorithm: Backtracking\nDescription: Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one step at a time, removing solutions that fail to satisfy the constraints of the problem. It's like a systematic trial and error approach. The name comes from the fact that when you reach a state where you can't proceed further, you 'backtrack' to the previous state and try a different path.\nTags: algorithm technique, recursion, combinatorial, search\nComplexity (Time): O(b^d) where b is the branching factor and d is the maximum depth\nComplexity (Space): O(d) for the recursion stack\nUse Cases:",
+    "content": "Example Problems: Next greater element, Next smaller element, Largest rectangle in histogram, Sliding window maximum, Problems involving finding closest larger/smaller elements\nUse Cases: \n            Problem Patterns: Next greater/smaller element problems, Largest rectangle in histogram, Maximum value in sliding window, Problems involving finding the closest boundary, Stock span problem, Problems involving 'finding the next' pattern\n            Example Problems: Next greater element, Next smaller element, Largest rectangle in histogram, Sliding window maximum, Problems involving finding closest larger/smaller elements",
     "metadata": {
-      "id": "5ccaaba5-b7ef-4079-8aca-2df3d9a3b824",
-      "title": "",
+      "id": "de6eedbe-8bad-457e-b473-d19e71d1f9f8",
+      "title": "Monotonic Stack/Queue",
+      "name": "Monotonic Stack/Queue",
+      "difficulty": "Easy",
+      "tags": [
+        "data structure",
+        "stack",
+        "queue",
+        "optimization",
+        "data_structures",
+        "linear"
+      ],
+      "problem_patterns": [
+        "Next greater/smaller element problems",
+        "Largest rectangle in histogram",
+        "Maximum value in sliding window",
+        "Problems involving finding the closest boundary",
+        "Stock span problem",
+        "Problems involving 'finding the next' pattern"
+      ],
+      "examples": [
+        "Next greater element",
+        "Next smaller element",
+        "Largest rectangle in histogram",
+        "Sliding window maximum",
+        "Problems involving finding closest larger/smaller elements"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Backtracking\n            \nDescription: Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one step at a time, removing solutions that fail to satisfy the constraints of the problem. It's like a systematic trial and error approach. The name comes from the fact that when you reach a state where you can't proceed further, you 'backtrack' to the previous state and try a different path.\n            \nTags: algorithm technique, recursion, combinatorial, search\n            \nComplexity (Time): O(b^d) where b is the branching factor and d is the maximum depth",
+    "metadata": {
+      "id": "551b24cf-30f8-45d3-9cac-118a4f4be592",
+      "title": "Backtracking",
       "name": "Backtracking",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "algorithm technique",
         "recursion",
         "combinatorial",
         "search"
+      ],
+      "problem_patterns": [
+        "Permutations and combinations",
+        "Subset problems",
+        "Constraint satisfaction problems",
+        "N-Queens problem",
+        "Sudoku solving",
+        "Path finding in a maze",
+        "Parsing and grammar-related problems"
+      ],
+      "examples": [
+        "Generate all possible",
+        "All permutations/combinations/subsets",
+        "N-Queens",
+        "Problems involving trying all possibilities",
+        "Sudoku solver"
       ]
     }
   },
   {
-    "content": "Algorithm: 0/1 Knapsack Pattern\nDescription: The 0/1 Knapsack pattern is a dynamic programming approach for problems where you have a set of items with values and weights, and you need to determine which items to include to maximize the value while staying within a weight constraint. Each item can either be included (1) or excluded (0), hence the name 0/1 Knapsack. This pattern extends to many problems involving decision-making with constraints.\nTags: dynamic programming, optimization, knapsack, decision, dynamic_programming, optimization\nComplexity (Time): O(n*W) where n is the number of items and W is the weight constraint\nComplexity (Space): O(n*W) for the standard approach, can be optimized to O(W)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Example Problems: Generate all possible, All permutations/combinations/subsets, N-Queens, Problems involving trying all possibilities, Sudoku solver\nUse Cases: \n            Problem Patterns: Permutations and combinations, Subset problems, Constraint satisfaction problems, N-Queens problem, Sudoku solving, Path finding in a maze, Parsing and grammar-related problems\n            Example Problems: Generate all possible, All permutations/combinations/subsets, N-Queens, Problems involving trying all possibilities, Sudoku solver",
     "metadata": {
-      "id": "381043ed-3eaf-46c3-9f88-a0656cae9f07",
-      "title": "",
+      "id": "551b24cf-30f8-45d3-9cac-118a4f4be592",
+      "title": "Backtracking",
+      "name": "Backtracking",
+      "difficulty": "Medium",
+      "tags": [
+        "algorithm technique",
+        "recursion",
+        "combinatorial",
+        "search"
+      ],
+      "problem_patterns": [
+        "Permutations and combinations",
+        "Subset problems",
+        "Constraint satisfaction problems",
+        "N-Queens problem",
+        "Sudoku solving",
+        "Path finding in a maze",
+        "Parsing and grammar-related problems"
+      ],
+      "examples": [
+        "Generate all possible",
+        "All permutations/combinations/subsets",
+        "N-Queens",
+        "Problems involving trying all possibilities",
+        "Sudoku solver"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: 0/1 Knapsack Pattern\n            \nDescription: The 0/1 Knapsack pattern is a dynamic programming approach for problems where you have a set of items with values and weights, and you need to determine which items to include to maximize the value while staying within a weight constraint. Each item can either be included (1) or excluded (0), hence the name 0/1 Knapsack. This pattern extends to many problems involving decision-making with constraints.\n            \nTags: dynamic programming, optimization, knapsack, decision, dynamic_programming, optimization\n            \nComplexity (Time): O(n*W) where n is the number of items and W is the weight constraint",
+    "metadata": {
+      "id": "eed532fb-ab95-491e-9ac9-803d01ac0a68",
+      "title": "0/1 Knapsack Pattern",
       "name": "0/1 Knapsack Pattern",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "dynamic programming",
         "optimization",
@@ -620,21 +1333,169 @@
         "decision",
         "dynamic_programming",
         "optimization"
+      ],
+      "problem_patterns": [
+        "Subset sum problems",
+        "Partition equal subset sum",
+        "Minimum difference subset sum",
+        "Count of subsets with given sum",
+        "Target sum problems",
+        "Problems involving picking items with constraints"
+      ],
+      "examples": [
+        "Given array of numbers, find subset with target sum",
+        "Partition array into two subsets with equal/minimum difference sum",
+        "Problems involving either including or excluding items",
+        "Problems with phrases like 'pick items to maximize value with weight constraint'"
       ]
     }
   },
   {
-    "content": "Algorithm: Longest Common Subsequence Pattern\nDescription: The Longest Common Subsequence (LCS) pattern is a dynamic programming approach for finding the longest subsequence common to two sequences. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. The LCS pattern extends to many string and sequence comparison problems.\nTags: dynamic programming, string, sequence, comparison\nComplexity (Time): O(m*n) where m and n are the lengths of the sequences\nComplexity (Space): O(m*n)\nUse Cases:\nExample Problems:\n1. Longest common subsequence\n2. Knapsack problem\n3. Coin change problem\n4. Edit distance\n",
+    "content": "Example Problems: Given array of numbers, find subset with target sum, Partition array into two subsets with equal/minimum difference sum, Problems involving either including or excluding items, Problems with phrases like 'pick items to maximize value with weight constraint'\nUse Cases: \n            Problem Patterns: Subset sum problems, Partition equal subset sum, Minimum difference subset sum, Count of subsets with given sum, Target sum problems, Problems involving picking items with constraints\n            Example Problems: Given array of numbers, find subset with target sum, Partition array into two subsets with equal/minimum difference sum, Problems involving either including or excluding items, Problems with phrases like 'pick items to maximize value with weight constraint'",
     "metadata": {
-      "id": "9740ffb9-5226-4b8a-81ce-2cf6bed61f87",
-      "title": "",
+      "id": "eed532fb-ab95-491e-9ac9-803d01ac0a68",
+      "title": "0/1 Knapsack Pattern",
+      "name": "0/1 Knapsack Pattern",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic programming",
+        "optimization",
+        "knapsack",
+        "decision",
+        "dynamic_programming",
+        "optimization"
+      ],
+      "problem_patterns": [
+        "Subset sum problems",
+        "Partition equal subset sum",
+        "Minimum difference subset sum",
+        "Count of subsets with given sum",
+        "Target sum problems",
+        "Problems involving picking items with constraints"
+      ],
+      "examples": [
+        "Given array of numbers, find subset with target sum",
+        "Partition array into two subsets with equal/minimum difference sum",
+        "Problems involving either including or excluding items",
+        "Problems with phrases like 'pick items to maximize value with weight constraint'"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Longest Common Subsequence Pattern\n            \nDescription: The Longest Common Subsequence (LCS) pattern is a dynamic programming approach for finding the longest subsequence common to two sequences. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. The LCS pattern extends to many string and sequence comparison problems.\n            \nTags: dynamic programming, string, sequence, comparison\n            \nComplexity (Time): O(m*n) where m and n are the lengths of the sequences",
+    "metadata": {
+      "id": "efc63be1-ee9a-4df8-8e7e-e1c52fae345b",
+      "title": "Longest Common Subsequence Pattern",
       "name": "Longest Common Subsequence Pattern",
-      "difficulty": "",
+      "difficulty": "Medium",
       "tags": [
         "dynamic programming",
         "string",
         "sequence",
         "comparison"
+      ],
+      "problem_patterns": [
+        "Longest common subsequence/substring",
+        "Edit distance (insert, delete, replace)",
+        "Shortest common supersequence",
+        "Longest palindromic subsequence",
+        "Minimum deletions/insertions to transform one string to another",
+        "Sequence alignment problems"
+      ],
+      "examples": [
+        "Find longest common subsequence/substring",
+        "Minimum edits to transform one string to another",
+        "Problems involving comparison of two strings/sequences",
+        "Problems involving finding similarities between sequences"
+      ]
+    }
+  },
+  {
+    "content": "Example Problems: Find longest common subsequence/substring, Minimum edits to transform one string to another, Problems involving comparison of two strings/sequences, Problems involving finding similarities between sequences\nUse Cases: \n            Problem Patterns: Longest common subsequence/substring, Edit distance (insert, delete, replace), Shortest common supersequence, Longest palindromic subsequence, Minimum deletions/insertions to transform one string to another, Sequence alignment problems\n            Example Problems: Find longest common subsequence/substring, Minimum edits to transform one string to another, Problems involving comparison of two strings/sequences, Problems involving finding similarities between sequences",
+    "metadata": {
+      "id": "efc63be1-ee9a-4df8-8e7e-e1c52fae345b",
+      "title": "Longest Common Subsequence Pattern",
+      "name": "Longest Common Subsequence Pattern",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic programming",
+        "string",
+        "sequence",
+        "comparison"
+      ],
+      "problem_patterns": [
+        "Longest common subsequence/substring",
+        "Edit distance (insert, delete, replace)",
+        "Shortest common supersequence",
+        "Longest palindromic subsequence",
+        "Minimum deletions/insertions to transform one string to another",
+        "Sequence alignment problems"
+      ],
+      "examples": [
+        "Find longest common subsequence/substring",
+        "Minimum edits to transform one string to another",
+        "Problems involving comparison of two strings/sequences",
+        "Problems involving finding similarities between sequences"
+      ]
+    }
+  },
+  {
+    "content": "Algorithm Type: algorithm\n            Algorithm: Sliding Window Algorithm\n            \nDescription: The Sliding Window algorithm is a technique used to process arrays or strings by maintaining a 'window' of elements. This window can grow or shrink as needed while sliding through the data structure. This approach is particularly useful for problems involving subarrays or substrings with specific properties, and it typically reduces time complexity from O(n\u00b2) to O(n). This technique is particularly useful for problems like finding the longest substring without repeating characters.\n            \nTags: algorithm technique, array, string, optimization\n            \nComplexity (Time): O(n) where n is the size of the array/string",
+    "metadata": {
+      "id": "7d0f67ee-cb50-437b-a78f-a4dca328b55b",
+      "title": "Sliding Window Algorithm",
+      "name": "Sliding Window Algorithm",
+      "difficulty": "Easy",
+      "tags": [
+        "algorithm technique",
+        "array",
+        "string",
+        "optimization"
+      ],
+      "problem_patterns": [
+        "Finding the longest substring with k distinct characters",
+        "Finding the longest substring without repeating characters",
+        "Finding the minimum window substring",
+        "Maximum sum subarray of size k",
+        "Finding the longest subarray with ones after replacement",
+        "Maximum number of fruits in two baskets"
+      ],
+      "examples": [
+        "Sliding window",
+        "Substring with specific properties",
+        "Problems involving consecutive elements",
+        "Maximum/minimum subarray/substring",
+        "Problems with phrases like 'all subarrays of length k'"
+      ]
+    }
+  },
+  {
+    "content": "Example Problems: Sliding window, Substring with specific properties, Problems involving consecutive elements, Maximum/minimum subarray/substring, Problems with phrases like 'all subarrays of length k'\nUse Cases: \n            Problem Patterns: Finding the longest substring with k distinct characters, Finding the longest substring without repeating characters, Finding the minimum window substring, Maximum sum subarray of size k, Finding the longest subarray with ones after replacement, Maximum number of fruits in two baskets\n            Example Problems: Sliding window, Substring with specific properties, Problems involving consecutive elements, Maximum/minimum subarray/substring, Problems with phrases like 'all subarrays of length k'",
+    "metadata": {
+      "id": "7d0f67ee-cb50-437b-a78f-a4dca328b55b",
+      "title": "Sliding Window Algorithm",
+      "name": "Sliding Window Algorithm",
+      "difficulty": "Easy",
+      "tags": [
+        "algorithm technique",
+        "array",
+        "string",
+        "optimization"
+      ],
+      "problem_patterns": [
+        "Finding the longest substring with k distinct characters",
+        "Finding the longest substring without repeating characters",
+        "Finding the minimum window substring",
+        "Maximum sum subarray of size k",
+        "Finding the longest subarray with ones after replacement",
+        "Maximum number of fruits in two baskets"
+      ],
+      "examples": [
+        "Sliding window",
+        "Substring with specific properties",
+        "Problems involving consecutive elements",
+        "Maximum/minimum subarray/substring",
+        "Problems with phrases like 'all subarrays of length k'"
       ]
     }
   }

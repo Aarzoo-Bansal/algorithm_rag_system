@@ -39,3 +39,5 @@ chroma_store/
 
 # Logs
 *.log
+
+rag_test.py

@@ -119,9 +119,7 @@ def chat():
             chat_sessions[session_id] = ChatSession(session_id)
             response = "Conversation cleared. Let's start fresh! What algorithm problem can I help you with?"
         elif user_message.lower().startswith('/explain '):
-            # Extract algorithm name from command
             algorithm_name = user_message[9:].strip()
-            # Use the enhanced retrieval with hybrid search
             algorithms = retrieve_algorithms(
                 f"Tell me about {algorithm_name}", 
                 top_k=1,
@@ -814,8 +812,8 @@ if __name__ == '__main__':
                 <strong>Team Members:</strong>
             </p>
             <ul>
-                <li>Aarzoo Bansal - RAG System Development</li>
-                <li>Mandar Ambulkar - Data Collection and Processing</li>
+               <li>Aarzoo Bansal - RAG System Development, Data Collection and Processing, Algorithm Research and Documentation, LLM Integration</li>
+                <li>Mandar Ambulkar - Vector Database Setup, Frontend Development and Deployment</li>
             </ul>
         </div>
     </div>
