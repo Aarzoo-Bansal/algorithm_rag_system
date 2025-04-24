@@ -1,0 +1,1665 @@
+{
+  "algorithms": [
+    {
+      "name": "Quick Sort",
+      "tags": [
+        "sorting",
+        "divide and conquer",
+        "comparison sort"
+      ],
+      "description": "Quick sort is a highly efficient sorting algorithm that uses a divide-and-conquer strategy. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then recursively sorted.",
+      "complexity": {
+        "time": "O(n log n)",
+        "worst_time": "O(n\u00b2)",
+        "space": "O(log n)"
+      },
+      "problem_patterns": [
+        "Need to sort an array or list efficiently",
+        "When average-case performance is more important than worst-case",
+        "When in-place sorting is desired"
+      ],
+      "leetcode_indicators": [
+        "Sorting array or list",
+        "Problems requiring efficient ordering",
+        "Problems where elements need to be partitioned"
+      ],
+      "implementation": "\"\ndef quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    \n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    \n    return quick_sort(left) + middle + quick_sort(right)\n",
+      "id": "26a6e461-6b36-4fce-a12b-cd67e8f02328"
+    },
+    {
+      "name": "Merge Sort",
+      "tags": [
+        "sorting",
+        "divide and conquer",
+        "stable sort"
+      ],
+      "description": "Merge sort is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the input array into two halves, recursively sorts them, and then merges the sorted halves. The merge step is the key operation, where the two sorted sub-arrays are combined to form a single sorted array.",
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Need for stable sorting (preserving relative order of equal elements)",
+        "When guaranteed worst-case performance is important",
+        "Sorting linked lists"
+      ],
+      "leetcode_indicators": [
+        "Stable sorting required",
+        "Linked list sorting",
+        "Problems involving counting inversions"
+      ],
+      "implementation": "\ndef merge_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    \n    mid = len(arr) // 2\n    left = merge_sort(arr[:mid])\n    right = merge_sort(arr[mid:])\n    \n    return merge(left, right)\n\ndef merge(left, right):\n    result = []\n    i = j = 0\n    \n    while i < len(left) and j < len(right):\n        if left[i] <= right[j]:\n            result.append(left[i])\n            i += 1\n        else:\n            result.append(right[j])\n            j += 1\n    \n    result.extend(left[i:])\n    result.extend(right[j:])\n    return result\n",
+      "id": "113121ef-4aa1-4db3-bf9a-c58fd25dde4e"
+    },
+    {
+      "name": "Heap Sort",
+      "tags": [
+        "sorting",
+        "comparison sort",
+        "in-place"
+      ],
+      "description": "Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides its input into a sorted region and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element and inserting it into the sorted region.",
+      "complexity": {
+        "time": "O(n log n)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "When space complexity is a concern",
+        "Finding the k largest/smallest elements",
+        "When in-place sorting is required"
+      ],
+      "leetcode_indicators": [
+        "K largest/smallest elements",
+        "Priority queue problems",
+        "Sorting with minimal extra space"
+      ],
+      "implementation": "\ndef heapify(arr, n, i):\n    largest = i\n    left = 2 * i + 1\n    right = 2 * i + 2\n    \n    if left < n and arr[left] > arr[largest]:\n        largest = left\n    \n    if right < n and arr[right] > arr[largest]:\n        largest = right\n    \n    if largest != i:\n        arr[i], arr[largest] = arr[largest], arr[i]\n        heapify(arr, n, largest)\n\ndef heap_sort(arr):\n    n = len(arr)\n    \n    # Build max heap\n    for i in range(n // 2 - 1, -1, -1):\n        heapify(arr, n, i)\n    \n    # Extract elements one by one\n    for i in range(n - 1, 0, -1):\n        arr[i], arr[0] = arr[0], arr[i]\n        heapify(arr, i, 0)\n    \n    return arr\n",
+      "id": "e2179e53-dc26-4efa-aa7a-9017b7bbed07"
+    },
+    {
+      "name": "Binary Search",
+      "tags": [
+        "searching",
+        "divide and conquer",
+        "sorted array"
+      ],
+      "description": "Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed down the possible locations to just one.",
+      "complexity": {
+        "time": "O(log n)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Searching in a sorted array or list",
+        "Finding the position to insert an element in a sorted array",
+        "Problems requiring efficient search in monotonic functions"
+      ],
+      "leetcode_indicators": [
+        "Search in sorted array",
+        "Find first/last position of element",
+        "Problems with O(log n) time complexity requirement",
+        "Problems involving rotated sorted arrays"
+      ],
+      "implementation": "\ndef binary_search(arr, target):\n    left, right = 0, len(arr) - 1\n    \n    while left <= right:\n        mid = (left + right) // 2\n        \n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    \n    return -1  # Target not found\n",
+      "id": "abb41f0e-dc3e-461d-b3d5-9738d5d00b9d"
+    },
+    {
+      "name": "Depth-First Search (DFS)",
+      "tags": [
+        "searching",
+        "graph algorithm",
+        "tree traversal"
+      ],
+      "description": "Depth-First Search is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node and explores as far as possible along each branch before backtracking.",
+      "complexity": {
+        "time": "O(V + E)",
+        "space": "O(V)"
+      },
+      "problem_patterns": [
+        "Traversing trees or graphs",
+        "Finding connected components",
+        "Path finding problems",
+        "Cycle detection"
+      ],
+      "leetcode_indicators": [
+        "Graph or tree traversal",
+        "Path finding",
+        "Connected components",
+        "Cycle detection",
+        "Problems requiring backtracking"
+      ],
+      "implementation": "\ndef dfs(graph, start, visited=None):\n    if visited is None:\n        visited = set()\n    \n    visited.add(start)\n    print(start, end=' ')\n    \n    for neighbor in graph[start]:\n        if neighbor not in visited:\n            dfs(graph, neighbor, visited)\n    \n    return visited\n",
+      "id": "be68a447-3860-436e-873e-d0bbf744ea8b"
+    },
+    {
+      "name": "Breadth-First Search (BFS)",
+      "tags": [
+        "searching",
+        "graph algorithm",
+        "tree traversal"
+      ],
+      "description": "Breadth-First Search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node in a graph) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.",
+      "complexity": {
+        "time": "O(V + E)",
+        "space": "O(V)"
+      },
+      "problem_patterns": [
+        "Finding shortest path in unweighted graphs",
+        "Level order traversal of trees",
+        "Finding all nodes within a distance k",
+        "Problems requiring level-by-level processing"
+      ],
+      "leetcode_indicators": [
+        "Shortest path in unweighted graph",
+        "Level order traversal",
+        "Minimum steps to reach target",
+        "Problems involving word ladder or transformation"
+      ],
+      "implementation": "\nfrom collections import deque\n\ndef bfs(graph, start):\n    visited = set([start])\n    queue = deque([start])\n    \n    while queue:\n        vertex = queue.popleft()\n        print(vertex, end=' ')\n        \n        for neighbor in graph[vertex]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    \n    return visited\n",
+      "id": "a36ec1e3-f266-4328-99ef-f04c5e51099e"
+    },
+    {
+      "name": "Dijkstra's Algorithm",
+      "tags": [
+        "graph algorithm",
+        "shortest path",
+        "weighted graph"
+      ],
+      "description": "Dijkstra's algorithm is used to find the shortest paths between nodes in a graph with non-negative edge weights. It uses a priority queue to greedily select the closest vertex that has not yet been processed and updates the distances to all its neighbors.",
+      "complexity": {
+        "time": "O((V + E) log V)",
+        "space": "O(V)"
+      },
+      "problem_patterns": [
+        "Finding shortest path in weighted graphs",
+        "Network routing problems",
+        "Problems involving path optimization"
+      ],
+      "leetcode_indicators": [
+        "Shortest path in weighted graph",
+        "Path with minimum cost/time/distance",
+        "Network routing problems"
+      ],
+      "implementation": "\nimport heapq\n\ndef dijkstra(graph, start):\n    # Initialize distances with infinity for all nodes except start\n    distances = {node: float('infinity') for node in graph}\n    distances[start] = 0\n    \n    # Priority queue to store vertices to be processed\n    priority_queue = [(0, start)]\n    \n    while priority_queue:\n        current_distance, current_node = heapq.heappop(priority_queue)\n        \n        # If current distance is greater than the known distance, skip\n        if current_distance > distances[current_node]:\n            continue\n        \n        # Process neighbors\n        for neighbor, weight in graph[current_node].items():\n            distance = current_distance + weight\n            \n            # If we found a shorter path, update and add to queue\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(priority_queue, (distance, neighbor))\n    \n    return distances\n",
+      "id": "769b1caa-976e-4774-995f-c455f773f289"
+    },
+    {
+      "name": "Kruskal's Algorithm",
+      "tags": [
+        "graph algorithm",
+        "minimum spanning tree",
+        "greedy"
+      ],
+      "description": "Kruskal's algorithm is a greedy algorithm that finds a minimum spanning tree for a connected weighted graph. It adds the edges in order of their weight (smallest to largest) as long as adding an edge doesn't create a cycle.",
+      "complexity": {
+        "time": "O(E log E)",
+        "space": "O(V + E)"
+      },
+      "problem_patterns": [
+        "Finding minimum spanning tree",
+        "Network design problems",
+        "Clustering problems"
+      ],
+      "leetcode_indicators": [
+        "Minimum spanning tree",
+        "Problems involving connecting all nodes at minimum cost",
+        "Network design optimization"
+      ],
+      "implementation": "\ndef find(parent, i):\n    if parent[i] != i:\n        parent[i] = find(parent, parent[i])\n    return parent[i]\n\ndef union(parent, rank, x, y):\n    root_x = find(parent, x)\n    root_y = find(parent, y)\n    \n    if root_x == root_y:\n        return\n    \n    if rank[root_x] < rank[root_y]:\n        parent[root_x] = root_y\n    elif rank[root_x] > rank[root_y]:\n        parent[root_y] = root_x\n    else:\n        parent[root_y] = root_x\n        rank[root_x] += 1\n\ndef kruskal(graph, vertices):\n    result = []\n    i, e = 0, 0\n    \n    # Sort edges by weight\n    graph = sorted(graph, key=lambda item: item[2])\n    \n    parent = []\n    rank = []\n    \n    # Initialize parent and rank arrays\n    for node in range(vertices):\n        parent.append(node)\n        rank.append(0)\n    \n    # Process edges\n    while e < vertices - 1 and i < len(graph):\n        u, v, w = graph[i]\n        i += 1\n        \n        x = find(parent, u)\n        y = find(parent, v)\n        \n        if x != y:\n            e += 1\n            result.append([u, v, w])\n            union(parent, rank, x, y)\n    \n    return result\n",
+      "id": "a49bf13a-548a-4c9f-ba43-9507a8a6310e"
+    },
+    {
+      "name": "Topological Sort",
+      "tags": [
+        "graph algorithm",
+        "directed acyclic graph",
+        "ordering"
+      ],
+      "description": "Topological Sort is an algorithm for ordering the vertices of a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.",
+      "complexity": {
+        "time": "O(V + E)",
+        "space": "O(V)"
+      },
+      "problem_patterns": [
+        "Task scheduling with dependencies",
+        "Course prerequisites ordering",
+        "Any problem requiring ordering based on dependencies"
+      ],
+      "leetcode_indicators": [
+        "Course schedule problems",
+        "Task scheduling with prerequisites",
+        "Problems involving dependency ordering"
+      ],
+      "implementation": "\nfrom collections import defaultdict, deque\n\ndef topological_sort(graph):\n    # Count in-degrees of all vertices\n    in_degree = {node: 0 for node in graph}\n    for node in graph:\n        for neighbor in graph[node]:\n            in_degree[neighbor] += 1\n    \n    # Queue with all nodes that have no incoming edges\n    queue = deque([node for node, degree in in_degree.items() if degree == 0])\n    result = []\n    \n    # Process nodes\n    while queue:\n        node = queue.popleft()\n        result.append(node)\n        \n        # Decrease in-degree of neighbors\n        for neighbor in graph[node]:\n            in_degree[neighbor] -= 1\n            if in_degree[neighbor] == 0:\n                queue.append(neighbor)\n    \n    # Check if there's a cycle\n    if len(result) != len(graph):\n        return []  # Graph has at least one cycle\n    \n    return result\n",
+      "id": "8de913dc-f6be-4752-8a2b-5caeac7ee89b"
+    },
+    {
+      "name": "Linked List Reversal",
+      "tags": [
+        "linked list",
+        "pointer manipulation",
+        "in-place"
+      ],
+      "description": "The Linked List Reversal algorithm takes a singly linked list and reverses the order of its nodes in-place by manipulating the pointers. This is done by iterating through the list and changing each node's next pointer to point to the previous node instead of the next one.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Reversing a linked list or parts of a linked list",
+        "Problems requiring modification of link directions",
+        "In-place list restructuring"
+      ],
+      "leetcode_indicators": [
+        "Reverse a linked list",
+        "Reverse nodes in k-group",
+        "Problems involving list direction manipulation"
+      ],
+      "implementation": "\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    \n    while current:\n        # Store next node\n        next_node = current.next\n        \n        # Reverse the pointer\n        current.next = prev\n        \n        # Move to next iteration\n        prev = current\n        current = next_node\n    \n    # Return new head (which is the previous tail)\n    return prev\n",
+      "id": "7ecab621-dee9-4ce0-8bab-c70007f9d130"
+    },
+    {
+      "name": "Linked List Cycle Detection",
+      "tags": [
+        "linked list",
+        "two pointers",
+        "cycle detection"
+      ],
+      "description": "The Linked List Cycle Detection algorithm (also known as Floyd's Tortoise and Hare algorithm) determines if a linked list has a cycle by using two pointers that move at different speeds. If there is a cycle, the fast pointer will eventually catch up to the slow pointer.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Detecting cycles in linked lists",
+        "Finding the start of a cycle",
+        "Problems involving loop detection"
+      ],
+      "leetcode_indicators": [
+        "Linked list cycle detection",
+        "Find the start of cycle",
+        "Check if a linked list contains a loop"
+      ],
+      "implementation": "\ndef has_cycle(head):\n    if not head or not head.next:\n        return False\n    \n    # Initialize slow and fast pointers\n    slow = head\n    fast = head\n    \n    # Move slow by 1 and fast by 2\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        \n        # If they meet, there's a cycle\n        if slow == fast:\n            return True\n    \n    # If fast reaches the end, there's no cycle\n    return False\n\ndef find_cycle_start(head):\n    if not head or not head.next:\n        return None\n    \n    # First, detect if there's a cycle\n    slow = fast = head\n    has_cycle = False\n    \n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        \n        if slow == fast:\n            has_cycle = True\n            break\n    \n    # If no cycle, return None\n    if not has_cycle:\n        return None\n    \n    # Reset slow to head and keep fast at meeting point\n    slow = head\n    \n    # Move both at same pace until they meet\n    while slow != fast:\n        slow = slow.next\n        fast = fast.next\n    \n    # Return the start of the cycle\n    return slow\n",
+      "id": "ddad4fa9-a6d4-4410-8a71-83cc20973769"
+    },
+    {
+      "name": "Linked List Rotation",
+      "tags": [
+        "linked list",
+        "pointer manipulation",
+        "two pointers"
+      ],
+      "description": "The Linked List Rotation algorithm rotates a linked list to the right or left by k positions by manipulating pointers. The operation is performed by connecting the tail of the list to the head to form a circle, then breaking the circle at the appropriate point.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Rotating elements in a linked list",
+        "Problems involving circular rearrangement",
+        "Shifting node positions without creating new nodes"
+      ],
+      "leetcode_indicators": [
+        "Rotate list to the right/left by k places",
+        "Rotate elements in a linked list",
+        "Shift node positions in a linked list"
+      ],
+      "implementation": "\ndef rotate_right(head, k):\n    # Handle edge cases\n    if not head or not head.next or k == 0:\n        return head\n    \n    # Find the length of the list and the tail\n    current = head\n    length = 1\n    \n    while current.next:\n        current = current.next\n        length += 1\n    \n    # Connect tail to head to make it circular\n    tail = current\n    tail.next = head\n    \n    # Calculate the number of effective rotations\n    k = k % length\n    \n    # Find the new tail: (length - k - 1)th node\n    current = head\n    for _ in range(length - k - 1):\n        current = current.next\n    \n    # The new head is the next node\n    new_head = current.next\n    \n    # Break the circle\n    current.next = None\n    \n    return new_head\n",
+      "id": "50386326-4292-41f1-9081-06086439be0b"
+    },
+    {
+      "name": "Linked List Merge",
+      "tags": [
+        "linked list",
+        "two pointers",
+        "sorting"
+      ],
+      "description": "The Linked List Merge algorithm combines two sorted linked lists into a single sorted linked list by comparing nodes from both lists and linking them in the correct order.",
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Merging sorted linked lists",
+        "Combining multiple sorted structures",
+        "In-place list integration"
+      ],
+      "leetcode_indicators": [
+        "Merge two sorted linked lists",
+        "Merge k sorted linked lists",
+        "Sort a linked list using merge sort"
+      ],
+      "implementation": "\ndef merge_two_lists(l1, l2):\n    # Create a dummy head\n    dummy = ListNode(0)\n    current = dummy\n    \n    # Compare nodes and link them in order\n    while l1 and l2:\n        if l1.val <= l2.val:\n            current.next = l1\n            l1 = l1.next\n        else:\n            current.next = l2\n            l2 = l2.next\n        current = current.next\n    \n    # Link remaining nodes\n    current.next = l1 if l1 else l2\n    \n    return dummy.next\n",
+      "id": "daea5126-4f8f-48f1-84ed-01a0122dfeeb"
+    },
+    {
+      "name": "Stack Implementation",
+      "tags": [
+        "stack",
+        "data structure",
+        "LIFO"
+      ],
+      "description": "The Stack data structure follows Last-In-First-Out (LIFO) principle. It supports two primary operations: push (adding an element to the top) and pop (removing the top element). Stacks can be implemented using arrays or linked lists.",
+      "complexity": {
+        "time": "O(1) for push/pop operations",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Problems requiring last-in-first-out processing",
+        "Function call management",
+        "Expression evaluation and parsing"
+      ],
+      "leetcode_indicators": [
+        "Valid parentheses",
+        "Evaluate expressions",
+        "History tracking",
+        "Undo operations"
+      ],
+      "implementation": "\n# Array-based stack implementation\nclass Stack:\n    def __init__(self):\n        self.items = []\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def push(self, item):\n        self.items.append(item)\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty stack\")\n        return self.items.pop()\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty stack\")\n        return self.items[-1]\n    \n    def size(self):\n        return len(self.items)\n\n# Linked list-based stack implementation\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nclass LinkedStack:\n    def __init__(self):\n        self.top = None\n        self.size = 0\n    \n    def is_empty(self):\n        return self.top is None\n    \n    def push(self, value):\n        new_node = Node(value)\n        new_node.next = self.top\n        self.top = new_node\n        self.size += 1\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty stack\")\n        value = self.top.value\n        self.top = self.top.next\n        self.size -= 1\n        return value\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty stack\")\n        return self.top.value\n",
+      "id": "cdc54b68-d38c-43ba-9b7a-d0be0ca1783e"
+    },
+    {
+      "name": "Balanced Parentheses Check",
+      "tags": [
+        "stack",
+        "string",
+        "validation"
+      ],
+      "description": "The Balanced Parentheses Check algorithm uses a stack to verify if an expression has balanced parentheses, brackets, and braces. It scans the expression from left to right, pushing opening delimiters onto a stack and popping when matching closing delimiters are encountered.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Validating proper nesting of parentheses, brackets, and braces",
+        "Checking syntax in expressions",
+        "Problems requiring matching of opening and closing characters"
+      ],
+      "leetcode_indicators": [
+        "Valid parentheses",
+        "Check balanced brackets",
+        "Expression validation"
+      ],
+      "implementation": "\ndef is_balanced(expression):\n    stack = []\n    \n    # Dictionary to map closing brackets to their opening counterparts\n    brackets_map = {')': '(', '}': '{', ']': '['}\n    \n    # Scan the expression\n    for char in expression:\n        # If it's an opening bracket, push to stack\n        if char in '({[':\n            stack.append(char)\n        # If it's a closing bracket\n        elif char in ')}]':\n            # If stack is empty or brackets don't match, it's not balanced\n            if not stack or stack.pop() != brackets_map[char]:\n                return False\n    \n    # If stack is empty, all brackets were matched\n    return len(stack) == 0\n",
+      "id": "d0424ec8-8f0d-477b-af94-4bfed0eae97d"
+    },
+    {
+      "name": "Infix to Postfix Conversion",
+      "tags": [
+        "stack",
+        "expression",
+        "conversion"
+      ],
+      "description": "The Infix to Postfix Conversion algorithm transforms an infix expression (standard mathematical notation with operators between operands) to postfix notation (operators follow their operands) using a stack to handle operator precedence and parentheses.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Expression parsing and evaluation",
+        "Compiler design problems",
+        "Problems involving operator precedence"
+      ],
+      "leetcode_indicators": [
+        "Expression evaluation",
+        "Convert expression notation",
+        "Calculator implementation"
+      ],
+      "implementation": "\ndef infix_to_postfix(expression):\n    # Define operator precedence\n    precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}\n    \n    # Initialize result and stack\n    result = []\n    stack = []\n    \n    # Process each character\n    for char in expression:\n        # If character is an operand, add to result\n        if char.isalnum():\n            result.append(char)\n        # If character is an opening bracket, push to stack\n        elif char == '(':\n            stack.append(char)\n        # If character is a closing bracket, pop from stack until opening bracket\n        elif char == ')':\n            while stack and stack[-1] != '(':\n                result.append(stack.pop())\n            stack.pop()  # Remove the opening bracket\n        # If character is an operator\n        else:\n            # Pop operators with higher or equal precedence\n            while stack and stack[-1] != '(' and (stack[-1] in precedence) and (precedence.get(char, 0) <= precedence.get(stack[-1], 0)):\n                result.append(stack.pop())\n            stack.append(char)\n    \n    # Pop any remaining operators\n    while stack:\n        result.append(stack.pop())\n    \n    # Join the result\n    return ''.join(result)\n",
+      "id": "13287a01-8d09-424d-bf7c-774d07c96112"
+    },
+    {
+      "name": "0/1 Knapsack",
+      "tags": [
+        "dynamic programming",
+        "optimization",
+        "combinatorial"
+      ],
+      "description": "The 0/1 Knapsack problem is a problem in combinatorial optimization: given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.",
+      "complexity": {
+        "time": "O(n*W)",
+        "space": "O(n*W)"
+      },
+      "problem_patterns": [
+        "Resource allocation with constraints",
+        "Item selection to maximize value with weight constraint",
+        "Problems involving yes/no decisions for each item"
+      ],
+      "leetcode_indicators": [
+        "Maximize value with weight constraint",
+        "Problems involving subset selection with constraints",
+        "Target sum with specific items"
+      ],
+      "implementation": "\ndef knapsack_01(values, weights, capacity):\n    n = len(values)\n    dp = [[0 for _ in range(capacity + 1)] for _ in range(n + 1)]\n    \n    for i in range(1, n + 1):\n        for w in range(capacity + 1):\n            if weights[i-1] <= w:\n                dp[i][w] = max(\n                    values[i-1] + dp[i-1][w-weights[i-1]],  # Include item\n                    dp[i-1][w]  # Exclude item\n                )\n            else:\n                dp[i][w] = dp[i-1][w]  # Can't include, so exclude\n    \n    return dp[n][capacity]\n",
+      "id": "94d2c0d4-5427-41f6-8dcf-86f7ff7b14b6"
+    },
+    {
+      "name": "Longest Common Subsequence",
+      "tags": [
+        "dynamic programming",
+        "string algorithm",
+        "sequence comparison"
+      ],
+      "description": "The Longest Common Subsequence (LCS) algorithm finds the longest sequence that is present in both given sequences in the same order (not necessarily consecutive).",
+      "complexity": {
+        "time": "O(m*n)",
+        "space": "O(m*n)"
+      },
+      "problem_patterns": [
+        "String comparison and similarity",
+        "Sequence alignment problems",
+        "Edit distance variations"
+      ],
+      "leetcode_indicators": [
+        "Find common subsequence between strings",
+        "String similarity problems",
+        "Problems involving sequence comparison",
+        "Edit distance variations"
+      ],
+      "implementation": "\ndef lcs(text1, text2):\n    m, n = len(text1), len(text2)\n    dp = [[0 for _ in range(n + 1)] for _ in range(m + 1)]\n    \n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if text1[i-1] == text2[j-1]:\n                dp[i][j] = dp[i-1][j-1] + 1\n            else:\n                dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n    \n    return dp[m][n]\n",
+      "id": "e116165f-52df-40b6-acc7-b5f17f4712ae"
+    },
+    {
+      "name": "Coin Change",
+      "tags": [
+        "dynamic programming",
+        "greedy",
+        "optimization"
+      ],
+      "description": "The Coin Change problem asks for the minimum number of coins needed to make a certain amount of change, given a set of coin denominations.",
+      "complexity": {
+        "time": "O(amount * n)",
+        "space": "O(amount)"
+      },
+      "problem_patterns": [
+        "Making change with minimum number of coins",
+        "Problems involving combinations that sum to target",
+        "Minimum resource allocation problems"
+      ],
+      "leetcode_indicators": [
+        "Minimum coins to make change",
+        "Ways to make sum with given numbers",
+        "Problems involving counting combinations"
+      ],
+      "implementation": "\ndef coin_change(coins, amount):\n    # Initialize dp array with amount+1 (representing infinity)\n    dp = [amount + 1] * (amount + 1)\n    dp[0] = 0\n    \n    for coin in coins:\n        for i in range(coin, amount + 1):\n            dp[i] = min(dp[i], dp[i - coin] + 1)\n    \n    return dp[amount] if dp[amount] <= amount else -1\n",
+      "id": "22c5e193-362f-4ba6-aae5-df97efd94b73"
+    },
+    {
+      "name": "Knuth-Morris-Pratt (KMP)",
+      "tags": [
+        "string algorithm",
+        "pattern matching",
+        "substring search"
+      ],
+      "description": "The Knuth-Morris-Pratt algorithm searches for occurrences of a 'pattern' within a main 'text' by employing the observation that when a mismatch occurs, the pattern itself contains sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.",
+      "complexity": {
+        "time": "O(n + m)",
+        "space": "O(m)"
+      },
+      "problem_patterns": [
+        "Efficient substring search",
+        "Pattern matching in strings",
+        "Text processing problems"
+      ],
+      "leetcode_indicators": [
+        "Find all occurrences of pattern in text",
+        "String matching problems",
+        "Problems requiring efficient substring search"
+      ],
+      "implementation": "\ndef kmp_search(text, pattern):\n    if not pattern:\n        return 0  # Empty pattern matches at position 0\n    \n    # Preprocess: Compute the longest proper prefix which is also suffix array\n    lps = [0] * len(pattern)\n    compute_lps_array(pattern, lps)\n    \n    i, j = 0, 0  # i for text, j for pattern\n    results = []\n    \n    while i < len(text):\n        if pattern[j] == text[i]:\n            i += 1\n            j += 1\n        \n        if j == len(pattern):\n            results.append(i - j)  # Found a match\n            j = lps[j - 1]\n        elif i < len(text) and pattern[j] != text[i]:\n            if j != 0:\n                j = lps[j - 1]\n            else:\n                i += 1\n    \n    return results\n\ndef compute_lps_array(pattern, lps):\n    length = 0\n    i = 1\n    \n    while i < len(pattern):\n        if pattern[i] == pattern[length]:\n            length += 1\n            lps[i] = length\n            i += 1\n        else:\n            if length != 0:\n                length = lps[length - 1]\n            else:\n                lps[i] = 0\n                i += 1\n",
+      "id": "477756fa-35c3-4a9b-a1f4-b04bde351d5c"
+    },
+    {
+      "name": "Rabin-Karp",
+      "tags": [
+        "string algorithm",
+        "pattern matching",
+        "hashing"
+      ],
+      "description": "The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to find patterns in strings. It calculates a hash value for the pattern and for each possible substring of the text, then compares the hash values instead of comparing the strings character by character.",
+      "complexity": {
+        "time": "O(n + m)",
+        "worst_time": "O(n*m)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Multiple pattern search",
+        "Substring matching",
+        "Plagiarism detection"
+      ],
+      "leetcode_indicators": [
+        "String matching with hash function",
+        "Multiple pattern search in text",
+        "Substring search problems"
+      ],
+      "implementation": "\ndef rabin_karp(text, pattern):\n    if not pattern:\n        return 0\n    \n    # Prime number for hash calculation\n    q = 101\n    \n    # Radix for the number system (ASCII)\n    d = 256\n    \n    m, n = len(pattern), len(text)\n    p = 0  # Hash value for pattern\n    t = 0  # Hash value for text\n    h = 1\n    results = []\n    \n    # Calculate h = d^(m-1) % q\n    for i in range(m - 1):\n        h = (h * d) % q\n    \n    # Calculate initial hash values\n    for i in range(m):\n        p = (d * p + ord(pattern[i])) % q\n        t = (d * t + ord(text[i])) % q\n    \n    # Slide pattern over text\n    for i in range(n - m + 1):\n        # Check hash values\n        if p == t:\n            # Check characters one by one\n            match = True\n            for j in range(m):\n                if text[i + j] != pattern[j]:\n                    match = False\n                    break\n            \n            if match:\n                results.append(i)\n        \n        # Calculate hash for next window\n        if i < n - m:\n            t = (d * (t - ord(text[i]) * h) + ord(text[i + m])) % q\n            if t < 0:\n                t += q\n    \n    return results\n",
+      "id": "684fd37d-5e36-44f1-90da-49e57243c84c"
+    },
+    {
+      "name": "Longest Palindromic Substring",
+      "tags": [
+        "string algorithm",
+        "dynamic programming"
+      ],
+      "description": "The Longest Palindromic Substring algorithm finds the longest substring within a string that is a palindrome (reads the same backward as forward).",
+      "complexity": {
+        "time": "O(n\u00b2)",
+        "space": "O(1)"
+      },
+      "problem_patterns": [
+        "Finding palindromes in strings",
+        "String processing with symmetry",
+        "Text analysis problems"
+      ],
+      "leetcode_indicators": [
+        "Find longest palindrome in string",
+        "Problems involving substring palindromes",
+        "String symmetry problems"
+      ],
+      "implementation": "\ndef longest_palindromic_substring(s):\n    if not s:\n        return \"\"\n    \n    start = 0\n    max_length = 1\n    \n    # Helper function to expand around center\n    def expand_around_center(left, right):\n        while left >= 0 and right < len(s) and s[left] == s[right]:\n            left -= 1\n            right += 1\n        return right - left - 1\n    \n    for i in range(len(s)):\n        # Expand for odd length palindromes\n        odd_length = expand_around_center(i, i)\n        \n        # Expand for even length palindromes\n        even_length = expand_around_center(i, i + 1)\n        \n        # Update if longer palindrome found\n        length = max(odd_length, even_length)\n        if length > max_length:\n            max_length = length\n            start = i - (length - 1) // 2\n    \n    return s[start:start + max_length]\n",
+      "id": "220a0409-0332-49c1-b30f-82eca4a5a912"
+    },
+    {
+      "name": "Binary Tree Traversal",
+      "tags": [
+        "tree algorithm",
+        "data structure",
+        "traversal"
+      ],
+      "description": "Binary Tree Traversal algorithms systematically visit each node in a binary tree. The three most common traversal methods are in-order (left-root-right), pre-order (root-left-right), and post-order (left-right-root).",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "problem_patterns": [
+        "Tree processing in specific orders",
+        "Converting tree to array representations",
+        "Tree validation problems"
+      ],
+      "leetcode_indicators": [
+        "Tree traversal problems",
+        "Convert tree to array",
+        "Problems requiring specific node visit order"
+      ],
+      "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\n# In-order traversal\ndef inorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        dfs(node.left)\n        result.append(node.val)\n        dfs(node.right)\n    \n    dfs(root)\n    return result\n\n# Pre-order traversal\ndef preorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        result.append(node.val)\n        dfs(node.left)\n        dfs(node.right)\n    \n    dfs(root)\n    return result\n\n# Post-order traversal\ndef postorder_traversal(root):\n    result = []\n    \n    def dfs(node):\n        if not node:\n            return\n        dfs(node.left)\n        dfs(node.right)\n        result.append(node.val)\n    \n    dfs(root)\n    return result\n",
+      "id": "ea3fdbc3-f214-446e-928a-8e24f95caad1"
+    },
+    {
+      "name": "Binary Search Tree Operations",
+      "tags": [
+        "tree algorithm",
+        "binary search tree",
+        "data structure"
+      ],
+      "description": "Binary Search Tree (BST) operations include insertion, deletion, and searching in a tree where for each node, all elements in the left subtree are less than the node's value, and all elements in the right subtree are greater.",
+      "complexity": {
+        "time": "O(h)",
+        "space": "O(h)"
+      },
+      "problem_patterns": [
+        "Efficient data structures for sorted data",
+        "Problems requiring ordered data operations",
+        "Tree construction and modification"
+      ],
+      "leetcode_indicators": [
+        "Binary search tree problems",
+        "Tree with ordered property",
+        "Problems involving tree insertion/deletion"
+      ],
+      "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\n# Insert value into BST\ndef insert(root, val):\n    if not root:\n        return TreeNode(val)\n    \n    if val < root.val:\n        root.left = insert(root.left, val)\n    else:\n        root.right = insert(root.right, val)\n    \n    return root\n\n# Search for value in BST\ndef search(root, val):\n    if not root or root.val == val:\n        return root\n    \n    if val < root.val:\n        return search(root.left, val)\n    else:\n        return search(root.right, val)\n\n# Delete value from BST\ndef delete(root, val):\n    if not root:\n        return None\n    \n    if val < root.val:\n        root.left = delete(root.left, val)\n    elif val > root.val:\n        root.right = delete(root.right, val)\n    else:\n        # Node with only one child or no child\n        if not root.left:\n            return root.right\n        elif not root.right:\n            return root.left\n        \n        # Node with two children\n        # Get inorder successor (smallest in right subtree)\n        temp = find_min(root.right)\n        root.val = temp.val\n        root.right = delete(root.right, temp.val)\n    \n    return root\n\ndef find_min(node):\n    current = node\n    while current.left:\n        current = current.left\n    return current\n",
+      "id": "bc58803e-0daf-478f-9c0e-b37b51349887"
+    },
+    {
+      "name": "Lowest Common Ancestor",
+      "tags": [
+        "tree algorithm",
+        "binary tree",
+        "ancestor finding"
+      ],
+      "description": "The Lowest Common Ancestor (LCA) algorithm finds the lowest node in a tree that has both given nodes as descendants. A node can be a descendant of itself.",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(h)"
+      },
+      "problem_patterns": [
+        "Finding common ancestors in trees",
+        "Relationship problems in hierarchical structures",
+        "Tree navigation problems"
+      ],
+      "leetcode_indicators": [
+        "Lowest common ancestor problems",
+        "Tree node relationship questions",
+        "Problems involving finding a common parent"
+      ],
+      "implementation": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef lowest_common_ancestor(root, p, q):\n    # Base case\n    if not root or root == p or root == q:\n        return root\n    \n    # Look for p and q in left and right subtrees\n    left = lowest_common_ancestor(root.left, p, q)\n    right = lowest_common_ancestor(root.right, p, q)\n    \n    # If both p and q are found, this node is the LCA\n    if left and right:\n        return root\n    \n    # Otherwise, return the non-null value\n    return left if left else right\n",
+      "id": "eb159464-7ef9-4cf6-9bf3-99659c455ab9"
+    },
+    {
+      "name": "Queue Implementation",
+      "tags": [
+        "queue",
+        "data structure",
+        "FIFO"
+      ],
+      "description": "The Queue data structure follows First-In-First-Out (FIFO) principle. It supports two primary operations: enqueue (adding an element to the rear) and dequeue (removing the front element). Queues can be implemented using arrays, linked lists, or a combination of stacks.",
+      "complexity": {
+        "time": "O(1) for enqueue/dequeue operations",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Problems requiring first-in-first-out processing",
+        "Breadth-first search",
+        "Task scheduling",
+        "Buffer management"
+      ],
+      "leetcode_indicators": [
+        "Level order traversal",
+        "BFS problems",
+        "First-come-first-serve processing"
+      ],
+      "implementation": "\n# Array-based queue implementation (using a Python list)\nclass Queue:\n    def __init__(self):\n        self.items = []\n    \n    def is_empty(self):\n        return len(self.items) == 0\n    \n    def enqueue(self, item):\n        self.items.append(item)\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        return self.items.pop(0)\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.items[0]\n    \n    def size(self):\n        return len(self.items)\n\n# Linked list-based queue implementation\nclass Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nclass LinkedQueue:\n    def __init__(self):\n        self.front = None\n        self.rear = None\n        self.size = 0\n    \n    def is_empty(self):\n        return self.front is None\n    \n    def enqueue(self, value):\n        new_node = Node(value)\n        \n        if self.is_empty():\n            self.front = new_node\n        else:\n            self.rear.next = new_node\n        \n        self.rear = new_node\n        self.size += 1\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        \n        value = self.front.value\n        self.front = self.front.next\n        \n        # If queue becomes empty, update rear\n        if self.front is None:\n            self.rear = None\n        \n        self.size -= 1\n        return value\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.front.value\n",
+      "id": "dc0dade2-8744-4ff0-8554-69524b6215ef"
+    },
+    {
+      "name": "Circular Queue Implementation",
+      "tags": [
+        "queue",
+        "circular",
+        "data structure"
+      ],
+      "description": "A Circular Queue (also called Ring Buffer) is an enhancement of the regular queue that efficiently uses space by wrapping around to the beginning when it reaches the end of the allocated space. It maintains two pointers: front and rear, and uses modulo arithmetic to handle the wrap-around.",
+      "complexity": {
+        "time": "O(1) for enqueue/dequeue operations",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Fixed-size buffer management",
+        "Stream processing",
+        "Problems requiring circular data structures",
+        "Round-robin scheduling"
+      ],
+      "leetcode_indicators": [
+        "Design circular queue",
+        "Circular buffer",
+        "Problems involving wraparound indexing"
+      ],
+      "implementation": "\nclass CircularQueue:\n    def __init__(self, capacity):\n        self.capacity = capacity\n        self.queue = [None] * capacity\n        self.front = self.size = 0\n        self.rear = capacity - 1\n    \n    def is_full(self):\n        return self.size == self.capacity\n    \n    def is_empty(self):\n        return self.size == 0\n    \n    def enqueue(self, item):\n        if self.is_full():\n            raise IndexError(\"Queue is full\")\n        \n        self.rear = (self.rear + 1) % self.capacity\n        self.queue[self.rear] = item\n        self.size += 1\n    \n    def dequeue(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty queue\")\n        \n        item = self.queue[self.front]\n        self.front = (self.front + 1) % self.capacity\n        self.size -= 1\n        return item\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty queue\")\n        return self.queue[self.front]\n",
+      "id": "743c9294-8a1d-4645-8dbb-d2add7851b41"
+    },
+    {
+      "name": "Priority Queue Implementation",
+      "tags": [
+        "queue",
+        "priority",
+        "heap",
+        "data structure"
+      ],
+      "description": "A Priority Queue is an abstract data type similar to a regular queue but where each element has a priority. Elements with higher priority are dequeued before elements with lower priority. It can be implemented using a heap, a binary search tree, or an ordered array.",
+      "complexity": {
+        "time": "O(log n) for insertion/deletion with heap implementation",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Problems requiring elements to be processed based on priority",
+        "Scheduling algorithms",
+        "Graph algorithms like Dijkstra's",
+        "Huffman coding"
+      ],
+      "leetcode_indicators": [
+        "Top-k elements",
+        "Minimum cost problems",
+        "Scheduling problems",
+        "Merge k sorted lists"
+      ],
+      "implementation": "\nimport heapq\n\n# Priority Queue using Python's heapq (min-heap)\nclass PriorityQueue:\n    def __init__(self):\n        self.elements = []\n    \n    def is_empty(self):\n        return len(self.elements) == 0\n    \n    def put(self, item, priority):\n        # For min-heap, use priority as the first element\n        heapq.heappush(self.elements, (priority, item))\n    \n    def get(self):\n        if self.is_empty():\n            raise IndexError(\"Dequeue from an empty priority queue\")\n        return heapq.heappop(self.elements)[1]\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty priority queue\")\n        return self.elements[0][1]\n    \n    def size(self):\n        return len(self.elements)\n\n# Custom implementation of a Priority Queue using a binary heap\nclass CustomPriorityQueue:\n    def __init__(self, is_min_heap=True):\n        self.heap = []\n        self.is_min_heap = is_min_heap\n    \n    def size(self):\n        return len(self.heap)\n    \n    def is_empty(self):\n        return self.size() == 0\n    \n    def get_parent(self, i):\n        return (i - 1) // 2\n    \n    def get_left_child(self, i):\n        return 2 * i + 1\n    \n    def get_right_child(self, i):\n        return 2 * i + 2\n    \n    def has_parent(self, i):\n        return self.get_parent(i) >= 0\n    \n    def has_left_child(self, i):\n        return self.get_left_child(i) < self.size()\n    \n    def has_right_child(self, i):\n        return self.get_right_child(i) < self.size()\n    \n    def compare(self, a, b):\n        if self.is_min_heap:\n            return a < b\n        return a > b\n    \n    def swap(self, i, j):\n        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]\n    \n    def peek(self):\n        if self.is_empty():\n            raise IndexError(\"Peek from an empty priority queue\")\n        return self.heap[0][1]\n    \n    def push(self, priority, item):\n        self.heap.append((priority, item))\n        self.heapify_up(self.size() - 1)\n    \n    def pop(self):\n        if self.is_empty():\n            raise IndexError(\"Pop from an empty priority queue\")\n        \n        item = self.heap[0][1]\n        self.heap[0] = self.heap[-1]\n        self.heap.pop()\n        if self.size() > 0:\n            self.heapify_down(0)\n        return item\n    \n    def heapify_up(self, index):\n        while (self.has_parent(index) and \n               self.compare(self.heap[index][0], self.heap[self.get_parent(index)][0])):\n            self.swap(index, self.get_parent(index))\n            index = self.get_parent(index)\n    \n    def heapify_down(self, index):\n        smallest = index\n        \n        if (self.has_left_child(index) and \n            self.compare(self.heap[self.get_left_child(index)][0], self.heap[smallest][0])):\n            smallest = self.get_left_child(index)\n        \n        if (self.has_right_child(index) and \n            self.compare(self.heap[self.get_right_child(index)][0], self.heap[smallest][0])):\n            smallest = self.get_right_child(index)\n        \n        if smallest != index:\n            self.swap(index, smallest)\n            self.heapify_down(smallest)\n",
+      "id": "8056307f-7a9b-4393-bfb0-f5bf2581da94"
+    },
+    {
+      "name": "Hash Table Implementation",
+      "tags": [
+        "hash table",
+        "data structure",
+        "key-value"
+      ],
+      "description": "A Hash Table is a data structure that implements an associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.",
+      "complexity": {
+        "time": "O(1) average for insert/search/delete, O(n) worst case",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Fast lookup, insertion, and deletion",
+        "Caching and memoization",
+        "Counting occurrences",
+        "Two-sum type problems"
+      ],
+      "leetcode_indicators": [
+        "Two sum",
+        "Problems requiring fast lookup",
+        "Frequency counting",
+        "Symbol tables"
+      ],
+      "implementation": "\nclass HashNode:\n    def __init__(self, key, value):\n        self.key = key\n        self.value = value\n        self.next = None\n\nclass HashTable:\n    def __init__(self, size=10):\n        # Initialize the hash table with empty buckets\n        self.size = size\n        self.buckets = [None] * size\n        self.count = 0\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # If key is a string, sum the ASCII values\n        if isinstance(key, str):\n            total = 0\n            for char in key:\n                total += ord(char)\n            return total % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def set(self, key, value):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        \n        # Check if key already exists\n        while node:\n            if node.key == key:\n                node.value = value  # Update value\n                return\n            node = node.next\n        \n        # Key not found, create new node\n        new_node = HashNode(key, value)\n        new_node.next = self.buckets[index]\n        self.buckets[index] = new_node\n        self.count += 1\n        \n        # Resize if load factor exceeds threshold\n        if self.count > self.size * 0.7:\n            self._resize(self.size * 2)\n    \n    def get(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        \n        # Look for the key\n        while node:\n            if node.key == key:\n                return node.value\n            node = node.next\n        \n        # Key not found\n        return None\n    \n    def delete(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        node = self.buckets[index]\n        prev = None\n        \n        # Look for the key\n        while node and node.key != key:\n            prev = node\n            node = node.next\n        \n        # If key found\n        if node:\n            if prev:\n                prev.next = node.next\n            else:\n                self.buckets[index] = node.next\n            self.count -= 1\n            return True\n        \n        # Key not found\n        return False\n    \n    def contains(self, key):\n        return self.get(key) is not None\n    \n    def _resize(self, new_size):\n        old_buckets = self.buckets\n        self.size = new_size\n        self.buckets = [None] * new_size\n        self.count = 0\n        \n        # Rehash all entries\n        for head in old_buckets:\n            node = head\n            while node:\n                self.set(node.key, node.value)\n                node = node.next\n",
+      "id": "50eed330-b8d9-48e3-b383-b7b3a14cc153"
+    },
+    {
+      "name": "Collision Resolution with Chaining",
+      "tags": [
+        "hash table",
+        "collision resolution",
+        "linked list"
+      ],
+      "description": "Collision Resolution with Chaining is a technique used in hash tables to handle multiple keys that hash to the same index. In chaining, each bucket (array index) contains a linked list of all key-value pairs whose keys hash to that index, allowing multiple entries to exist at the same location.",
+      "complexity": {
+        "time": "O(1 + \u03b1) average for operations, where \u03b1 is the load factor",
+        "space": "O(n + m) where n is the number of entries and m is the number of buckets"
+      },
+      "problem_patterns": [
+        "Implementing hash tables with predictable performance",
+        "Handling hash collisions",
+        "Problems requiring separate chaining"
+      ],
+      "leetcode_indicators": [
+        "Design hash map",
+        "Design hash set",
+        "Problems involving custom hash table implementation"
+      ],
+      "implementation": "\nclass HashTableWithChaining:\n    def __init__(self, size=10):\n        self.size = size\n        self.table = [[] for _ in range(size)]  # List of lists for chaining\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # For strings, sum the ASCII values\n        if isinstance(key, str):\n            return sum(ord(char) for char in key) % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def insert(self, key, value):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Check if key already exists\n        for i, (k, v) in enumerate(bucket):\n            if k == key:\n                bucket[i] = (key, value)  # Update value\n                return\n        \n        # Key not found, add new entry\n        bucket.append((key, value))\n    \n    def get(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Look for the key\n        for k, v in bucket:\n            if k == key:\n                return v\n        \n        # Key not found\n        return None\n    \n    def remove(self, key):\n        # Find the bucket\n        index = self._hash(key)\n        bucket = self.table[index]\n        \n        # Look for the key and remove it\n        for i, (k, v) in enumerate(bucket):\n            if k == key:\n                del bucket[i]\n                return True\n        \n        # Key not found\n        return False\n    \n    def display(self):\n        for i, bucket in enumerate(self.table):\n            if bucket:  # Only show non-empty buckets\n                print(f\"Bucket {i}: {bucket}\")\n",
+      "id": "f3d26399-617a-4884-a460-a0177ce52572"
+    },
+    {
+      "name": "Open Addressing (Linear Probing)",
+      "tags": [
+        "hash table",
+        "collision resolution",
+        "open addressing"
+      ],
+      "description": "Open Addressing is a collision resolution technique where all elements are stored in the hash table itself (no external data structures). Linear Probing is one method of open addressing where, if a collision occurs, we sequentially search for the next available slot.",
+      "complexity": {
+        "time": "O(1) average for operations with low load factor, O(n) worst case",
+        "space": "O(n)"
+      },
+      "problem_patterns": [
+        "Implementing memory-efficient hash tables",
+        "Problems requiring cache efficiency",
+        "Situations where chaining is impractical"
+      ],
+      "leetcode_indicators": [
+        "Design hash map with space constraints",
+        "Problems involving linear probing",
+        "Cache-friendly hash table design"
+      ],
+      "implementation": "\nclass HashTableWithLinearProbing:\n    def __init__(self, size=10):\n        self.size = size\n        self.keys = [None] * size\n        self.values = [None] * size\n        self.tombstone = object()  # Special marker for deleted entries\n        self.count = 0\n    \n    def _hash(self, key):\n        # Simple hash function\n        if isinstance(key, int):\n            return key % self.size\n        # For strings, sum the ASCII values\n        if isinstance(key, str):\n            return sum(ord(char) for char in key) % self.size\n        # For other types, use their hash\n        return hash(key) % self.size\n    \n    def _get_index(self, key):\n        # Find the position for a key using linear probing\n        start_index = self._hash(key)\n        \n        # Linear probe until we find the key, an empty slot, or visit all positions\n        for i in range(self.size):\n            index = (start_index + i) % self.size\n            \n            # Found the key\n            if self.keys[index] == key:\n                return index\n            \n            # Found an empty slot\n            if self.keys[index] is None:\n                return -1\n        \n        # Hash table is full and key not found\n        return -1\n    \n    def _find_slot(self, key):\n        # Find the position to insert a key using linear probing\n        start_index = self._hash(key)\n        \n        # Linear probe until we find the key, an empty slot, or a tombstone\n        for i in range(self.size):\n            index = (start_index + i) % self.size\n            \n            # Found the key\n            if self.keys[index] == key:\n                return index\n            \n            # Found an empty slot or tombstone\n            if self.keys[index] is None or self.keys[index] is self.tombstone:\n                return index\n        \n        # Hash table is full\n        return -1\n    \n    def put(self, key, value):\n        # Don't allow None as a key\n        if key is None:\n            raise ValueError(\"None is not allowed as a key\")\n        \n        # If load factor is too high, resize\n        if self.count >= self.size * 0.7:\n            self._resize(self.size * 2)\n        \n        # Find slot for insertion\n        index = self._find_slot(key)\n        \n        # If hash table is full\n        if index == -1:\n            self._resize(self.size * 2)\n            index = self._find_slot(key)\n        \n        # Check if this is a new entry\n        is_new = self.keys[index] is None or self.keys[index] is self.tombstone\n        \n        # Insert key-value pair\n        self.keys[index] = key\n        self.values[index] = value\n        \n        # Increment count for new entries\n        if is_new:\n            self.count += 1\n    \n    def get(self, key):\n        index = self._get_index(key)\n        \n        # Key not found\n        if index == -1:\n            return None\n        \n        # Return value\n        return self.values[index]\n    \n    def remove(self, key):\n        index = self._get_index(key)\n        \n        # Key not found\n        if index == -1:\n            return False\n        \n        # Mark as deleted with tombstone\n        self.keys[index] = self.tombstone\n        self.values[index] = None\n        self.count -= 1\n        return True\n    \n    def _resize(self, new_size):\n        old_keys = self.keys\n        old_values = self.values\n        \n        # Create new arrays\n        self.size = new_size\n        self.keys = [None] * new_size\n        self.values = [None] * new_size\n        self.count = 0\n        \n        # Rehash all entries\n        for i in range(len(old_keys)):\n            if old_keys[i] is not None and old_keys[i] is not self.tombstone:\n                self.put(old_keys[i], old_values[i])\n",
+      "id": "e7d4e816-ec36-45dc-bfe7-dbe4fba285da"
+    }
+  ],
+  "problems": [
+    {
+      "id": "1",
+      "title": "Sort an Array",
+      "difficulty": "Medium",
+      "content": "Given an array of integers nums, sort the array in ascending order.",
+      "tags": [
+        "Array",
+        "Sorting",
+        "Divide and Conquer"
+      ],
+      "url": "https://leetcode.com/problems/sort-an-array/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Quick Sort",
+        "Merge Sort",
+        "Heap Sort"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Merge Sorted Array",
+      "difficulty": "Easy",
+      "content": "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order.",
+      "tags": [
+        "Array",
+        "Two Pointers",
+        "Sorting"
+      ],
+      "url": "https://leetcode.com/problems/merge-sorted-array/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Quick Sort",
+        "Merge Sort",
+        "Heap Sort"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Search in Rotated Sorted Array",
+      "difficulty": "Medium",
+      "content": "There is an integer array nums sorted in ascending order (with distinct values). Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length). Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ],
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Binary Search",
+        "Depth-First Search (DFS)",
+        "Breadth-First Search (BFS)"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Find First and Last Position of Element in Sorted Array",
+      "difficulty": "Medium",
+      "content": "Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value. If target is not found in the array, return [-1, -1].",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ],
+      "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Binary Search",
+        "Depth-First Search (DFS)",
+        "Breadth-First Search (BFS)"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Course Schedule",
+      "difficulty": "Medium",
+      "content": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses. Otherwise, return false.",
+      "tags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph",
+        "Topological Sort"
+      ],
+      "url": "https://leetcode.com/problems/course-schedule/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": []
+    },
+    {
+      "id": "6",
+      "title": "Network Delay Time",
+      "difficulty": "Medium",
+      "content": "You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target. We will send a signal from a given node k. Return the time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.",
+      "tags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph",
+        "Heap (Priority Queue)",
+        "Shortest Path"
+      ],
+      "url": "https://leetcode.com/problems/network-delay-time/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": []
+    },
+    {
+      "id": "7",
+      "title": "Coin Change",
+      "difficulty": "Medium",
+      "content": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.",
+      "tags": [
+        "Array",
+        "Dynamic Programming",
+        "Breadth-First Search"
+      ],
+      "url": "https://leetcode.com/problems/coin-change/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "0/1 Knapsack",
+        "Longest Common Subsequence",
+        "Coin Change"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Longest Increasing Subsequence",
+      "difficulty": "Medium",
+      "content": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Dynamic Programming"
+      ],
+      "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "0/1 Knapsack",
+        "Longest Common Subsequence",
+        "Coin Change"
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Longest Palindromic Substring",
+      "difficulty": "Medium",
+      "content": "Given a string s, return the longest palindromic substring in s.",
+      "tags": [
+        "String",
+        "Dynamic Programming"
+      ],
+      "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Balanced Parentheses Check"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Implement strStr()",
+      "difficulty": "Easy",
+      "content": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.",
+      "tags": [
+        "Two Pointers",
+        "String",
+        "String Matching"
+      ],
+      "url": "https://leetcode.com/problems/implement-strstr()/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Balanced Parentheses Check"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Binary Tree Inorder Traversal",
+      "difficulty": "Easy",
+      "content": "Given the root of a binary tree, return the inorder traversal of its nodes' values.",
+      "tags": [
+        "Stack",
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ],
+      "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": []
+    },
+    {
+      "id": "12",
+      "title": "Lowest Common Ancestor of a Binary Tree",
+      "difficulty": "Medium",
+      "content": "Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree. According to the definition of LCA on Wikipedia: 'The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).'",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ],
+      "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": []
+    },
+    {
+      "id": "13",
+      "title": "Reverse Linked List",
+      "difficulty": "Easy",
+      "content": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+      "tags": [
+        "Linked List",
+        "Recursion"
+      ],
+      "url": "https://leetcode.com/problems/reverse-linked-list/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Linked List Reversal"
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Linked List Cycle",
+      "difficulty": "Easy",
+      "content": "Given head, the head of a linked list, determine if the linked list has a cycle in it.",
+      "tags": [
+        "Linked List",
+        "Two Pointers",
+        "Hash Table"
+      ],
+      "url": "https://leetcode.com/problems/linked-list-cycle/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Linked List Cycle Detection"
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Rotate List",
+      "difficulty": "Medium",
+      "content": "Given the head of a linked list, rotate the list to the right by k places.",
+      "tags": [
+        "Linked List",
+        "Two Pointers"
+      ],
+      "url": "https://leetcode.com/problems/rotate-list/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Linked List Rotation"
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Merge Two Sorted Lists",
+      "difficulty": "Easy",
+      "content": "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list.",
+      "tags": [
+        "Linked List",
+        "Recursion"
+      ],
+      "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Linked List Merge"
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Valid Parentheses",
+      "difficulty": "Easy",
+      "content": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+      "tags": [
+        "String",
+        "Stack"
+      ],
+      "url": "https://leetcode.com/problems/valid-parentheses/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Balanced Parentheses Check",
+        "Stack Implementation"
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Min Stack",
+      "difficulty": "Medium",
+      "content": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
+      "tags": [
+        "Stack",
+        "Design"
+      ],
+      "url": "https://leetcode.com/problems/min-stack/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Stack Implementation"
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Design Circular Queue",
+      "difficulty": "Medium",
+      "content": "Design your implementation of the circular queue. The circular queue is a linear data structure in which the operations are performed based on FIFO principle.",
+      "tags": [
+        "Array",
+        "Linked List",
+        "Design",
+        "Queue"
+      ],
+      "url": "https://leetcode.com/problems/design-circular-queue/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Circular Queue Implementation"
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Sliding Window Maximum",
+      "difficulty": "Hard",
+      "content": "You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the max sliding window.",
+      "tags": [
+        "Array",
+        "Queue",
+        "Sliding Window",
+        "Heap (Priority Queue)"
+      ],
+      "url": "https://leetcode.com/problems/sliding-window-maximum/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Queue Implementation",
+        "Priority Queue Implementation"
+      ]
+    },
+    {
+      "id": "21",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "content": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+      "tags": [
+        "Array",
+        "Hash Table"
+      ],
+      "url": "https://leetcode.com/problems/two-sum/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Hash Table Implementation"
+      ]
+    },
+    {
+      "id": "22",
+      "title": "Design HashMap",
+      "difficulty": "Easy",
+      "content": "Design a HashMap without using any built-in hash table libraries.",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "Linked List",
+        "Design"
+      ],
+      "url": "https://leetcode.com/problems/design-hashmap/",
+      "similar_questions": [],
+      "hints": [
+        "Try to think about the problem systematically.",
+        "Can you break it down into smaller steps?"
+      ],
+      "suitable_algorithms": [
+        "Hash Table Implementation",
+        "Collision Resolution with Chaining",
+        "Open Addressing (Linear Probing)"
+      ]
+    },
+    {
+      "id": "23",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "content": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice.",
+      "tags": [
+        "Array",
+        "Hash Table"
+      ],
+      "url": "https://leetcode.com/problems/two-sum/",
+      "similar_questions": [
+        "Three Sum",
+        "Four Sum",
+        "Two Sum II"
+      ],
+      "hints": [
+        "Think about using a hash table to store numbers you've seen."
+      ],
+      "suitable_algorithms": [
+        "Hash Table",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "24",
+      "title": "Add Two Numbers",
+      "difficulty": "Medium",
+      "content": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.",
+      "tags": [
+        "Linked List",
+        "Math",
+        "Recursion"
+      ],
+      "url": "https://leetcode.com/problems/add-two-numbers/",
+      "similar_questions": [
+        "Multiply Strings",
+        "Add Binary"
+      ],
+      "hints": [
+        "Keep track of the carry using a variable."
+      ],
+      "suitable_algorithms": [
+        "Linked List Traversal",
+        "Math"
+      ]
+    },
+    {
+      "id": "25",
+      "title": "Median of Two Sorted Arrays",
+      "difficulty": "Hard",
+      "content": "Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Divide and Conquer"
+      ],
+      "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+      "similar_questions": [
+        "Find K-th Smallest Pair Distance"
+      ],
+      "hints": [
+        "Think about a binary search approach."
+      ],
+      "suitable_algorithms": [
+        "Binary Search",
+        "Divide and Conquer"
+      ]
+    }
+  ],
+  "mappings": {
+    "algorithm_to_problems": {
+      "Quick Sort": [
+        {
+          "id": "1",
+          "title": "Sort an Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/sort-an-array/"
+        },
+        {
+          "id": "2",
+          "title": "Merge Sorted Array",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/merge-sorted-array/"
+        }
+      ],
+      "Merge Sort": [
+        {
+          "id": "1",
+          "title": "Sort an Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/sort-an-array/"
+        },
+        {
+          "id": "2",
+          "title": "Merge Sorted Array",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/merge-sorted-array/"
+        }
+      ],
+      "Heap Sort": [
+        {
+          "id": "1",
+          "title": "Sort an Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/sort-an-array/"
+        },
+        {
+          "id": "2",
+          "title": "Merge Sorted Array",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/merge-sorted-array/"
+        }
+      ],
+      "Binary Search": [
+        {
+          "id": "3",
+          "title": "Search in Rotated Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+        },
+        {
+          "id": "4",
+          "title": "Find First and Last Position of Element in Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+        },
+        {
+          "id": "25",
+          "title": "Median of Two Sorted Arrays",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+        }
+      ],
+      "Depth-First Search (DFS)": [
+        {
+          "id": "3",
+          "title": "Search in Rotated Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+        },
+        {
+          "id": "4",
+          "title": "Find First and Last Position of Element in Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+        }
+      ],
+      "Breadth-First Search (BFS)": [
+        {
+          "id": "3",
+          "title": "Search in Rotated Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+        },
+        {
+          "id": "4",
+          "title": "Find First and Last Position of Element in Sorted Array",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+        }
+      ],
+      "Dijkstra's Algorithm": [],
+      "Kruskal's Algorithm": [],
+      "Topological Sort": [],
+      "Linked List Reversal": [
+        {
+          "id": "13",
+          "title": "Reverse Linked List",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/reverse-linked-list/"
+        }
+      ],
+      "Linked List Cycle Detection": [
+        {
+          "id": "14",
+          "title": "Linked List Cycle",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/linked-list-cycle/"
+        }
+      ],
+      "Linked List Rotation": [
+        {
+          "id": "15",
+          "title": "Rotate List",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/rotate-list/"
+        }
+      ],
+      "Linked List Merge": [
+        {
+          "id": "16",
+          "title": "Merge Two Sorted Lists",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/merge-two-sorted-lists/"
+        }
+      ],
+      "Stack Implementation": [
+        {
+          "id": "17",
+          "title": "Valid Parentheses",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/valid-parentheses/"
+        },
+        {
+          "id": "18",
+          "title": "Min Stack",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/min-stack/"
+        }
+      ],
+      "Balanced Parentheses Check": [
+        {
+          "id": "9",
+          "title": "Longest Palindromic Substring",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-palindromic-substring/"
+        },
+        {
+          "id": "10",
+          "title": "Implement strStr()",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/implement-strstr()/"
+        },
+        {
+          "id": "17",
+          "title": "Valid Parentheses",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/valid-parentheses/"
+        }
+      ],
+      "Infix to Postfix Conversion": [],
+      "0/1 Knapsack": [
+        {
+          "id": "7",
+          "title": "Coin Change",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/coin-change/"
+        },
+        {
+          "id": "8",
+          "title": "Longest Increasing Subsequence",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-increasing-subsequence/"
+        }
+      ],
+      "Longest Common Subsequence": [
+        {
+          "id": "7",
+          "title": "Coin Change",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/coin-change/"
+        },
+        {
+          "id": "8",
+          "title": "Longest Increasing Subsequence",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-increasing-subsequence/"
+        }
+      ],
+      "Coin Change": [
+        {
+          "id": "7",
+          "title": "Coin Change",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/coin-change/"
+        },
+        {
+          "id": "8",
+          "title": "Longest Increasing Subsequence",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-increasing-subsequence/"
+        }
+      ],
+      "Knuth-Morris-Pratt (KMP)": [],
+      "Rabin-Karp": [],
+      "Longest Palindromic Substring": [],
+      "Binary Tree Traversal": [],
+      "Binary Search Tree Operations": [],
+      "Lowest Common Ancestor": [],
+      "Queue Implementation": [
+        {
+          "id": "20",
+          "title": "Sliding Window Maximum",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sliding-window-maximum/"
+        }
+      ],
+      "Circular Queue Implementation": [
+        {
+          "id": "19",
+          "title": "Design Circular Queue",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/design-circular-queue/"
+        }
+      ],
+      "Priority Queue Implementation": [
+        {
+          "id": "20",
+          "title": "Sliding Window Maximum",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sliding-window-maximum/"
+        }
+      ],
+      "Hash Table Implementation": [
+        {
+          "id": "21",
+          "title": "Two Sum",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/two-sum/"
+        },
+        {
+          "id": "22",
+          "title": "Design HashMap",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/design-hashmap/"
+        }
+      ],
+      "Collision Resolution with Chaining": [
+        {
+          "id": "22",
+          "title": "Design HashMap",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/design-hashmap/"
+        }
+      ],
+      "Open Addressing (Linear Probing)": [
+        {
+          "id": "22",
+          "title": "Design HashMap",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/design-hashmap/"
+        }
+      ]
+    },
+    "problem_to_algorithms": {
+      "1": [
+        "Quick Sort",
+        "Merge Sort",
+        "Heap Sort"
+      ],
+      "2": [
+        "Quick Sort",
+        "Merge Sort",
+        "Heap Sort"
+      ],
+      "3": [
+        "Binary Search",
+        "Depth-First Search (DFS)",
+        "Breadth-First Search (BFS)"
+      ],
+      "4": [
+        "Binary Search",
+        "Depth-First Search (DFS)",
+        "Breadth-First Search (BFS)"
+      ],
+      "5": [],
+      "6": [],
+      "7": [
+        "0/1 Knapsack",
+        "Longest Common Subsequence",
+        "Coin Change"
+      ],
+      "8": [
+        "0/1 Knapsack",
+        "Longest Common Subsequence",
+        "Coin Change"
+      ],
+      "9": [
+        "Balanced Parentheses Check"
+      ],
+      "10": [
+        "Balanced Parentheses Check"
+      ],
+      "11": [],
+      "12": [],
+      "13": [
+        "Linked List Reversal"
+      ],
+      "14": [
+        "Linked List Cycle Detection"
+      ],
+      "15": [
+        "Linked List Rotation"
+      ],
+      "16": [
+        "Linked List Merge"
+      ],
+      "17": [
+        "Balanced Parentheses Check",
+        "Stack Implementation"
+      ],
+      "18": [
+        "Stack Implementation"
+      ],
+      "19": [
+        "Circular Queue Implementation"
+      ],
+      "20": [
+        "Queue Implementation",
+        "Priority Queue Implementation"
+      ],
+      "21": [
+        "Hash Table Implementation"
+      ],
+      "22": [
+        "Hash Table Implementation",
+        "Collision Resolution with Chaining",
+        "Open Addressing (Linear Probing)"
+      ],
+      "23": [
+        "Hash Table",
+        "Two Pointers"
+      ],
+      "24": [
+        "Linked List Traversal",
+        "Math"
+      ],
+      "25": [
+        "Binary Search",
+        "Divide and Conquer"
+      ]
+    }
+  }
+}
